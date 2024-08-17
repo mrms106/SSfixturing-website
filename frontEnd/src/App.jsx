@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import Home from './components/home/home'
 import Hydra from './components/fixtures/welding'
+import Login from './components/user/login'
 
 function App() {
   
@@ -9,7 +10,7 @@ function App() {
     <>
       <div>
        {/* <Home /> */}
-       <Hydra />
+       <Login />
        </div>
     </>
   )
