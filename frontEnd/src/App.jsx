@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './components/home/home'
-import Hydra from './components/fixtures/welding'
 import Login from './components/user/login'
 import Assembly from './components/fixtures/assembly'
 import Hydraulic from './components/fixtures/hydraulic'
@@ -9,7 +8,7 @@ import HydraulicPowerPack from './components/fixtures/hydraulicpp'
 import Mechanical from './components/fixtures/mechanical'
 import Welding from './components/fixtures/welding';
 import SignUp from './components/user/signup';
-
+import ContactUs from './components/contactUs/contactus';
 function App() {
   
   const currUser = async () => {
@@ -43,6 +42,8 @@ function App() {
           <Route path="/" element={<Home currUser={currUser}/>} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
+          <Route path="/contactus" element={<ContactUs />} />
+
           <Route path="/assemblyFixture" element={<Assembly />} />
           <Route path="/HydraulicFixture" element={<Hydraulic />} />
           <Route path="/HydralicPowerPack" element={<HydraulicPowerPack />} />
