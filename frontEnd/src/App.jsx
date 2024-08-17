@@ -12,13 +12,35 @@ import SignUp from './components/user/signup';
 
 function App() {
   
+  const currUser = async () => {
+    try {
+      const response = await fetch("http://localhost:8080/curruser", {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        credentials: 'include', 
+      });
+  
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+  
+      const userData = await response.json();
+      console.log('Current User:', userData);
+      return userData; 
+    } catch (error) {
+      console.error('Error fetching current user:', error);
+      return null; 
+    }
+  };
 
   return (
     <>
     <Router>
       <div>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home currUser={currUser}/>} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/assemblyFixture" element={<Assembly />} />

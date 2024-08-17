@@ -8,7 +8,9 @@ import Footer from '../includes/footer';
 import '../css/home.css'
 import weblogo from '../images/logo.gif'
 import slogan from '../images/slogan.gif'
-export default function home(){
+
+
+export default function home({currUser}){
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -22,7 +24,7 @@ export default function home(){
 
     return(
         <div className='content'>
-          <Navbar/>
+          <Navbar currUser={currUser}/>
         <div id="splash-screen">
           <img src={weblogo} alt="Website logo" />
           <div>

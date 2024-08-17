@@ -2,7 +2,7 @@ import React, { useState,useEffect } from 'react';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import '../css/navbar.css';
 import logo from '../images/sslogo.png'
-const Navbar = () => {
+const Navbar = ({currUser}) => {
   const [isNavVisible, setIsNavVisible] = useState(false);
   const [isClicked, setIsClicked] = useState(false);
 
@@ -31,6 +31,34 @@ const Navbar = () => {
       window.removeEventListener('scroll', handleScroll); 
     };
   }, [isClicked]);
+
+  const logout = async () => {
+    try {
+      const response = await fetch("http://localhost:8080/logout", {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        credentials: 'include', 
+      });
+  
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+  
+      const data = await response.json();
+      console.log('Logout successful:', data.message || 'User has been logged out.');
+
+      window.location.href = '/login'; 
+
+      return data;
+    } catch (error) {
+      console.error('Error during logout:', error);
+      return null;
+    }
+  };
+  
+
   return (
     <div className="fix">
           <div className="social-icons">
@@ -72,10 +100,10 @@ const Navbar = () => {
             <li><a href="/capabilities">CAPABILITIES <br /> & SOLUTION</a></li>
             <li><a href="/pricing">PRICING &<br /> PACKAGES</a></li>
             <li><a href="/contactUs">CONTACT US</a></li>
-            <li><a href="/login">login</a></li>
+            {/* <li><a href="/login">login</a></li> */}
 
-            {/* {!currUser && <li><a href="/signup">Register</a></li>}
-            {currUser && <li><a href="/logout">Log-Out</a></li>} */}
+            {!currUser && <li><a href="/signup">Register</a></li>}
+            {currUser && <li onClick={logout}><a >Log-Out</a></li>}
           </ul>
         </nav>
       </header>
