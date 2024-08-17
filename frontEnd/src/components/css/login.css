@@ -73,7 +73,7 @@ input[type="submit"] {
     
   }
   
-  button {
+  form button {
     font-family: 'Rambla', sans-serif;
     background-color: #19171A;
     color: white;

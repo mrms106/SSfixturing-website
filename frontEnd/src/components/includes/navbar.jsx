@@ -72,6 +72,8 @@ const Navbar = () => {
             <li><a href="/capabilities">CAPABILITIES <br /> & SOLUTION</a></li>
             <li><a href="/pricing">PRICING &<br /> PACKAGES</a></li>
             <li><a href="/contactUs">CONTACT US</a></li>
+            <li><a href="/login">login</a></li>
+
             {/* {!currUser && <li><a href="/signup">Register</a></li>}
             {currUser && <li><a href="/logout">Log-Out</a></li>} */}
           </ul>
