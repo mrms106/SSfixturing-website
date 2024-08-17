@@ -28,7 +28,14 @@ export default function login(){
         }),
         credentials: 'include'
      })
-     if(responce.ok){
+     let data;
+     try {
+       const text = await response.text(); // Get raw response text
+       data = text ? JSON.parse(text) : {}; // Parse if non-empty, otherwise set to empty object
+     } catch (error) {
+       data = {}; // Default to an empty object if parsing fails
+     }
+      if(responce.ok){
         Swal.fire({
             title: 'Login Successful',
             text: data.message || 'You have successfully logged in!',
@@ -36,11 +43,10 @@ export default function login(){
             allowOutsideClick: false,
             allowEscapeKey: false,
             confirmButtonText: 'OK'
-        }).then(() => {
-          window.location.pathname="/upload"
-        });
+        })
+
      }else{
-        console.log(err)
+        // console.log(err)
         Swal.fire({
             title: 'Login Failed',
             text: data.message || 'Invalid username or password. Please try again.',
