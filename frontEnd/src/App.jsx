@@ -8,6 +8,7 @@ import Hydraulic from './components/fixtures/hydraulic'
 import HydraulicPowerPack from './components/fixtures/hydraulicpp'
 import Mechanical from './components/fixtures/mechanical'
 import Welding from './components/fixtures/welding';
+import SignUp from './components/user/signup';
 
 function App() {
   
@@ -19,6 +20,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<SignUp />} />
           <Route path="/assemblyFixture" element={<Assembly />} />
           <Route path="/HydraulicFixture" element={<Hydraulic />} />
           <Route path="/HydralicPowerPack" element={<HydraulicPowerPack />} />
