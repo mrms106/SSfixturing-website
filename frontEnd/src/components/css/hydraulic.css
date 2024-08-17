@@ -1,0 +1,66 @@
+
+.hydralicBody{
+    font-family: 'Rambla', sans-serif;
+    font-size: 20px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: justify;
+    opacity: 0;
+    animation: fadeIn 4s forwards;
+    margin-left: 25%;
+    margin-right: 25%;
+   /* max-width: 800px; */
+}
+.hydralicBody p{
+    color: white;
+    font-size: 20px;
+}
+.hydralicBody li{
+    font-size: 20px;
+    margin-top: 20px;
+}
+.h2{
+    margin-left: 350px;
+    color: white;
+    height: 5vh;
+    margin-top: 30px;
+
+}
+.fixtureimages{
+    display: flex;
+}
+@media(max-width:1200px){
+    .fixtureimages{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+}
+.fixtureimages img{
+    margin-left: 20px;
+    height: 310px;
+    width: 300px;
+    border: 2px solid white;
+}
+@keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+@media(max-width:800px){
+    .h2{
+        margin-left: 10px;
+    }
+  .hydralicBody{
+    margin-left: 10px;
+    margin-right: 2px;
+  }
+}
