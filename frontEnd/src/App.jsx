@@ -17,6 +17,7 @@ import Capabilities from './components/NavRedirects/capabilities';
 import Pricing from './components/NavRedirects/pricing';
 import ProtectedRoute from './components/protected';
 import { Navigate } from 'react-router-dom';
+import Error from './components/error';
 
 function App() {
 
@@ -84,7 +85,7 @@ function App() {
                 <BillMain currentUser={currentUser} />
               </ProtectedRoute>
             } />
-            {!isloggedIn && <Route path="*" element={<Navigate to="/login" />} />}
+            <Route path="*" element={<Error/>} />
         </Routes>
       </div>
     </Router>
