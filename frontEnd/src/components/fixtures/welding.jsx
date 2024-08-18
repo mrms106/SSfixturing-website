@@ -11,7 +11,7 @@ import assembly3 from '../images/fixturePages/assembly/welding3.jpg'
 export default function welding(){
   return(
     <div>
-        <Navbar/>
+        {/* <Navbar/> */}
       <h2 className="h2">Welding Fixture</h2>
       <hr style={{ border: '0.5px outset white', borderWidth: '10%', width: '100%', margin: '10px auto' }} />
 

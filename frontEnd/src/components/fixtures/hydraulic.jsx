@@ -12,7 +12,7 @@ import hydrolic3 from '../images/fixturePages/hydraulic/hydraulic2.jpg'
 function HydraulicFixture() {
   return (
     <div>
-      <Navbar />
+      {/* <Navbar /> */}
       <h2 className="h2">Hydraulic Fixture</h2>
       <hr
         style={{

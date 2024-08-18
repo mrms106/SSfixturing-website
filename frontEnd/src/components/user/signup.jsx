@@ -84,7 +84,7 @@ export default function signUp(){
      
       return (
         <div>
-            <Navbar/>
+            {/* <Navbar/> */}
           <h2 className="con1">Sign-UP:</h2>
           <div className="contactus">
             <form onSubmit={onFormSubmit} className="needs-validation">

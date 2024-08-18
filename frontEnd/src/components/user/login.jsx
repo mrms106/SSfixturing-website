@@ -84,7 +84,7 @@ export default function login(){
   };
     return(
         <>
-        <Navbar/>
+        {/* <Navbar/> */}
           <h2 className="con1">Login page</h2>
       <div className="contactus">
         <form onSubmit={handleLoginSubmit}>

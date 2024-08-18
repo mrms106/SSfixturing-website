@@ -11,7 +11,7 @@ import hydrolicpp3 from '../images/fixturePages/hydralicpp/hydraulicpp3.jpg'
 export default function hydralicPowerPack (){
     return(
         <div>
-            <Navbar/>
+            {/* <Navbar/> */}
       <h2 className='h2'>Hydraulic power pack</h2>
       <hr style={{ border: '0.5px outset white', borderWidth: '10%', width: '100%', margin: '10px auto' }} />
 
