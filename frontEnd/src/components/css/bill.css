@@ -1,0 +1,138 @@
+.pdfcards{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+@media(min-width:768px){
+.pdfcards{
+    margin-left: 10%;
+    margin-right: 10%;
+}
+}
+.maincard{
+    min-height: 8rem;
+    height: auto;
+    width: 15rem;
+    background-color: rgb(55, 55, 55);
+    border: none;
+    border-radius: 5px;
+    padding: 10px 10px 15px 10px;
+    margin-left: 10px;
+    margin-top: 20px;
+}
+.cardimage{
+margin-bottom: 10px;
+align-items: center;
+justify-content: center;
+}
+.maincard button{
+width: 100px;
+height: 40px;
+font-size: 16px;
+padding: 5px 5px 5px 0px;
+border: 1px solid white;
+border-radius: 10px;
+background-color: white;
+color: black;
+cursor: pointer;
+font-family: 'Rambla', sans-serif;
+margin-top: 5px;
+margin-bottom: 10px;
+margin-left: 4px;
+}
+
+.maincard button:hover{
+
+background-color: rgb(55, 55, 55);;
+color: white;
+}
+.buttons{
+margin-top: 10px;
+display: flex;
+}
+.maincard a{
+color: white;
+text-decoration: none;
+}
+.Qrhidden {
+    display: none;
+}
+.qr-container {
+        /* display: flex;  */
+        flex-direction: column;
+        margin-top: 10px;
+        text-align: center;
+    }
+    .qr-code {
+        margin-top: 10px;
+        margin-left: 10px;
+    }
+/* .download-btn {
+  display: none;
+    } */
+
+
+h1{
+color: white;
+font-family: 'Rambla', sans-serif;
+}
+.upload{
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+color: white;
+margin-top: 10rem;
+}
+.logout{
+background-color: #19171A;
+border: 2px solid white;
+color: white;
+border-radius: 10px;
+font-size: 16px;
+padding: 10px 15px 10px 15px;
+text-decoration: none;
+}
+.logout:hover{
+background-color:white;
+color: black;
+}
+.billForm label{
+font-size: 18px;
+}
+.billForm input {
+display: block;
+margin: 20px 0;
+padding: 10px;
+border: 2px solid #ccc;
+border-radius: 7px;
+font-size: 16px;
+cursor: pointer;
+font-family: 'Rambla', sans-serif;
+
+}
+.billForm button{
+width: 100px;
+height: 40px;
+font-size: 16px;
+padding: 5px 5px 5px 0px;
+border: 1px solid white;
+border-radius: 10px;
+background-color: #19171A;
+color: white;
+cursor: pointer;
+font-family: 'Rambla', sans-serif;
+}
+.billForm button:hover{
+background-color: white;
+color: black;
+
+}
+.bills{
+margin-top: 3rem;
+display: flex;
+justify-content: center;
+align-items: center;
+color: white;
+}

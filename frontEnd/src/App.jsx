@@ -10,6 +10,7 @@ import Welding from './components/fixtures/welding';
 import SignUp from './components/user/signup';
 import ContactUs from './components/contactUs/contactus';
 import Navbar from './components/includes/navbar';
+import BillMain from './components/bill/billMain';
 
 function App() {
 
@@ -57,6 +58,11 @@ function App() {
           <Route path="/HydralicPowerPack" element={<HydraulicPowerPack />} />
           <Route path="/MechanicalFixture" element={<Mechanical />} />
           <Route path="/WeldingFixture" element={<Welding />} />
+
+          {isloggedIn?
+          <Route path="/upload" element={<BillMain />} />:
+          <Route path="/login" element={<Login />} />
+            }
         </Routes>
       </div>
     </Router>
