@@ -6,7 +6,15 @@ import UploadBill from './uploadBill';
 import BillQr from './billQr';
 import BillButtons from './billButtons';
 
-export default function billMain(){
+export default  function billMain({currentUser}){
+
+    if(currentUser?.username!=="demo"){
+        return (
+            <div className="upload">
+                <p style={{color:"white"}}>page is not available</p>
+            </div>
+        )
+    }
 
     const [pdfs, setPdfs] = useState([]);
     const [fetchdata,setfetchdat]=useState(false)
@@ -43,8 +51,6 @@ export default function billMain(){
         qrContainer.classList.toggle('Qrhidden'); // Toggle QR code visibility
         setshowqr(!showqr)
     };
-
-    
     return(
         <>
            <div className="upload">

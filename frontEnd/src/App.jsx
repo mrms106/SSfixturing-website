@@ -15,10 +15,12 @@ import About from './components/NavRedirects/about';
 import Potential from './components/NavRedirects/potential';
 import Capabilities from './components/NavRedirects/capabilities';
 import Pricing from './components/NavRedirects/pricing';
+import ProtectedRoute from './components/protected';
+import { Navigate } from 'react-router-dom';
 
 function App() {
 
-  let[isloggedIn,setisloggedIn]=useState(false)
+  let[isloggedIn,setisloggedIn]=useState(null)
   let [currentUser, setCurrentUser] = useState(null);
   const currUser = async () => {
     try {
@@ -41,6 +43,7 @@ function App() {
       return userData; 
     } catch (error) {
       console.error('Error fetching current user:', error);
+      setisloggedIn(false);
       return null; 
     }
   };
@@ -48,6 +51,9 @@ function App() {
     currUser();
   }, []);
 
+  if (isloggedIn === null) {
+    return <div>Loading...</div>; 
+  }
   return (
     <>
     <Router>
@@ -56,7 +62,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login currUser={currUser} setisloggedIn={setisloggedIn}/>} />
-          <Route path="/signup" element={<SignUp currUser={currUser}/>} />
+          <Route path="/signup" element={<SignUp />} />
           <Route path="/contactus" element={<ContactUs />} />
           <Route path="/about" element={<About />} />
           <Route path="/potential" element={<Potential />} />
@@ -70,11 +76,15 @@ function App() {
           <Route path="/HydralicPowerPack" element={<HydraulicPowerPack />} />
           <Route path="/MechanicalFixture" element={<Mechanical />} />
           <Route path="/WeldingFixture" element={<Welding />} />
+          {/* <Route path="/upload" element={<BillMain  currentUser={currentUser}/>} /> */}
 
-          {isloggedIn?
-          <Route path="/upload" element={<BillMain />} />:
-          <Route path="/login" element={<Login />} />
-            }
+
+          <Route path="/upload" element={
+              <ProtectedRoute isloggedIn={isloggedIn}>
+                <BillMain currentUser={currentUser} />
+              </ProtectedRoute>
+            } />
+            {!isloggedIn && <Route path="*" element={<Navigate to="/login" />} />}
         </Routes>
       </div>
     </Router>
