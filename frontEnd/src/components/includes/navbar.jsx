@@ -3,6 +3,7 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 import '../css/navbar.css';
 import logo from '../images/sslogo.png'
 import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 const Navbar = ({isloggedIn,setisloggedIn}) => {
   const [isNavVisible, setIsNavVisible] = useState(false);
   const [isClicked, setIsClicked] = useState(false);
@@ -50,9 +51,17 @@ const Navbar = ({isloggedIn,setisloggedIn}) => {
   
       const data = await response.json();
       setisloggedIn(false)
+      Swal.fire({
+        title: 'Log-Out Successful',
+        text: data.message || 'You have successfully log-out!',
+        icon: 'success',  
+        allowOutsideClick: false,
+        allowEscapeKey: false,
+        confirmButtonText: 'OK'
+    })
       console.log('Logout successful:', data.message || 'User has been logged out.');
 
-      window.location.href = '/login'; 
+       navigate("/login")
 
       return data;
     } catch (error) {
