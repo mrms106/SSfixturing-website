@@ -70,7 +70,7 @@ export default function contactUs(){
   
     return (
       <div>
-        <Navbar/>
+        {/* <Navbar/> */}
         <h2 className="con1">Contact US:</h2>
         <div className="contactus">
           <form id="contact" onSubmit={handleSubmit}>

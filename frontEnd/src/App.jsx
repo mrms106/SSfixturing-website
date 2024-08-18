@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState,useEffect } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './components/home/home'
 import Login from './components/user/login'
@@ -9,8 +9,11 @@ import Mechanical from './components/fixtures/mechanical'
 import Welding from './components/fixtures/welding';
 import SignUp from './components/user/signup';
 import ContactUs from './components/contactUs/contactus';
+import Navbar from './components/includes/navbar';
+
 function App() {
-  
+
+  let[isloggedIn,setisloggedIn]=useState(false)
   const currUser = async () => {
     try {
       const response = await fetch("http://localhost:8080/curruser", {
@@ -26,6 +29,7 @@ function App() {
       }
   
       const userData = await response.json();
+      setisloggedIn(true)
       console.log('Current User:', userData);
       return userData; 
     } catch (error) {
@@ -33,13 +37,17 @@ function App() {
       return null; 
     }
   };
+  useEffect(() => {
+    currUser();
+  }, []);
 
   return (
     <>
+    <Navbar isloggedIn={isloggedIn} setisloggedIn={setisloggedIn}></Navbar>
     <Router>
       <div>
         <Routes>
-          <Route path="/" element={<Home currUser={currUser}/>} />
+          <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/contactus" element={<ContactUs />} />

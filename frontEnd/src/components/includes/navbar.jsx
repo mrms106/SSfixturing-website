@@ -2,7 +2,7 @@ import React, { useState,useEffect } from 'react';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import '../css/navbar.css';
 import logo from '../images/sslogo.png'
-const Navbar = ({currUser}) => {
+const Navbar = ({isloggedIn,setisloggedIn}) => {
   const [isNavVisible, setIsNavVisible] = useState(false);
   const [isClicked, setIsClicked] = useState(false);
 
@@ -47,6 +47,7 @@ const Navbar = ({currUser}) => {
       }
   
       const data = await response.json();
+      setisloggedIn(false)
       console.log('Logout successful:', data.message || 'User has been logged out.');
 
       window.location.href = '/login'; 
@@ -57,7 +58,7 @@ const Navbar = ({currUser}) => {
       return null;
     }
   };
-  
+ 
 
   return (
     <div className="fix">
@@ -102,8 +103,8 @@ const Navbar = ({currUser}) => {
             <li><a href="/contactUs">CONTACT US</a></li>
             {/* <li><a href="/login">login</a></li> */}
 
-            {!currUser && <li><a href="/signup">Register</a></li>}
-            {currUser && <li onClick={logout}><a >Log-Out</a></li>}
+            {isloggedIn ? <li onClick={logout}><a >Log-Out</a></li>:  <li><a href="/signup">Register</a></li>}
+
           </ul>
         </nav>
       </header>

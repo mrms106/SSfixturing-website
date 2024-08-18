@@ -10,7 +10,7 @@ import weblogo from '../images/logo.gif'
 import slogan from '../images/slogan.gif'
 
 
-export default function home({currUser}){
+export default function home({}){
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -24,7 +24,7 @@ export default function home({currUser}){
 
     return(
         <div className='content'>
-          <Navbar currUser={currUser}/>
+          {/* <Navbar/> */}
         <div id="splash-screen">
           <img src={weblogo} alt="Website logo" />
           <div>
