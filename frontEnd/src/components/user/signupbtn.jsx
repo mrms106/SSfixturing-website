@@ -1,8 +1,8 @@
 
 import Swal from 'sweetalert2';
-export default function signupBtn({loading,otpSent,otpLoading,setOtpLoading,setOtpSent,form}){
+export default function signupBtn({loading,otpSent,otpLoading,setOtpLoading,setOtpSent,form ,navigate}){
     const Loginredirect = () => {
-        window.location.pathname = '/login';
+        navigate("/login")
     }
 
         const verifyOtp = async (event) => {

@@ -251,6 +251,7 @@
         flex: 1;
         max-width: 100px;
         width: 100px;
+        cursor: pointer;
        
         height: 60px;
         background-color:#008080; /*#6B6B6B;*/

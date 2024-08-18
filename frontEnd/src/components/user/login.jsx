@@ -2,10 +2,12 @@ import { useState } from 'react';
 import '../css/login.css'
 import '../css/spinner.css'
 import Navbar from '../includes/navbar';
+import { useNavigate } from 'react-router-dom';
 
 import Swal from 'sweetalert2';
 
-export default function login(){
+export default function login({currUser,setisloggedIn}){
+  const navigate = useNavigate();
   const [loginForm,setloginForm]=useState({
     username:"",
     password:""
@@ -43,6 +45,13 @@ export default function login(){
             allowOutsideClick: false,
             allowEscapeKey: false,
             confirmButtonText: 'OK'
+        }).then(async()=>{
+          const userData = await currUser(); // Fetch current user after login
+          setisloggedIn(true);
+          if(userData?.username === "demo"){
+            return  navigate  ('/upload');
+          }
+          navigate("/")
         })
 
      }else{
@@ -80,7 +89,7 @@ export default function login(){
   };
 
   const handleSignupRedirect = () => {
-    // Implement the redirect to the signup page
+    navigate("/signup")
   };
     return(
         <>

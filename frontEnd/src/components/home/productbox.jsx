@@ -1,16 +1,29 @@
+import { useNavigate } from 'react-router-dom';
+
 import React from 'react';
 
 const ProductBoxes = () => {
+  const navigate = useNavigate();
   return (
     <div className="mclassb">
-      <div className="box-container">
-        <div className="box"><span className="texts"><a href="/HydraulicFixture" style={{ color: 'white' }}>HYDRAULIC FIXTURE</a></span></div>
-        <div className="box"><span className="texts"><a href="/MechanicalFixture" style={{ color: 'white' }}>MECHANICAL FIXTURE</a></span></div>
-        <div className="box"><span className="texts"><a href="/WeldingFixture" style={{ color: 'white' }}>WELDING FIXTURE</a></span></div>
-        <div className="box"><span className="texts"><a href="/assemblyFixture" style={{ color: 'white' }}>ASSEMBLY FIXTURE</a></span></div>
-        <div className="box"><span className="texts"><a href="/HydralicPowerPack" style={{ color: 'white' }}>HYDRAULIC POWER PACK</a></span></div>
+    <div className="box-container">
+      <div className="box" onClick={() => navigate('/HydraulicFixture')}>
+        <span className="texts">HYDRAULIC FIXTURE</span>
+      </div>
+      <div className="box" onClick={() => navigate('/MechanicalFixture')}>
+        <span className="texts">MECHANICAL FIXTURE</span>
+      </div>
+      <div className="box" onClick={() => navigate('/WeldingFixture')}>
+        <span className="texts">WELDING FIXTURE</span>
+      </div>
+      <div className="box" onClick={() => navigate('/assemblyFixture')}>
+        <span className="texts">ASSEMBLY FIXTURE</span>
+      </div>
+      <div className="box" onClick={() => navigate('/HydralicPowerPack')}>
+        <span className="texts">HYDRAULIC POWER PACK</span>
       </div>
     </div>
+  </div>
   );
 };
 

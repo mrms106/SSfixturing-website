@@ -2,9 +2,11 @@ import React, { useState,useEffect } from 'react';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import '../css/navbar.css';
 import logo from '../images/sslogo.png'
+import { useNavigate } from 'react-router-dom';
 const Navbar = ({isloggedIn,setisloggedIn}) => {
   const [isNavVisible, setIsNavVisible] = useState(false);
   const [isClicked, setIsClicked] = useState(false);
+  const navigate=useNavigate()
 
   const changeNav = () => {
     setIsNavVisible(!isNavVisible);
@@ -58,7 +60,13 @@ const Navbar = ({isloggedIn,setisloggedIn}) => {
       return null;
     }
   };
- 
+  const handleNavigation = (path) => {
+    const mobileMenuToggle = document.querySelector('.menu-toggle input');
+    mobileMenuToggle.click(); 
+    navigate(path);
+    setIsNavVisible(false); 
+    setIsClicked(true);
+  };
 
   return (
     <div className="fix">
@@ -94,18 +102,20 @@ const Navbar = ({isloggedIn,setisloggedIn}) => {
         </div>
       
         <nav className={`nav ${isNavVisible ? 'show' : ''}`}>
-          <ul>
-            <li><a href="/">HOME</a></li>
-            <li><a href="/about">ABOUT</a></li>
-            <li><a href="/potential">POTENTIAL</a></li>
-            <li><a href="/capabilities">CAPABILITIES <br /> & SOLUTION</a></li>
-            <li><a href="/pricing">PRICING &<br /> PACKAGES</a></li>
-            <li><a href="/contactUs">CONTACT US</a></li>
-            {/* <li><a href="/login">login</a></li> */}
+        <ul>
+            <li onClick={() => handleNavigation("/")} className='nava'>HOME</li>
+            <li onClick={() => handleNavigation("/about")} className='nava'>ABOUT</li>
+            <li onClick={() => handleNavigation("/potential")} className='nava'>POTENTIAL</li>
+            <li onClick={() => handleNavigation("/capabilities")} className='nava'>CAPABILITIES <br /> & SOLUTION</li>
+            <li onClick={() => handleNavigation("/pricing")} className='nava'>PRICING &<br /> PACKAGES</li>
+            <li onClick={() => handleNavigation("/contactUs")} className='nava'>CONTACT US</li>
 
-            {isloggedIn ? <li onClick={logout}><a >Log-Out</a></li>:  <li><a href="/signup">Register</a></li>}
-
-          </ul>
+            {isloggedIn ? (
+              <li onClick={logout} className='nava'><a>Log-Out</a></li>
+            ) : (
+              <li onClick={() => handleNavigation("/signup")} className='nava'>Register</li>
+            )}
+        </ul>
         </nav>
       </header>
     </div>

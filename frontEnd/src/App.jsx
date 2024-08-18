@@ -19,6 +19,7 @@ import Pricing from './components/NavRedirects/pricing';
 function App() {
 
   let[isloggedIn,setisloggedIn]=useState(false)
+  let [currentUser, setCurrentUser] = useState(null);
   const currUser = async () => {
     try {
       const response = await fetch("http://localhost:8080/curruser", {
@@ -35,6 +36,7 @@ function App() {
   
       const userData = await response.json();
       setisloggedIn(true)
+      setCurrentUser(userData);
       console.log('Current User:', userData);
       return userData; 
     } catch (error) {
@@ -48,13 +50,13 @@ function App() {
 
   return (
     <>
-    <Navbar isloggedIn={isloggedIn} setisloggedIn={setisloggedIn}></Navbar>
     <Router>
+    <Navbar isloggedIn={isloggedIn} setisloggedIn={setisloggedIn}></Navbar>
       <div>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<SignUp />} />
+          <Route path="/login" element={<Login currUser={currUser} setisloggedIn={setisloggedIn}/>} />
+          <Route path="/signup" element={<SignUp currUser={currUser}/>} />
           <Route path="/contactus" element={<ContactUs />} />
           <Route path="/about" element={<About />} />
           <Route path="/potential" element={<Potential />} />

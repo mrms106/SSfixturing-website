@@ -6,7 +6,9 @@ import { useState } from 'react';
 import SignupBtn from './signupbtn';
 import SignPassword from './signPassword';
 import SignInput from './signInput';
+import { useNavigate } from 'react-router-dom';
 export default function signUp(){
+    const navigate=useNavigate()
     const [form, setForm] = useState({
         username: '',
         email: '',
@@ -60,7 +62,7 @@ export default function signUp(){
               allowEscapeKey: false,
               confirmButtonText: 'OK',
             }).then(() => {
-              window.location.href = '/upload';
+              navigate("/")
             });
           } else {
             Swal.fire({
@@ -91,7 +93,7 @@ export default function signUp(){
 
               <SignInput form={form} handleInputChange={handleInputChange}/>
               <SignPassword form={form} handleInputChange={handleInputChange}/>
-              <SignupBtn loading={loading}
+              <SignupBtn loading={loading} navigate={navigate}
               otpLoading={otpLoading} otpSent={otpSent}
               setOtpLoading={setOtpLoading} form={form} 
               setOtpSent={setOtpSent}
