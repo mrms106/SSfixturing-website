@@ -11,6 +11,10 @@ import SignUp from './components/user/signup';
 import ContactUs from './components/contactUs/contactus';
 import Navbar from './components/includes/navbar';
 import BillMain from './components/bill/billMain';
+import About from './components/NavRedirects/about';
+import Potential from './components/NavRedirects/potential';
+import Capabilities from './components/NavRedirects/capabilities';
+import Pricing from './components/NavRedirects/pricing';
 
 function App() {
 
@@ -52,6 +56,12 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/contactus" element={<ContactUs />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/potential" element={<Potential />} />
+          <Route path="/capabilities" element={<Capabilities />} />
+          <Route path="/pricing" element={<Pricing />} />
+
+
 
           <Route path="/assemblyFixture" element={<Assembly />} />
           <Route path="/HydraulicFixture" element={<Hydraulic />} />
