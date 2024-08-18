@@ -44,9 +44,9 @@ export default function slideImage(){
     }, [images]);
     return(
         <div className='mainSlideimg'>
-            <button className='left-btn' onClick={handlePrev}>left</button>
+            <button className='left-btn' onClick={handlePrev}>❮</button>
             <img src={images[currentIndex]} alt={`Slide ${currentIndex + 1}`} />
-            <button className='right-btn' onClick={handleNext}>right</button>
+            <button className='right-btn' onClick={handleNext}>❯</button>
         </div>
     )
 }

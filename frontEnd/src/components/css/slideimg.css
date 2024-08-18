@@ -18,14 +18,23 @@
     padding: 10px;
     cursor: pointer;
     z-index: 1;
+    font-size: 20px;
+}
+.mainSlideimg  button:hover{
+    background-color: black;
+    color: white;
 }
 
 .left-btn {
     position: absolute;
     left: 10px;
+    width: 40px;
+    height: 50px;
 }
 
 .right-btn {
     position: absolute;
     right: 10px;
+    width: 40px;
+    height: 50px;
 } 
