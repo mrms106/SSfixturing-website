@@ -2,6 +2,7 @@ import { useState,useRef } from "react";
 import '../css/login.css'
 import Navbar from "../includes/navbar";
 import Swal from 'sweetalert2';
+import ReCAPTCHA from 'react-google-recaptcha';
 
 export default function contactUs(){
     const [form, setForm] = useState({ name: '', email: '', phone: '', message: '' });
@@ -14,16 +15,16 @@ export default function contactUs(){
   
     const handleSubmit = async (e) => {
       e.preventDefault();
-    //   const recaptchaResponse = recaptchaRef.current.getValue();
+      const recaptchaResponse = recaptchaRef.current.getValue();
   
-    //   if (!recaptchaResponse) {
-    //     Swal.fire({
-    //       icon: 'warning',
-    //       title: 'Complete recaptcha',
-    //       text: 'Please complete the recaptcha ...',
-    //     });
-    //     return;
-    //   }
+      if (!recaptchaResponse) {
+        Swal.fire({
+          icon: 'warning',
+          title: 'Complete recaptcha',
+          text: 'Please complete the recaptcha ...',
+        });
+        return;
+      }
   
       setLoading(true);
   
@@ -35,7 +36,7 @@ export default function contactUs(){
           },
           body: JSON.stringify({
             ...form,
-            // 'g-recaptcha-response': recaptchaResponse,
+            'g-recaptcha-response': recaptchaResponse,
           }),
         });
   
@@ -48,7 +49,7 @@ export default function contactUs(){
             text: result.message,
           });
           setForm({ name: '', email: '', phone: '', message: '' });
-        //   recaptchaRef.current.reset();
+          recaptchaRef.current.reset();
         } else {
           Swal.fire({
             icon: 'error',
@@ -133,7 +134,11 @@ export default function contactUs(){
               </span>
             </div>
   
-            <div className="g-recaptcha" ref={recaptchaRef} data-sitekey="6LcQMgQqAAAAAIo6tQKdSm7kHNNXjkfwbiYr6by5"></div>
+            <ReCAPTCHA
+            ref={recaptchaRef}
+            sitekey="6LcQMgQqAAAAAIo6tQKdSm7kHNNXjkfwbiYr6by5"  // Replace with your actual site key
+          />
+            
   
             <button className="submit" id="submit" type="submit" disabled={loading}>
               <span className="subspan2" id="subspan2" style={{ display: loading ? 'block' : 'none' }}>
