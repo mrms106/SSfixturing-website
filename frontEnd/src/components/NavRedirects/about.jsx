@@ -1,9 +1,14 @@
 import '../css/about.css'
 import Footer from '../includes/footer'
+import HomeHead from '../homehead'
 export default function(){
     return(
         <> 
         <div className="navItem-Body">
+        <HomeHead
+          title="About Us - SS Fixturing"
+          description="Learn more about SS Fixturing, Pune's top provider of precision fixtures for VMC and HMC machining centers."
+        />
             <div className="text-container">
                 <h2 className="hp" style={{ marginTop: '50px' }}>SS Fixturing</h2>
                 <p className="p">Your Precision Partner in Hydraulic Fixtures</p>

@@ -8,6 +8,7 @@ import Footer from '../includes/footer';
 import '../css/home.css'
 import weblogo from '../images/logo.gif'
 import slogan from '../images/slogan.gif'
+import HomeHead from '../homehead';
 
 
 export default function home({}){
@@ -24,7 +25,13 @@ export default function home({}){
 
     return(
         <div className='content'>
-          {/* <Navbar/> */}
+
+        <HomeHead
+        title="Hydraulic VMC&HMC Fixture  Manufacturer-SS Fixturing"
+        descriptions="Explore SS Fixturing, Pune's top provider of precision fixtures for VMC and HMC. 
+        Enhance machining centers with efficient clamping solutions and superior quality." 
+        />
+
         <div id="splash-screen">
           <img src={weblogo} alt="Website logo" />
           <div>

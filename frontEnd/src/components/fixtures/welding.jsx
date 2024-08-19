@@ -2,6 +2,7 @@ import '../css/hydraulic.css'
 import Navbar from '../includes/navbar';
 import Footer from '../includes/footer';
 import ProductBoxes from '../home/productbox';
+import HomeHead from '../homehead';
 
 import assembly1 from '../images/fixturePages/assembly/welding1.jpg'
 import assembly2 from '../images/fixturePages/assembly/welding2.jpg'
@@ -11,7 +12,10 @@ import assembly3 from '../images/fixturePages/assembly/welding3.jpg'
 export default function welding(){
   return(
     <div>
-        {/* <Navbar/> */}
+         <HomeHead
+          title="Welding Fixtures - SS Fixturing"
+          description="Explore SS Fixturing's welding fixtures designed for precision and efficiency in welding processes."
+        />
       <h2 className="h2">Welding Fixture</h2>
       <hr style={{ border: '0.5px outset white', borderWidth: '10%', width: '100%', margin: '10px auto' }} />
 

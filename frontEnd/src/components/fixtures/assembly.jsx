@@ -2,6 +2,7 @@ import '../css/hydraulic.css'
 import Navbar from '../includes/navbar';
 import Footer from '../includes/footer';
 import ProductBoxes from '../home/productbox';
+import HomeHead from '../homehead';
 
 import assembly1 from '../images/fixturePages/assembly/welding1.jpg'
 import assembly2 from '../images/fixturePages/assembly/welding2.jpg'
@@ -10,7 +11,10 @@ import assembly3 from '../images/fixturePages/assembly/welding3.jpg'
 export default function assembly(){
     return(
         <div>
-            {/* <Navbar/> */}
+            <HomeHead
+          title="Assembly Fixtures - SS Fixturing"
+          description="SS Fixturing offers high-quality assembly fixtures for VMC and HMC machines. Enhance your assembly processes with our solutions."
+        />
         <h2 className="h2">Assembly Fixture</h2>
   
         <hr style={{ border: '0.5px outset white', borderWidth: '10%', width: '100%', margin: '10px auto' }} />

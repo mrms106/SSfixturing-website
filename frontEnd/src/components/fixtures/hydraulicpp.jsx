@@ -3,6 +3,7 @@ import '../css/hydraulic.css'
 import Navbar from '../includes/navbar';
 import Footer from '../includes/footer';
 import ProductBoxes from '../home/productbox';
+import HomeHead from '../homehead';
 
 import hydrolicpp1 from '../images/fixturePages/hydralicpp/hydraulicpp1.jpg'
 import hydrolicpp2 from '../images/fixturePages/hydralicpp/hydraulicpp2.jpg'
@@ -11,7 +12,10 @@ import hydrolicpp3 from '../images/fixturePages/hydralicpp/hydraulicpp3.jpg'
 export default function hydralicPowerPack (){
     return(
         <div>
-            {/* <Navbar/> */}
+            <HomeHead
+          title="Hydraulic Power Packs - SS Fixturing"
+          description="Explore the range of hydraulic power packs provided by SS Fixturing to complement our precision fixtures."
+        />
       <h2 className='h2'>Hydraulic power pack</h2>
       <hr style={{ border: '0.5px outset white', borderWidth: '10%', width: '100%', margin: '10px auto' }} />
 

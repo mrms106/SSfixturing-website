@@ -1,9 +1,14 @@
 import '../css/about.css'
 import Footer from '../includes/footer'
+import HomeHead from '../homehead'
 
 export default function potential(){
     return(
         <>
+         <HomeHead
+          title="Potential - SS Fixturing"
+          description="Explore the potential of SS Fixturing's precision VMC and HMC fixtures for your machining needs."
+        />
           <div className="navItem-Body">
             <div className="text-container">
                 <h2 className="hp" style={{ marginTop: '50px' }}>Potential</h2><br />

@@ -3,6 +3,7 @@ import '../css/hydraulic.css'
 import Navbar from '../includes/navbar';
 import Footer from '../includes/footer';
 import ProductBoxes from '../home/productbox';
+import HomeHead from '../homehead';
 
 import hydrolic1 from '../images/fixturePages/hydraulic/hydraulic.jpg'
 import hydrolic2 from '../images/fixturePages/hydraulic/hydraulic1.jpg'
@@ -12,7 +13,10 @@ import hydrolic3 from '../images/fixturePages/hydraulic/hydraulic2.jpg'
 function HydraulicFixture() {
   return (
     <div>
-      {/* <Navbar /> */}
+       <HomeHead
+          title="Hydraulic Fixtures - SS Fixturing"
+          description="Discover SS Fixturing's range of hydraulic fixtures for VMC and HMC machining centers, designed for precision and durability."
+        />
       <h2 className="h2">Hydraulic Fixture</h2>
       <hr
         style={{

@@ -1,5 +1,6 @@
 import { useState,useEffect } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { HelmetProvider } from 'react-helmet-async';
 import Home from './components/home/home'
 import Login from './components/user/login'
 import Assembly from './components/fixtures/assembly'
@@ -57,40 +58,42 @@ function App() {
     return <div><Loader/></div>; 
   }
   return (
-    <>
-    <Router>
-    <Navbar isloggedIn={isloggedIn} setisloggedIn={setisloggedIn}></Navbar>
-      <div>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/home" element={<Home />} />
-          <Route path="/login" element={<Login currUser={currUser} setisloggedIn={setisloggedIn}/>} />
-          <Route path="/signup" element={<SignUp setisloggedIn={setisloggedIn}/>} />
-          <Route path="/contactus" element={<ContactUs />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/potential" element={<Potential />} />
-          <Route path="/capabilities" element={<Capabilities />} />
-          <Route path="/pricing" element={<Pricing />} />
+      <>
+      <HelmetProvider>
+      <Router>
+      <Navbar isloggedIn={isloggedIn} setisloggedIn={setisloggedIn}></Navbar>
+        <div>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/home" element={<Home />} />
+            <Route path="/login" element={<Login currUser={currUser} setisloggedIn={setisloggedIn}/>} />
+            <Route path="/signup" element={<SignUp setisloggedIn={setisloggedIn}/>} />
+            <Route path="/contactus" element={<ContactUs />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/potential" element={<Potential />} />
+            <Route path="/capabilities" element={<Capabilities />} />
+            <Route path="/pricing" element={<Pricing />} />
 
 
 
-          <Route path="/assemblyFixture" element={<Assembly />} />
-          <Route path="/HydraulicFixture" element={<Hydraulic />} />
-          <Route path="/HydralicPowerPack" element={<HydraulicPowerPack />} />
-          <Route path="/MechanicalFixture" element={<Mechanical />} />
-          <Route path="/WeldingFixture" element={<Welding />} />
-          {/* <Route path="/upload" element={<BillMain  currentUser={currentUser}/>} /> */}
+            <Route path="/assemblyFixture" element={<Assembly />} />
+            <Route path="/HydraulicFixture" element={<Hydraulic />} />
+            <Route path="/HydralicPowerPack" element={<HydraulicPowerPack />} />
+            <Route path="/MechanicalFixture" element={<Mechanical />} />
+            <Route path="/WeldingFixture" element={<Welding />} />
+            {/* <Route path="/upload" element={<BillMain  currentUser={currentUser}/>} /> */}
 
 
-          <Route path="/upload" element={
-              <ProtectedRoute isloggedIn={isloggedIn}>
-                <BillMain currentUser={currentUser} />
-              </ProtectedRoute>
-            } />
-            <Route path="*" element={<Error/>} />
-        </Routes>
-      </div>
-    </Router>
+            <Route path="/upload" element={
+                <ProtectedRoute isloggedIn={isloggedIn}>
+                  <BillMain currentUser={currentUser} />
+                </ProtectedRoute>
+              } />
+              <Route path="*" element={<Error/>} />
+          </Routes>
+        </div>
+      </Router>
+      </HelmetProvider>
     </>
   )
 }

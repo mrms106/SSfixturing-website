@@ -7,6 +7,7 @@ import SignupBtn from './signupbtn';
 import SignPassword from './signPassword';
 import SignInput from './signInput';
 import { useNavigate } from 'react-router-dom';
+import HomeHead from '../homehead';
 export default function signUp({setisloggedIn}){
     const navigate=useNavigate()
     const [form, setForm] = useState({
@@ -87,7 +88,10 @@ export default function signUp({setisloggedIn}){
      
       return (
         <div>
-            {/* <Navbar/> */}
+           <HomeHead
+          title="Sign Up - SS Fixturing"
+          description="Sign up for SS Fixturing to create your account and start managing your precision fixture requirements."
+        />
           <h2 className="con1">Sign-UP:</h2>
           <div className="contactus">
             <form onSubmit={onFormSubmit} className="needs-validation">

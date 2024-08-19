@@ -1,9 +1,14 @@
 import '../css/about.css'
 import Footer from '../includes/footer'
+import HomeHead from '../homehead'
 
 export default function capabilities(){
     return(
         <>
+        <HomeHead
+          title="Capabilities - SS Fixturing"
+          description="Discover SS Fixturing's capabilities in providing precision VMC and HMC fixtures to enhance your machining processes."
+        />
            <div className="navItem-Body">
             <div className="text-container">
                 <h2 className="hp" style={{ marginTop: '50px' }}>Capability & Solution</h2>

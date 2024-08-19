@@ -3,6 +3,7 @@ import '../css/login.css'
 import Navbar from "../includes/navbar";
 import Swal from 'sweetalert2';
 import ReCAPTCHA from 'react-google-recaptcha';
+import HomeHead from "../homehead";
 
 export default function contactUs(){
     const [form, setForm] = useState({ name: '', email: '', phone: '', message: '' });
@@ -71,7 +72,10 @@ export default function contactUs(){
   
     return (
       <div>
-        {/* <Navbar/> */}
+         <HomeHead
+          title="Contact Us - SS Fixturing"
+          description="Get in touch with SS Fixturing for inquiries about our precision VMC and HMC fixtures. We are here to help!"
+        />
         <h2 className="con1">Contact US:</h2>
         <div className="contactus">
           <form id="contact" onSubmit={handleSubmit}>

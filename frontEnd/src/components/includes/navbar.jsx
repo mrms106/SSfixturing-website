@@ -72,7 +72,6 @@ const Navbar = ({isloggedIn,setisloggedIn}) => {
   const handleNavigation = (path) => {
     const mobileMenuToggle = document.querySelector('.menu-toggle input');
     const nav = document.querySelector('.nav');
-
     if (nav && nav.classList.contains('show') ) {
     mobileMenuToggle.click(); 
     }

@@ -2,6 +2,7 @@ import '../css/hydraulic.css'
 import Navbar from '../includes/navbar';
 import Footer from '../includes/footer';
 import ProductBoxes from '../home/productbox';
+import HomeHead from '../homehead';
 
 import mechanical1 from '../images/fixturePages/mechanical/mechanical1 .png'
 import mechanical2 from '../images/fixturePages/mechanical/mechanical2.png'
@@ -12,7 +13,10 @@ import mechanical3 from '../images/fixturePages/mechanical/mechanical3.png'
 export default function mechanical(){
     return(
         <div>
-            {/* <Navbar/> */}
+             <HomeHead
+          title="Mechanical Fixtures - SS Fixturing"
+          description="SS Fixturing offers robust mechanical fixtures for VMC and HMC machines, ensuring accurate and reliable clamping solutions."
+        />
       <h2 className="h2">Mechanical Fixture</h2>
 
       <hr style={{ border: '0.5px outset white', borderWidth: '10%', width: '100%', margin: '10px auto' }} />

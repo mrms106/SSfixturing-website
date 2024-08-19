@@ -2,6 +2,7 @@
 import { useNavigate } from 'react-router-dom';
 import './css/about.css'
 import { useState } from 'react';
+import HomeHead from './homehead';
 
 export default function error(){
     const navigate=useNavigate()
@@ -24,6 +25,10 @@ export default function error(){
     };
     return(
         <>
+        <HomeHead
+          title="404 - Page Not Found"
+          description="The page you are looking for does not exist. Please check the URL or return to the homepage."
+        />
            <div className="navItem-Body" style={{marginTop:"200px"}}>
               <div>
                <h1>Something Went Wrong...</h1> 

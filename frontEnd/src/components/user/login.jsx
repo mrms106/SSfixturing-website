@@ -3,6 +3,7 @@ import '../css/login.css'
 import '../css/spinner.css'
 import Navbar from '../includes/navbar';
 import { useNavigate } from 'react-router-dom';
+import HomeHead from '../homehead';
 
 import Swal from 'sweetalert2';
 
@@ -93,7 +94,10 @@ export default function login({currUser,setisloggedIn}){
   };
     return(
         <>
-        {/* <Navbar/> */}
+         <HomeHead
+          title="Login - SS Fixturing"
+          description="Login to SS Fixturing to access your account and manage your precision fixture needs."
+        />
           <h2 className="con1">Login page</h2>
       <div className="contactus">
         <form onSubmit={handleLoginSubmit}>

@@ -1,9 +1,14 @@
 import '../css/about.css'
 import Footer from '../includes/footer'
+import HomeHead from '../homehead'
 
 export default function pricing(){
     return(
         <>
+        <HomeHead
+          title="Pricing - SS Fixturing"
+          description="Check out the competitive pricing for SS Fixturing's precision VMC and HMC fixtures. Quality and affordability combined."
+        />
            <div className=" pricing-body">
             <div className="text-container">
                 <h2 className="hp" style={{ marginTop: '50px' }}>Pricing and Packages</h2>
