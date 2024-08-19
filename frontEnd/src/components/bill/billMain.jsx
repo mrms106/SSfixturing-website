@@ -8,7 +8,7 @@ import BillButtons from './billButtons';
 
 export default  function billMain({currentUser}){
 
-    if(currentUser?.username!=="demo"){
+    if(currentUser?.username!=="ShubhamShinde"){
         return (
             <div className="upload">
                 <p style={{color:"white"}}>page is not available</p>

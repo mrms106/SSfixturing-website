@@ -48,7 +48,7 @@ export default function login({currUser,setisloggedIn}){
         }).then(async()=>{
           const userData = await currUser(); // Fetch current user after login
           setisloggedIn(true);
-          if(userData?.username === "demo"){
+          if(userData?.username === "ShubhamShinde"){
             return  navigate  ('/upload');
           }
           navigate("/")
