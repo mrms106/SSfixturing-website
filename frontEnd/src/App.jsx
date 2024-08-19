@@ -62,6 +62,7 @@ function App() {
       <div>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/home" element={<Home />} />
           <Route path="/login" element={<Login currUser={currUser} setisloggedIn={setisloggedIn}/>} />
           <Route path="/signup" element={<SignUp setisloggedIn={setisloggedIn}/>} />
           <Route path="/contactus" element={<ContactUs />} />

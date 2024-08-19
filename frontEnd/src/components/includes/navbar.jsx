@@ -97,8 +97,8 @@ const Navbar = ({isloggedIn,setisloggedIn}) => {
       </div>
 
       <header>
-        <div className="logo">
-          <a href="/"><img src={logo} alt="Your Logo" /></a>
+        <div className="logo" onClick={()=>handleNavigation("/home")}>
+          <img src={logo} alt="Your Logo" />
         </div>
 
         <div className="menu-toggle" id="mobile-menu">
@@ -112,7 +112,7 @@ const Navbar = ({isloggedIn,setisloggedIn}) => {
       
         <nav className={`nav ${isNavVisible ? 'show' : ''}`}>
         <ul>
-            <li onClick={() => handleNavigation("/")} className='nava'>HOME</li>
+            <li onClick={() => handleNavigation("/home")} className='nava'>HOME</li>
             <li onClick={() => handleNavigation("/about")} className='nava'>ABOUT</li>
             <li onClick={() => handleNavigation("/potential")} className='nava'>POTENTIAL</li>
             <li onClick={() => handleNavigation("/capabilities")} className='nava'>CAPABILITIES <br /> & SOLUTION</li>
