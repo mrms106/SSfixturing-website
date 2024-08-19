@@ -6,7 +6,7 @@ export default function homeHead({title,description}){
         "@type": "Organization",
         "name": "SS Fixturing",
         "url": "https://www.ssfixturing.com",
-        "logo": "https://www.ssfixturing.com/sslogo.png",
+        "logo": "https://ssfixturing.com/assets/sslogo-DJIuhvMn.png",
         "contactPoint": {
           "@type": "ContactPoint",
           "telephone": "+919284550570",
@@ -24,7 +24,7 @@ export default function homeHead({title,description}){
         "@context": "https://schema.org",
         "@type": "LocalBusiness",
         "name": "SS Fixturing",
-        "image": "https://www.ssfixturing.com/sslogo.png",
+        "image": "https://ssfixturing.com/assets/sslogo-DJIuhvMn.png",
         "@id": "",
         "url": "https://www.ssfixturing.com",
         "telephone": "+919284550570",

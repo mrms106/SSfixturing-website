@@ -3,7 +3,7 @@ const {transporter}=require("./transporter")
 
 
 function sendOtp(email,otp){
-    const logoUrl = 'https://ssfixturing.com/sslogo.png';
+    const logoUrl = 'https://ssfixturing.com/assets/sslogo-DJIuhvMn.png';
    const sendOtpMail=({
     from:process.env.mail,
     to:email,
