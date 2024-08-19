@@ -84,24 +84,21 @@ app.use((req, res, next) => {
 });
 
 // Set up your routes as API endpoints
-app.use( contactus);
-app.use( pdfrouter);
-app.use( userrouter);
-app.use(otprouter);
+app.use("/api", contactus);
+app.use("/api", pdfrouter);
+app.use("/api", userrouter);
+app.use( "/api",otprouter);
 
-// Handle 404 errors for undefined routes
-app.use("*", (req, res, next) => {
-  res.status(404).json({ error: "Page not found" });
-});
 
-// Error handling middleware
-app.use((err, req, res, next) => {
-  let { statuscode = 500, message = "Something went wrong" } = err;
-  res.status(statuscode).json({ error: message });
-});
+
 
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
+
+app.use((err, req, res, next) => {
+  let { statuscode = 500, message = "Something went wrong" } = err;
+  res.status(statuscode).json({ error: message });
 });
 
 app.listen(port, () => {
