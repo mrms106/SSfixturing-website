@@ -18,6 +18,7 @@ import Pricing from './components/NavRedirects/pricing';
 import ProtectedRoute from './components/protected';
 import { Navigate } from 'react-router-dom';
 import Error from './components/error';
+import Loader from './components/loader';
 
 function App() {
 
@@ -53,7 +54,7 @@ function App() {
   }, []);
 
   if (isloggedIn === null) {
-    return <div>Loading...</div>; 
+    return <div><Loader/></div>; 
   }
   return (
     <>
