@@ -20,6 +20,7 @@ import ProtectedRoute from './components/protected';
 import { Navigate } from 'react-router-dom';
 import Error from './components/error';
 import Loader from './components/loader';
+import ScrollToTop from './components/ScrollTop';
 
 function App() {
 
@@ -61,6 +62,7 @@ function App() {
       <>
       <HelmetProvider>
       <Router>
+        <ScrollToTop/>
       <Navbar isloggedIn={isloggedIn} setisloggedIn={setisloggedIn}></Navbar>
         <div>
           <Routes>
