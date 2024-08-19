@@ -5,6 +5,7 @@ import Swal from 'sweetalert2';
 import UploadBill from './uploadBill';
 import BillQr from './billQr';
 import BillButtons from './billButtons';
+import HomeHead from '../homehead';
 
 export default  function billMain({currentUser}){
 
@@ -53,6 +54,10 @@ export default  function billMain({currentUser}){
     };
     return(
         <>
+         <HomeHead
+          title=" SS Fixturing"
+          description="This page is Not available"
+        />
            <div className="upload">
               <UploadBill fetchdata={fetchdata} setfetchdata={setfetchdat}/>
                 <div className="pdfcards">
