@@ -26,7 +26,7 @@ function App() {
   let [currentUser, setCurrentUser] = useState(null);
   const currUser = async () => {
     try {
-      const response = await fetch("http://localhost:8080/curruser", {
+      const response = await fetch("https://ssfixturing.com/api/curruser", {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',

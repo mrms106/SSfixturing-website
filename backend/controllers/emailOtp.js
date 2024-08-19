@@ -22,7 +22,7 @@ module.exports.sendOtp=async(req,res)=>{
         email:email,
         expiresat:expiresAt
      })
-    //   await  sendOtp(email,otp);
+      await  sendOtp(email,otp);
         res.status(200).json({ message: 'OTP sent successfully' });
     }catch(err){
         console.log(err)

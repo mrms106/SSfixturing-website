@@ -22,7 +22,7 @@ export default  function billMain({currentUser}){
 
     const fetchPdfs = async () => {
         try {
-            const response = await fetch('http://localhost:8080/upload',{
+            const response = await fetch('https://ssfixturing.com/api/upload',{
                 credentials:'include',
                 method:'GET'
             }); 
@@ -60,7 +60,7 @@ export default  function billMain({currentUser}){
                         <div className="maincard" key={pdf.serialNO}>
                             <BillQr showqr={showqr} setshowqr={setshowqr} pdf={pdf} />
                             <div className="cardcontent">
-                                <a href={`http://localhost:8080/pdf/${pdf.serialNO}`}>{pdf.name}</a>
+                                <a href={`https://ssfixturing.com/api/pdf/${pdf.serialNO}`}>{pdf.name}</a>
                                 <hr />
                                 <BillButtons showqr={showqr} setshowqr={setshowqr} toggleQRCode={toggleQRCode} pdf={pdf} setPdfs={setPdfs} pdfs={pdfs}/>
                             </div>

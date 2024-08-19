@@ -20,7 +20,7 @@ export default function signupBtn({loading,otpSent,otpLoading,setOtpLoading,setO
             setOtpLoading(true);
         
             try {
-              const response = await fetch('http://localhost:8080/generateOtp', {
+              const response = await fetch('https://ssfixturing.com/api/generateOtp', {
                 method: 'POST',
                 headers: {
                   'Content-Type': 'application/json',

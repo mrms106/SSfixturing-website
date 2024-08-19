@@ -19,7 +19,7 @@ export default function login({currUser,setisloggedIn}){
     event.preventDefault();
     try{
         setLoading(true);
-     const responce= await fetch("http://localhost:8080/login",{
+     const responce= await fetch("https://ssfixturing.com/api/login",{
         method:"POST",
         headers:{
             'Content-Type':'application/json'

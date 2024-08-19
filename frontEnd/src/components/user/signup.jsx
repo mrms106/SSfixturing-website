@@ -43,7 +43,7 @@ export default function signUp({setisloggedIn}){
         setLoading(true);
     
         try {
-          const response = await fetch('http://localhost:8080/signup', {
+          const response = await fetch('https://ssfixturing.com/api/signup', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',

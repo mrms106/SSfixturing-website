@@ -22,7 +22,7 @@ export default function billQr({pdf,showqr,setshowqr}){
                             <QRCode
                             
                                 id={`qr-code-${pdf.serialNO}`}
-                                value={`http://localhost:8080/pdf/${pdf.serialNO}`}
+                                value={`https://ssfixturing.com/api/pdf/${pdf.serialNO}`}
                                 className="qr-code"
                                 size={220} // Adjust size as needed
                                 level="H"  // Error correction level (L, M, Q, H)

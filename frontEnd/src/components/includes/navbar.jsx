@@ -37,7 +37,7 @@ const Navbar = ({isloggedIn,setisloggedIn}) => {
 
   const logout = async () => {
     try {
-      const response = await fetch("http://localhost:8080/logout", {
+      const response = await fetch("https://ssfixturing.com/api/logout", {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
