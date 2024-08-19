@@ -3,9 +3,10 @@ import Navbar from '../includes/navbar';
 import Footer from '../includes/footer';
 import ProductBoxes from '../home/productbox';
 
-// import hydrolicpp1 from '../images/fixturePages/mechanical/mechanical1.jpg'
-// import hydrolicpp2 from '../images/fixturePages/hydralicpp/mechanical1. jpg'
-import hydrolicpp3 from '../images/fixturePages/hydralicpp/hydraulicpp3.jpg'
+import mechanical1 from '../images/fixturePages/mechanical/mechanical1 .png'
+import mechanical2 from '../images/fixturePages/mechanical/mechanical2.png'
+import mechanical3 from '../images/fixturePages/mechanical/mechanical3.png'
+
 
 
 export default function mechanical(){
@@ -31,13 +32,13 @@ export default function mechanical(){
 
         <div className='fixtureimages'>
             <span className="i1">
-            <img src={hydrolicpp3} alt="img" loading="lazy" />
+            <img src={mechanical1} alt="img" loading="lazy" />
             </span>
             <span className="i2">
-            <img src={hydrolicpp3} alt="img" loading="lazy" />
+            <img src={mechanical2} alt="img" loading="lazy" />
             </span>
             <span className="i3">
-            <img src={hydrolicpp3} alt="img" loading="lazy" />
+            <img src={mechanical3} alt="img" loading="lazy" />
             </span>
         </div>
       </div>
