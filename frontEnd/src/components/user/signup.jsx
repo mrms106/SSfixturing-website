@@ -7,7 +7,7 @@ import SignupBtn from './signupbtn';
 import SignPassword from './signPassword';
 import SignInput from './signInput';
 import { useNavigate } from 'react-router-dom';
-export default function signUp(){
+export default function signUp({setisloggedIn}){
     const navigate=useNavigate()
     const [form, setForm] = useState({
         username: '',
@@ -62,6 +62,7 @@ export default function signUp(){
               allowEscapeKey: false,
               confirmButtonText: 'OK',
             }).then(() => {
+              setisloggedIn(true)
               navigate("/")
             });
           } else {
