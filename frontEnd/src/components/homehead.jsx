@@ -65,11 +65,10 @@ export default function homeHead({title,description}){
   <link rel="canonical" href="https://www.ssfixturing.com/" />
   <meta name="robots" content="index, follow" />
   <meta property="og:type" content="website" />
-
   <meta property="og:title" content="SS Fixturing | Precision Machining Fixtures in Pune" />
   <meta property="og:description" content="Explore SS Fixturing for high-quality VMC and HMC hydraulic and mechanical fixtures in Pune. Enhance your machining accuracy and productivity with our precision solutions." />
   <meta property="og:url" content="https://www.ssfixturing.com/" />
-  <meta property="og:image" content="https://www.ssfixturing.com/sslogo.png" />
+  <meta property="og:image" content="https://ssfixturing.com/assets/sslogo-DJIuhvMn.png" />
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rambla:wght@400;700&display=swap" />
