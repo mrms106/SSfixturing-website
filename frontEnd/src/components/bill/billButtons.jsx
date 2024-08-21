@@ -1,10 +1,12 @@
+
+import DeleteButton from './deleteButton'
 export default function billButtons({pdfs,pdf,setPdfs,toggleQRCode,showqr,setshowqr}){
 
    
 
     const handleDelete = async (serialNO) => {
         try {
-            const response = await fetch(`https://ssfixturing.com/api/${serialNO}`, {
+            const response = await fetch(`http://localhost:8080/api/pdf/${serialNO}`, {
                 method: 'DELETE',
                 credentials:'include'
             });
@@ -23,12 +25,13 @@ export default function billButtons({pdfs,pdf,setPdfs,toggleQRCode,showqr,setsho
                             >
                               {showqr[pdf.serialNO] ? "Hide Qr" : "generate Qr"} 
                             </button>
-                            <button
+                            {/* <button
                                 className="delete-btn"
                                 onClick={() => handleDelete(pdf.serialNO)}
                             >
                                 Delete Bill
-                            </button>
+                            </button> */}
+                            <DeleteButton pdf={pdf} handleDelete={handleDelete}/>
                         </div>
         </>
     )
