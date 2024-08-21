@@ -21,7 +21,7 @@ export default function billButtons({pdfs,pdf,setPdfs,toggleQRCode,showqr,setsho
                                 id={`qr-btn-${pdf.serialNO}`}
                                 onClick={() => toggleQRCode(pdf.serialNO)}
                             >
-                               generate Qr
+                              {showqr[pdf.serialNO] ? "Hide Qr" : "generate Qr"} 
                             </button>
                             <button
                                 className="delete-btn"

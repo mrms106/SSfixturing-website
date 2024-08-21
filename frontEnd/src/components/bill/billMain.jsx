@@ -19,11 +19,11 @@ export default  function billMain({currentUser}){
 
     const [pdfs, setPdfs] = useState([]);
     const [fetchdata,setfetchdat]=useState(false)
-    const [showqr,setshowqr]=useState(false)
+    const [showqr,setshowqr]=useState({})
 
     const fetchPdfs = async () => {
         try {
-            const response = await fetch('https://ssfixturing.com/api/upload',{
+            const response = await fetch('http://localhost:8080/api/upload',{
                 credentials:'include',
                 method:'GET'
             }); 
@@ -48,9 +48,9 @@ export default  function billMain({currentUser}){
     }, [fetchdata]);
 
     const toggleQRCode = (serialNO) => {
-        const qrContainer = document.getElementById(`qr-container-${serialNO}`);
-        qrContainer.classList.toggle('Qrhidden'); // Toggle QR code visibility
-        setshowqr(!showqr)
+        setshowqr(prevState=>({
+            ...prevState,[serialNO]: !prevState[serialNO]
+        }))
     };
     return(
         <>

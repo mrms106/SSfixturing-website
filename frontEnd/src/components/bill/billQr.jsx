@@ -16,7 +16,7 @@ export default function billQr({pdf,showqr,setshowqr}){
     return(
         <>
            <div className="cardimage">
-                        <div id={`qr-container-${pdf.serialNO}`} className= "qr-container Qrhidden"  
+                        <div id={`qr-container-${pdf.serialNO}`} className= {showqr[pdf.serialNO] ?"qr-container": "Qrhidden" } 
                         >
                             <div ref={qrCodeRef}>
                             <QRCode
