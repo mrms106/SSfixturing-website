@@ -32,7 +32,7 @@ module.exports.uploadrouter=async (req, res) => {
         serialNO: serialNO,
       });
   
-      res.redirect('/upload');
+     res.status(200).send("The Bill Uploaded succefully")
     } catch (err) {
       console.error(err);
       res.status(500).send('Error saving PDF');
