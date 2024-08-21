@@ -4,6 +4,7 @@ import Swal from 'sweetalert2';
 export default function uploadBill({fetchdata,setfetchdata}){
 
     const [file, setFile] = useState(null);
+    const [btnchange,setBtnChange]=useState(false)
 
     const handleFileChange = (e) => {
       setFile(e.target.files[0]);
@@ -25,7 +26,8 @@ export default function uploadBill({fetchdata,setfetchdata}){
       formData.append('pdf', file);
   
       try {
-        const response = await fetch('https://ssfixturing.com/api/upload', {
+        setBtnChange(true)
+        const response = await fetch('http://localhost:8080/api/upload', {
           method: 'POST',
           body: formData,
           credentials:'include'
@@ -51,6 +53,7 @@ export default function uploadBill({fetchdata,setfetchdata}){
           text: 'There was an error uploading the file. Please try again later.',
         });
       }finally{
+        setBtnChange(false)
         setTimeout(()=>{
             setfetchdata(false)
 
@@ -67,7 +70,7 @@ export default function uploadBill({fetchdata,setfetchdata}){
                     <label>Choose File</label>
                     <input type="file" name="pdf" accept=".pdf" onChange={handleFileChange} />
                 </div>
-                <button>Upload</button>
+                <button>{btnchange ? "Uploading" : "Upload"}</button>
             </form>
         </>
     )
