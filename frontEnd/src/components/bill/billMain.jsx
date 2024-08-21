@@ -23,7 +23,7 @@ export default  function billMain({currentUser}){
 
     const fetchPdfs = async () => {
         try {
-            const response = await fetch('http://localhost:8080/api/upload',{
+            const response = await fetch('https://ssfixturing.com/api/upload',{
                 credentials:'include',
                 method:'GET'
             }); 

@@ -27,7 +27,7 @@ export default function uploadBill({fetchdata,setfetchdata}){
   
       try {
         setBtnChange(true)
-        const response = await fetch('http://localhost:8080/api/upload', {
+        const response = await fetch('https://ssfixturing.com/api/upload', {
           method: 'POST',
           body: formData,
           credentials:'include'

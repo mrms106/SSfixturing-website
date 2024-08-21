@@ -6,7 +6,7 @@ export default function billButtons({pdfs,pdf,setPdfs,toggleQRCode,showqr,setsho
 
     const handleDelete = async (serialNO) => {
         try {
-            const response = await fetch(`http://localhost:8080/api/pdf/${serialNO}`, {
+            const response = await fetch(`https://ssfixturing.com/api/pdf/${serialNO}`, {
                 method: 'DELETE',
                 credentials:'include'
             });
