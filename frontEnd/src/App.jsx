@@ -55,15 +55,16 @@ function App() {
     currUser();
   }, []);
 
-  if (isloggedIn === null) {
-    return <div><Loader/></div>; 
-  }
   return (
       <>
       <HelmetProvider>
       <Router>
         <ScrollToTop/>
-      <Navbar isloggedIn={isloggedIn} setisloggedIn={setisloggedIn}></Navbar>
+        {isloggedIn === null ? (
+          <Navbar isloggedIn={false} setisloggedIn={setisloggedIn} />
+        ) : (
+          <Navbar isloggedIn={isloggedIn} setisloggedIn={setisloggedIn} />
+        )}
         <div>
           <Routes>
             <Route path="/" element={<Home />} />
