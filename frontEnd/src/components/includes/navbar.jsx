@@ -36,6 +36,16 @@ const Navbar = ({isloggedIn,setisloggedIn}) => {
   }, [isClicked]);
 
   const logout = async () => {
+    Swal.fire({
+      title: 'logging Out...',
+      text: 'Please wait for few seconds...',
+      allowOutsideClick: false,
+      allowEscapeKey: false,
+      didOpen: () => {
+          Swal.showLoading();
+      }
+  });
+  
     try {
       const response = await fetch("https://ssfixturing.com/api/logout", {
         method: 'GET',
@@ -46,11 +56,13 @@ const Navbar = ({isloggedIn,setisloggedIn}) => {
       });
   
       if (!response.ok) {
+        Swal.close()
         throw new Error(`HTTP error! status: ${response.status}`);
       }
   
       const data = await response.json();
       setisloggedIn(false)
+      Swal.close()
       Swal.fire({
         title: 'Log-Out Successful',
         text: data.message || 'You have successfully log-out!',
@@ -65,6 +77,7 @@ const Navbar = ({isloggedIn,setisloggedIn}) => {
 
       return data;
     } catch (error) {
+      Swal.close()
       console.error('Error during logout:', error);
       return null;
     }
