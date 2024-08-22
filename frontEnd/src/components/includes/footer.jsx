@@ -1,5 +1,7 @@
 import React from 'react';
 import '../css/footer.css';
+import PhoneAndroidIcon from '@mui/icons-material/PhoneAndroid';
+import EmailIcon from '@mui/icons-material/Email';
 
 const Footer = () => {
   return (
@@ -10,7 +12,7 @@ const Footer = () => {
           <div className="contactBox">
             <div className="icon-container">
               <a href="tel:+919284550570">
-                <div className="icon">&#9742;</div>
+                <div className="icon"><PhoneAndroidIcon/></div>
               </a>
             </div>
             <div>
@@ -43,7 +45,7 @@ const Footer = () => {
             <div className="contactBox">
               <div className="icon-container">
                 <a href="mailto:ssfixturing1@gmail.com">
-                  <div className="icon">&#9993;</div>
+                  <div className="icon"><EmailIcon/></div>
                 </a>
               </div>
               <div>

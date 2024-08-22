@@ -19,7 +19,6 @@ import Pricing from './components/NavRedirects/pricing';
 import ProtectedRoute from './components/protected';
 import { Navigate } from 'react-router-dom';
 import Error from './components/error';
-import Loader from './components/loader';
 import ScrollToTop from './components/ScrollTop';
 
 function App() {
