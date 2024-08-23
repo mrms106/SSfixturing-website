@@ -1,6 +1,6 @@
 
-import weblogo from './components/images/logo.gif'
-import slogan from './components/images/slogan.gif'
+import weblogo from './images/logo.gif'
+import slogan from './images/slogan.gif'
 
 export default function Loader(){
     return(
