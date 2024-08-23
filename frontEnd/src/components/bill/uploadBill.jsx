@@ -64,7 +64,7 @@ export default function uploadBill({fetchdata,setfetchdata}){
     return(
         <>
            <h1>Upload Bill</h1>
-            <a className="logout" href="/logout"><b>Log-Out</b></a>
+            {/* <a className="logout" href="/logout"><b>Log-Out</b></a> */}
             <form id='billForm' className='billForm'  encType="multipart/form-data" onSubmit={handleSubmit}>
                 <div className="file-upload">
                     <label>Choose File</label>

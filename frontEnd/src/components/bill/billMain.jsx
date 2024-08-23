@@ -60,6 +60,7 @@ export default  function billMain({currentUser}){
         />
            <div className="upload">
               <UploadBill fetchdata={fetchdata} setfetchdata={setfetchdat}/>
+              <h1>Our Bills</h1>
                 <div className="pdfcards">
                     {pdfs.map(pdf => (
                         <div className="maincard" key={pdf.serialNO}>
