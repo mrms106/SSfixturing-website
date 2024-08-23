@@ -20,7 +20,7 @@ import ProtectedRoute from './components/protected';
 import { Navigate } from 'react-router-dom';
 import Error from './components/error';
 import ScrollToTop from './components/ScrollTop';
-
+import Loader from './components/loader';
 function App() {
 
   let[isloggedIn,setisloggedIn]=useState(null)
@@ -54,16 +54,19 @@ function App() {
     currUser();
   }, []);
 
+  if(isloggedIn===null){
+    return(
+    <Loader/>
+    )
+  }
+
   return (
       <>
       <HelmetProvider>
       <Router>
         <ScrollToTop/>
-        {isloggedIn === null ? (
-          <Navbar isloggedIn={false} setisloggedIn={setisloggedIn} />
-        ) : (
+      
           <Navbar isloggedIn={isloggedIn} setisloggedIn={setisloggedIn} />
-        )}
         <div>
           <Routes>
             <Route path="/" element={<Home />} />
