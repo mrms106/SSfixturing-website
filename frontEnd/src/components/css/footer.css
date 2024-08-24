@@ -98,15 +98,15 @@ color: black;
        text-align: center;
        text-decoration: none;
        cursor: pointer;
-       border: 2px solid #4CAF50;
+       border: 2px solid #388E3C;
        color: white;
-       background-color: #4CAF50;
+       background-color: #388E3C;
        border-radius: 5px;
        font-family: 'Rambla', sans-serif;
    }
 
    .whatsapp-button {
-       border-color: #25D366;
+       border-color: #388E3C;
        color: white;
        font-family: 'Rambla', sans-serif;
    }

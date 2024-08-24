@@ -136,23 +136,6 @@
   
   
   
-  .contact-info {
-      background-color: #19171A;
-      color: #fff;
-      text-align: center;
-      padding: 5px 0;
-      font-family: 'Rambla', sans-serif;
-      
-  }
-  
-  .contact-item {
-      display: inline-block;
-      margin: 0 10px;
-  }
-  
-  .contact-item i {
-      margin-right: 5px;
-  }
 
 /* animated toggle button */
 #checkbox {

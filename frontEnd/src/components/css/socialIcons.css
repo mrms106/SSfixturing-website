@@ -62,3 +62,23 @@
   .social-icons a i.fa-linkedin {
     color: #0A66C2;
   }
+
+  .contact-info {
+    background-color: #19171A;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    font-family: 'Rambla', sans-serif;
+    
+}
+
+.contact-item {
+    display: inline-block;
+    margin: 0 10px;
+}
+.contact-item a{
+  color: white;
+}
+.contact-item i {
+    margin-right: 5px;
+}
