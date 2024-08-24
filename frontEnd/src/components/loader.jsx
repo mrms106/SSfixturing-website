@@ -6,9 +6,9 @@ export default function Loader(){
     return(
         <div>
         <div id="splash-screen">
-         <img src={weblogo} alt="Website logo" />
+         <img src={weblogo} alt="Website logo" loading='lazy' />
          <div>
-           <img src={slogan} alt="img" />
+           <img src={slogan} alt="img"  loading='lazy'/>
          </div>
        </div>
      </div>

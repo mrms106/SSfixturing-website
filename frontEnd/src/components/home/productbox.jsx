@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom';
+import '../css/productbox.css'
 
 import React from 'react';
 

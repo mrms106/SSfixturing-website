@@ -4,6 +4,7 @@ import '../css/navbar.css';
 import logo from '../images/sslogo.png'
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import SocialIcons from './socialIcons';
 const Navbar = ({isloggedIn,setisloggedIn}) => {
   const [isNavVisible, setIsNavVisible] = useState(false);
   const [isClicked, setIsClicked] = useState(false);
@@ -95,26 +96,11 @@ const Navbar = ({isloggedIn,setisloggedIn}) => {
 
   return (
     <div className="fix">
-          <div className="social-icons">
-    <a href="https://wa.me/+919604233567"><i className="fab fa-whatsapp"></i><span>WhatsApp</span></a>
-    <a href="https://www.facebook.com/ssfixturing"><i className="fab fa-facebook"></i><span>Facebook</span></a>
-    <a href="https://www.instagram.com/ssfixturing"><i className="fab fa-instagram"></i><span>Instagram</span></a>
-    <a href="https://www.linkedin.com/ssfixturing"><i className="fab fa-linkedin"></i><span>LinkedIn</span></a>
-  </div>
-      <div className="contact-info">
-        <div className="contact-item">
-          <i className="fas fa-phone"></i>
-          <a href="tel:+919604233567">+91 96042 33567</a>
-        </div>
-        <div className="contact-item">
-          <i className="fas fa-envelope"></i>
-          <a href="mailto:ssfixturing1@gmail.com">ssfixturing1@gmail.com</a>
-        </div>
-      </div>
+         <SocialIcons/>
 
       <header>
         <div className="logo" onClick={()=>handleNavigation("/home")}>
-          <img src={logo} alt="Your Logo" />
+          <img src={logo} alt="Your Logo" loading='lazy' />
         </div>
 
         <div className="menu-toggle" id="mobile-menu">

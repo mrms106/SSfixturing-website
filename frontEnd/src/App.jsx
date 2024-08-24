@@ -65,7 +65,6 @@ function App() {
       <HelmetProvider>
       <Router>
         <ScrollToTop/>
-      
           <Navbar isloggedIn={isloggedIn} setisloggedIn={setisloggedIn} />
         <div>
           <Routes>

@@ -6,9 +6,11 @@ import SlideImage from './slideimg';
 import Navbar from '../includes/navbar';
 import Footer from '../includes/footer';
 import '../css/home.css'
+import '../css/splash.css'
 import weblogo from '../images/logo.gif'
 import slogan from '../images/slogan.gif'
 import HomeHead from '../homehead';
+import Loader from '../loader';
 
 
 export default function home({}){
@@ -32,12 +34,7 @@ export default function home({}){
         Enhance machining centers with efficient clamping solutions and superior quality." 
         />
 
-        <div id="splash-screen">
-          <img src={weblogo} alt="Website logo" />
-          <div>
-            <img src={slogan} alt="img" />
-          </div>
-        </div>
+        <Loader/>
   
         <div className="intro">
           <h1>SS FIXTURING</h1>

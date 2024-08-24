@@ -5,6 +5,7 @@ import fast from '../images/home/feature/fast.png'
 import guarentee from '../images/home/feature/guarentee.png'
 import long from '../images/home/feature/long.png'
 import project from '../images/home/feature/project.png'
+import '../css/feature.css'
 
 const FeatureBoxes = () => {
   return (

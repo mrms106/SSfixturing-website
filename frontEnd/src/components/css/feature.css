@@ -1,0 +1,94 @@
+.mclassbox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    margin: 0;
+  }
+
+  .box-containers {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 80%;
+    margin: 0 auto;
+  }
+
+  .boxs {
+    flex: 1;
+    max-width: 200px;
+    width: 200px;
+     flex-direction: column;
+   
+    height: 250px;
+    background-color:#008080;/*#408697;*/
+    border-radius: 10px;
+    margin: 0 5px;
+    transition: background-color 0.3s;
+    display: flex; /* Use flexbox to center text */
+    align-items: center; /* Center text vertically */
+    justify-content: center; /* Center text horizontally */
+  }
+
+  .boxs:hover {
+    background-color:#6B6B6B; /*#408697;*/
+  }
+  .textx{
+    font-family: 'Rambla', sans-serif;
+  font-size: 17px;
+  color: white;
+  
+    padding-left: 15px;
+  }
+
+
+.box-header {
+  
+  padding: 20px;
+  text-align: center;
+  color: white;
+}
+
+.box-header h2 {
+  font-size: 24px;
+  margin: 0;
+}
+.box-header img {
+      max-width: 70%; /* Ensure the image doesn't exceed the container width */
+      max-height: 70px; /* Set the maximum height for the image */
+    }
+
+
+
+  @media (max-width: 768px) {
+    .box-containers {
+      display: flex;
+      flex-wrap: wrap;
+
+    }
+
+    .boxs {
+      flex: 1 0 100%;
+      margin: 5px 0;
+      max-width: 410px;
+      width: 410px;
+      margin: 0 7px;
+      margin-top: 6px;
+      height: 150px;
+
+    }
+
+.box-header {
+  
+  padding: 20px;
+  text-align: center;
+  color: white;
+}
+
+.box-header h2 {
+  font-size: 24px;
+  margin: 0;
+}
+
+
+    }
