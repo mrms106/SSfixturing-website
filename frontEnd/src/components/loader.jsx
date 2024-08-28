@@ -1,7 +1,7 @@
 
 import weblogo from './images/logo.gif'
 import slogan from './images/slogan.gif'
-
+import './css/splash.css'
 export default function Loader(){
     return(
         <div>
