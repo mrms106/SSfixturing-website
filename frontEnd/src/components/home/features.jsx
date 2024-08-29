@@ -13,7 +13,7 @@ const FeatureBoxes = () => {
       <div className="box-containers">
         <div className="boxs">
           <div className="box-header">
-            <h2><img src={fast} alt="img" loading="lazy" /></h2>
+            <h2><img src={fast} alt="img" loading="lazy" width="80" height="50" /></h2>
           </div>
           <div className="box-body">
             <p className="textx">FASTER INITIAL QUOTES AND CONCEPT DESIGN</p>
@@ -22,7 +22,7 @@ const FeatureBoxes = () => {
 
         <div className="boxs">
           <div className="box-header">
-            <h2><img src={long} alt="img" loading="lazy" /></h2>
+            <h2><img src={long} alt="img" loading="lazy" width="80" height="50" /></h2>
           </div>
           <div className="box-body">
             <p className="textx">LONG TERM CUSTOMER THROUGH FIXTURES FOR LONG TERM</p>
@@ -31,7 +31,7 @@ const FeatureBoxes = () => {
 
         <div className="boxs">
           <div className="box-header">
-            <h2><img src={guarentee} alt="img" loading="lazy" /></h2>
+            <h2><img src={guarentee} alt="img" loading="lazy" width="80" height="50"/></h2>
           </div>
           <div className="box-body">
             <p className="textx">GUARANTEED LEAD TIME & ON THE SHOP FLOOR SUPPORT</p>
@@ -40,7 +40,7 @@ const FeatureBoxes = () => {
 
         <div className="boxs">
           <div className="box-header">
-            <h2><img src={project} alt="img" loading="lazy" /></h2>
+            <h2><img src={project} alt="img" loading="lazy" width="80" height="50" /></h2>
           </div>
           <div className="box-body">
             <p className="textx">DEDICATED PROJECT MANAGER AND FASTER PROVE OUT</p>

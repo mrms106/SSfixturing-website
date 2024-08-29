@@ -53,7 +53,7 @@ export default function home({}){
         <div className="mclassp">
           <div className="paragraph-container">
             <div className="paragraph">
-              <h4>VMC HYDRAULIC FIXTURE</h4>
+              <h3>VMC HYDRAULIC FIXTURE</h3>
               <p className="pstyle">
                 The VMC hydraulic fixture is designed to provide secure and stable clamping for different machining operations.
                 It is compatible with VMC machines, ensuring seamless integration and optimal performance.
@@ -65,7 +65,7 @@ export default function home({}){
               </p>
             </div>
             <div className="paragraph">
-              <h4>HMC HYDRAULIC FIXTURE</h4>
+              <h3>HMC HYDRAULIC FIXTURE</h3>
               <p className="pstyle">
                 The HMC Hydraulic Fixture is a versatile and reliable solution for clamping work pieces in HMC (Horizontal Machining Center) machines.
                 With its advanced features and precision engineering, the HMC Hydraulic Fixture offers numerous advantages for complex machining operations. Specifically designed to work seamlessly with HMC machines, Ensuring Optimal performance and efficiency.

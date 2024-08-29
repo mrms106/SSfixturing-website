@@ -28,6 +28,7 @@
     display: flex; /* Use flexbox to center text */
     align-items: center; /* Center text vertically */
     justify-content: center; /* Center text horizontally */
+    flex-direction: column;
   }
 
   .boxs:hover {
@@ -37,7 +38,7 @@
     font-family: 'Rambla', sans-serif;
   font-size: 17px;
   color: white;
-  
+  text-align: center; /* Center the text horizontally */
     padding-left: 15px;
   }
 
@@ -47,6 +48,8 @@
   padding: 20px;
   text-align: center;
   color: white;
+  width: auto; /* Maintain aspect ratio */
+  height: auto; /* Maintain aspect ratio */
 }
 
 .box-header h2 {
@@ -54,8 +57,8 @@
   margin: 0;
 }
 .box-header img {
-      max-width: 70%; /* Ensure the image doesn't exceed the container width */
-      max-height: 70px; /* Set the maximum height for the image */
+      max-width: 70%; 
+      max-height: 70px; 
     }
 
 
@@ -77,18 +80,19 @@
       height: 150px;
 
     }
-
+/* 
 .box-header {
   
   padding: 20px;
   text-align: center;
   color: white;
-}
+} */
 
-.box-header h2 {
+
+/* .box-header h2 {
   font-size: 24px;
   margin: 0;
-}
+} */
 
 
     }

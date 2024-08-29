@@ -100,7 +100,9 @@ const Navbar = ({isloggedIn,setisloggedIn}) => {
 
       <header>
         <div className="logo" onClick={()=>handleNavigation("/home")}>
-          <img src={logo} alt="Your Logo" loading='lazy' />
+          <img src={logo} alt="Your Logo" loading='lazy' 
+          width="990" height="150"
+          />
         </div>
 
         <div className="menu-toggle" id="mobile-menu">

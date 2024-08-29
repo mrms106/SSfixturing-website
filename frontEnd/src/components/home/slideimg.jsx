@@ -45,7 +45,10 @@ export default function slideImage(){
     return(
         <div className='mainSlideimg'>
             <button className='left-btn' onClick={handlePrev}>❮</button>
-            <img src={images[currentIndex]} alt={`Slide ${currentIndex + 1}`}  loading='lazy'/>
+            <img src={images[currentIndex]} alt={`Slide ${currentIndex + 1}`}  loading='lazy'
+             width={1024} // original width of the image
+             height={768} // original height of the image
+            />
             <button className='right-btn' onClick={handleNext}>❯</button>
         </div>
     )
