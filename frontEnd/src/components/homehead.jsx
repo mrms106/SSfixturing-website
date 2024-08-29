@@ -73,7 +73,7 @@ export default function homeHead({title,description}){
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rambla:wght@400;700&display=swap" />
 
-  <link rel="shortcut icon" type="image/png" href="/logo2.png" alt="icon" />
+  {/* <link rel="shortcut icon" type="image/png" href="/logo2.png" alt="icon" /> */}
   <script type="application/ld+json">
         {JSON.stringify(organizationSchema)}
       </script>

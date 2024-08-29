@@ -45,7 +45,7 @@ function App() {
       console.log('Current User:', userData);
       return userData; 
     } catch (error) {
-      console.error('Error fetching current user:', error);
+      // console.error('Error fetching current user:', error);
       setisloggedIn(false);
       return null; 
     }

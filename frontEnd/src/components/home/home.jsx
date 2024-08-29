@@ -34,7 +34,7 @@ export default function home({}){
         Enhance machining centers with efficient clamping solutions and superior quality." 
         />
 
-        <Loader/>
+        {/* <Loader/> */}
   
         <div className="intro">
           <h1>SS FIXTURING</h1>
