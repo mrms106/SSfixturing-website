@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+    <!-- Home Pages -->
+    <url>
+        <loc>https://www.ssfixturing.com/</loc>
+        <lastmod>2024-08-22</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>1.0</priority>
+    </url>
+    <url>
+        <loc>https://www.ssfixturing.com/home</loc>
+        <lastmod>2024-09-13</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>1.0</priority>
+    </url>
+
+    <!-- User Authentication Pages -->
+    <url>
+        <loc>https://www.ssfixturing.com/login</loc>
+        <lastmod>2024-09-13</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    <url>
+        <loc>https://www.ssfixturing.com/signup</loc>
+        <lastmod>2024-09-13</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+
+    <!-- Informational Pages -->
+    <url>
+        <loc>https://www.ssfixturing.com/contactus</loc>
+        <lastmod>2024-08-22</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://www.ssfixturing.com/about</loc>
+        <lastmod>2024-08-22</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://www.ssfixturing.com/potential</loc>
+        <lastmod>2024-08-22</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://www.ssfixturing.com/capabilities</loc>
+        <lastmod>2024-08-22</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://www.ssfixturing.com/pricing</loc>
+        <lastmod>2024-08-22</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <!-- Product Pages -->
+    <url>
+        <loc>https://www.ssfixturing.com/assemblyFixture</loc>
+        <lastmod>2024-09-13</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://www.ssfixturing.com/HydraulicFixture</loc>
+        <lastmod>2024-08-22</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://www.ssfixturing.com/HydralicPowerPack</loc>
+        <lastmod>2024-08-22</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://www.ssfixturing.com/MechanicalFixture</loc>
+        <lastmod>2024-08-22</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://www.ssfixturing.com/WeldingFixture</loc>
+        <lastmod>2024-09-13</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+</urlset>
