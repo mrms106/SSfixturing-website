@@ -20,6 +20,8 @@ export default  function billMain({currentUser}){
     const [pdfs, setPdfs] = useState([]);
     const [fetchdata,setfetchdat]=useState(false)
     const [showqr,setshowqr]=useState({})
+    const [search,setsearch]=useState("")
+    const [visibleCount, setVisibleCount] = useState(4);
 
     const fetchPdfs = async () => {
         try {
@@ -52,6 +54,13 @@ export default  function billMain({currentUser}){
             ...prevState,[serialNO]: !prevState[serialNO]
         }))
     };
+    const bill=pdfs.filter((pdf)=>
+        pdf.name.toLowerCase().includes(search.toLowerCase())
+)
+const showMoreItems = () => {
+    setVisibleCount(bill.length);
+};
+console.log(search)
     return(
         <>
          <HomeHead
@@ -60,9 +69,18 @@ export default  function billMain({currentUser}){
         />
            <div className="upload">
               <UploadBill fetchdata={fetchdata} setfetchdata={setfetchdat}/>
-              <h1>Our Bills</h1>
+                <div className="serchClass"> 
+                    <input 
+                        className='BillSearch'
+                        type='search' 
+                        name='search' 
+                        onChange={(e) => setsearch(e.target.value)}
+                        placeholder='Search Bill By name'>
+                    </input>
+                    <h1>Our Bills</h1>
+                </div>
                 <div className="pdfcards">
-                    {pdfs.map(pdf => (
+                    {bill.slice(0,visibleCount).map(pdf => (
                         <div className="maincard" key={pdf.serialNO}>
                             <BillQr showqr={showqr} setshowqr={setshowqr} pdf={pdf} />
                             <div className="cardcontent">
@@ -73,6 +91,12 @@ export default  function billMain({currentUser}){
                         </div>
                     ))}
                  </div>
+                 {
+                    bill.length<1 ? <p style={{color:"white"}}>there is no bill by this name search correctlly</p>: ""
+                 }
+                 {bill.length > visibleCount && (
+                <button className='showMoreBtn' onClick={showMoreItems}>Show More Bills</button>
+            )}
             </div>
         </>
     )
