@@ -6,6 +6,7 @@ import UploadBill from './uploadBill';
 import BillQr from './billQr';
 import BillButtons from './billButtons';
 import HomeHead from '../homehead';
+import Skeleton from './skelaton';
 
 export default  function billMain({currentUser}){
 
@@ -22,6 +23,7 @@ export default  function billMain({currentUser}){
     const [showqr,setshowqr]=useState({})
     const [search,setsearch]=useState("")
     const [visibleCount, setVisibleCount] = useState(4);
+    let [isloading,setisLoading]=useState(true)
 
     const fetchPdfs = async () => {
         try {
@@ -30,6 +32,7 @@ export default  function billMain({currentUser}){
                 method:'GET'
             }); 
             if (!response.ok) throw new Error('Network response was not ok');
+            setisLoading(false)
             const data = await response.json();
             setPdfs(data);
         } catch (error) {
@@ -60,7 +63,9 @@ export default  function billMain({currentUser}){
 const showMoreItems = () => {
     setVisibleCount(bill.length);
 };
-console.log(search)
+const style={
+    color:"white"
+}
     return(
         <>
          <HomeHead
@@ -79,6 +84,16 @@ console.log(search)
                     </input>
                     <h1>Our Bills</h1>
                 </div>
+                {isloading ? 
+                    <>
+                    <div style={{display:"flex",flexWrap:"wrap"}}>
+                    <Skeleton/>
+                    <Skeleton/>
+                    <Skeleton/>
+                    <Skeleton/>
+                    </div>
+                    </>
+                    :""}
                 <div className="pdfcards">
                     {bill.slice(0,visibleCount).map(pdf => (
                         <div className="maincard" key={pdf.serialNO}>
@@ -92,7 +107,7 @@ console.log(search)
                     ))}
                  </div>
                  {
-                    bill.length<1 ? <p style={{color:"white"}}>there is no bill by this name search correctlly</p>: ""
+                    bill.length<1 && !isloading ? <p style={style}>there is no bill by this name search correctlly</p>: ""
                  }
                  {bill.length > visibleCount && (
                 <button className='showMoreBtn' onClick={showMoreItems}>Show More Bills</button>
