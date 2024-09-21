@@ -7,14 +7,13 @@ import BillQr from './billQr';
 import BillButtons from './billButtons';
 import HomeHead from '../homehead';
 import Skeleton from './skelaton';
+import Error from '../error';
 
 export default  function billMain({currentUser}){
 
     if(currentUser?.username!=="ShubhamShinde"){
         return (
-            <div className="upload">
-                <p style={{color:"white"}}>page is not available</p>
-            </div>
+           <Error/>
         )
     }
 
