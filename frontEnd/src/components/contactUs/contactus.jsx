@@ -16,29 +16,28 @@ export default function contactUs(){
   
     const handleSubmit = async (e) => {
       e.preventDefault();
-      const recaptchaResponse = recaptchaRef.current.getValue();
+      // const recaptchaResponse = recaptchaRef.current.getValue();
   
-      if (!recaptchaResponse) {
-        Swal.fire({
-          icon: 'warning',
-          title: 'Complete recaptcha',
-          text: 'Please complete the recaptcha ...',
-        });
-        return;
-      }
+      // if (!recaptchaResponse) {
+      //   Swal.fire({
+      //     icon: 'warning',
+      //     title: 'Complete recaptcha',
+      //     text: 'Please complete the recaptcha ...',
+      //   });
+      //   return;
+      // }
   
       setLoading(true);
   
       try {
-        const response = await fetch('https://ssfixturing.com/api/contactUS', {
+        const response = await fetch('http://localhost:8080/api/contactUS', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify({
-            ...form,
-            'g-recaptcha-response': recaptchaResponse,
-          }),
+          body: JSON.stringify(
+            form),
+            // 'g-recaptcha-response': recaptchaResponse,
         });
   
         const result = await response.json();
@@ -50,7 +49,7 @@ export default function contactUs(){
             text: result.message,
           });
           setForm({ name: '', email: '', phone: '', message: '' });
-          recaptchaRef.current.reset();
+          // recaptchaRef.current.reset();
         } else {
           Swal.fire({
             icon: 'error',
@@ -138,10 +137,10 @@ export default function contactUs(){
               </span>
             </div>
   
-            <ReCAPTCHA
+            {/* <ReCAPTCHA
             ref={recaptchaRef}
             sitekey="6LcQMgQqAAAAAIo6tQKdSm7kHNNXjkfwbiYr6by5"  // Replace with your actual site key
-          />
+          /> */}
             
   
             <button className="submit" id="submit" type="submit" disabled={loading}>
