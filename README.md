@@ -54,4 +54,4 @@ Secure Session Management: Authentication handled via Passport.js to ensure only
 HTTPS-Ready: The website is built to support HTTPS for secure communication.
 
 ##📧 Contact Us
-For inquiries or more information, visit the [Contact Us](https://www.ssfixturing.com/contact) page or email us directly at info@ssfixturing.com.
+For inquiries or more information, visit the [Contact Us](https://www.ssfixturing.com/contactus) page or email us directly at info@ssfixturing.com.
