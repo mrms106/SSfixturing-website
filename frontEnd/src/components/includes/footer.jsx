@@ -37,7 +37,7 @@ const Footer = () => {
             </div>
             <div>
               <p className="pt">
-                <span>Fixturing, W-106 S Block, M.I.D.C, Bhosari, Pune-411026</span>
+                <span>Sector NO. 10, Plot No. 4/43, Near By Times Of India, MIDC- Bhosari,Pune-411026</span>
               </p>
             </div>
           </div>

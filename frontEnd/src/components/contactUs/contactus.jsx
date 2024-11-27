@@ -30,7 +30,7 @@ export default function contactUs(){
       setLoading(true);
   
       try {
-        const response = await fetch('http://localhost:8080/api/contactUS', {
+        const response = await fetch('https://ssfixturing.com/api/contactUS', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
