@@ -1,5 +1,5 @@
 import { useState,useEffect } from 'react'
-import PwaInstall from './components/pwa/pwaInstall';
+
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import Home from './components/home/home'
@@ -54,16 +54,10 @@ function App() {
     }
   };
 
-  const handleBeforeInstallPrompt = (e) => {
-    e.preventDefault(); 
-    setDeferredPrompt(e); 
-};
+ 
   useEffect(() => {
     currUser();
-  window.addEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
-  return () => {
-      window.removeEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
-  };
+ 
   }, []);
 
   if(isloggedIn===null){
@@ -74,7 +68,7 @@ function App() {
 
   return (
       <>
-            <PwaInstall deferredPrompt={deferredPrompt} setDeferredPrompt={setDeferredPrompt}/>
+            
       <HelmetProvider>
       <Router>
         <ScrollToTop/>
