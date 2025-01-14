@@ -18,6 +18,7 @@ const contactus = require("./router/contactus");
 const pdfrouter = require("./router/pdf");
 const userrouter = require("./router/user");
 const otprouter = require("./router/otp");
+const customerroute=require("./router/customer")
 
 const flash = require("connect-flash");
 const bodyParser = require("body-parser");
@@ -88,6 +89,7 @@ app.use("/api", contactus);
 app.use("/api", pdfrouter);
 app.use("/api", userrouter);
 app.use( "/api",otprouter);
+app.use("/api",customerroute);
 
 
 

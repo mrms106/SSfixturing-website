@@ -22,6 +22,11 @@ const Customers=sequelize.define('CUSTOMERS',{
         type:DataTypes.STRING,
         allowNull:false
     },
+    serialNO: {
+        type: DataTypes.STRING(20),
+        allowNull: false,
+        unique: true,
+      },
 
 })
 
