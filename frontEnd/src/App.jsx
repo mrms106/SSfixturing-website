@@ -23,6 +23,7 @@ import Error from './components/error';
 import ScrollToTop from './components/ScrollTop';
 import Loader from './components/loader';
 import CustomerMain from './customers/customerMain';
+import AddCustomer from './customers/Addcustomer/addcustomer';
 function App() {
 
   let[isloggedIn,setisloggedIn]=useState(null)
@@ -96,6 +97,7 @@ function App() {
             <Route path="/MechanicalFixture" element={<Mechanical />} />
             <Route path="/WeldingFixture" element={<Welding />} />
             <Route path="/customers" element={<CustomerMain />} />
+            <Route path="/addcustomer" element={<AddCustomer />} />
             {/* <Route path="/upload" element={<BillMain  currentUser={currentUser}/>} /> */}
 
 

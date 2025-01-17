@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react"
 import './customer.css'
+import { useNavigate } from "react-router-dom"
 
 export default function CustomerMain(){
+    const navigate=useNavigate()
     const [customers,setcustomers]=useState([])
 
     const fetchCustomer=async()=>{
@@ -49,6 +51,11 @@ export default function CustomerMain(){
             </div>
             ))
            }
+           <div className="customer-box customer-box2" onClick={()=>navigate('/addcustomer')}>
+                <div className="customer-text">
+                  Add new customer <i className="fa-solid fa-square-plus"></i>
+                </div> 
+            </div>
            
         </div>
        </div>

@@ -55,3 +55,18 @@
     color: black;
     border: 1px solid #19171A;
 }
+.customer-box2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.customer-box2:hover{
+    cursor: pointer;
+    background-color: #4f4a5275;
+
+}
+.customer-text{
+    color: white;
+    font-size: 20px;
+}

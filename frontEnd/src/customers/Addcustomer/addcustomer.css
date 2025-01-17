@@ -1,0 +1,25 @@
+.addcustomer-main{
+    margin-top: 10rem;
+    margin-left: 8rem;  
+    display: flex;
+    flex-direction: column;
+}
+.addcustomer-main h3{
+    color: white;
+    font-size: 24px;
+}
+
+.addcustomer-main form{
+    display: flex;
+    flex-direction: row !important;
+}
+.addcustomer-main form div{
+    margin: 20px;
+}
+.addcustomer-main form label{
+    color: white;
+}
+.addcustomer-main form button{
+    width: 200px;
+   margin-top: 20px !important;
+}
