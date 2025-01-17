@@ -22,6 +22,7 @@ import { Navigate } from 'react-router-dom';
 import Error from './components/error';
 import ScrollToTop from './components/ScrollTop';
 import Loader from './components/loader';
+import CustomerMain from './customers/customerMain';
 function App() {
 
   let[isloggedIn,setisloggedIn]=useState(null)
@@ -94,6 +95,7 @@ function App() {
             <Route path="/HydralicPowerPack" element={<HydraulicPowerPack />} />
             <Route path="/MechanicalFixture" element={<Mechanical />} />
             <Route path="/WeldingFixture" element={<Welding />} />
+            <Route path="/customers" element={<CustomerMain />} />
             {/* <Route path="/upload" element={<BillMain  currentUser={currentUser}/>} /> */}
 
 
