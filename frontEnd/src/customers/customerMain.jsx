@@ -10,21 +10,33 @@ export default function CustomerMain(){
             return alert("failed to fetch customers")
         }
         const data= await responce.json()
-        // console.log(data)
+        console.log(data)
         setcustomers(data.customers)
         
     }
     useEffect(()=>{
         fetchCustomer()
     },[])
+
+    const deleteButton=async(serialNo)=>{
+        const responce= await fetch(`http://localhost:8080/api/deletecustomer/${serialNo}`,{
+            method:'DELETE'
+        })
+        if(responce.ok){
+            alert("the customer is deleted from database")
+            fetchCustomer()
+            return;
+        }
+        alert('problem in deleting the customer')
+    }
     return(
         <>
        <div className="customer-main">
         <h1>Our Customers</h1>
         <div className="customer-main2">
            {
-            customers.length>0 && customers.map((customer)=>(
-                <div className="customer-box">
+            customers.length>0 && customers.map((customer,idx)=>(
+                <div className="customer-box" key={idx}>
                 <div className="customer-info">
                     <div className="customer-name"><b>Name:&nbsp;</b>{customer.name}</div>
                     <div className="customer-email"><b>Email:&nbsp;</b>{customer.email}</div>
@@ -32,7 +44,7 @@ export default function CustomerMain(){
                 <div className="customer-line"></div>
                 <div className="customer-btns">
                     <button>Update Info</button>
-                    <button>Delete</button>
+                    <button onClick={()=>deleteButton(customer.serialNO)}>Delete</button>
                 </div>
             </div>
             ))
