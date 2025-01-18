@@ -27,7 +27,7 @@ display: flex;
 justify-content: center;
 /* width: 40rem; */
 }
-.show-customer-main button{
+.show-customer-main button,.customer-show-btn,.addcustomer-close-btn button{
     background-color: #19171A;
     color: white;
     cursor: pointer;
@@ -37,7 +37,22 @@ justify-content: center;
     font-size: 18px;
     border: 1px solid white;
 }
-.show-customer-main button:hover{
+.customer-show-btn{
+   text-align: center;
+   padding-top: 10px;
+   height: 35px;
+   width: 150px;
+}
+.show-customer-main button:hover,.customer-show-btn:hover,.addcustomer-close-btn button:hover{
     background-color: white;
     color: #19171A;
+}
+
+.addcustomer-close-btn{
+    display: flex;
+    flex-direction: column;
+}
+.addcustomer-close-btn h3{
+    margin-left: 2rem;
+    margin-top: 3rem;
 }

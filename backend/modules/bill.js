@@ -6,7 +6,7 @@ const Bills=sequelize.define('BILLS',{
         type:DataTypes.STRING,
         allowNull:false
     },
-    caddreass:{
+    caddress:{
         type:DataTypes.STRING,
         allowNull:false
     },
@@ -75,6 +75,10 @@ const Bills=sequelize.define('BILLS',{
     totalAmount:{
         type:DataTypes.STRING,
         allowNull:false
+    },
+    basicvalue:{
+        allowNull:false,
+        type:DataTypes.STRING
     },
     taxamount:{
         type:DataTypes.STRING,

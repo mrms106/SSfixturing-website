@@ -2,21 +2,23 @@ const Bills=require('../modules/bill')
 
 module.exports.createBill = async (req, res) => {
     const {
-        cname, caddreass, cgst, cmail, cContact,
+        cname, caddress, cgst, cmail, cContact,
         serialNo, invoiceNo, PoNo, invoicedate, Podate,
         description, hsn, unitRate, Qty, UOM,
-        tax, disc, totalAmount, taxamount, grandTotal
+        tax, disc, totalAmount, taxamount, grandTotal,basicvalue
     } = req.body;
+    console.log(req.body,cname)
 
     try {
         const newBill = await Bills.create({
-            cname, caddreass, cgst, cmail, cContact,
+            cname, caddress, cgst, cmail, cContact,
             serialNo, invoiceNo, PoNo, invoicedate, Podate,
             description, hsn, unitRate, Qty, UOM,
-            tax, disc, totalAmount, taxamount, grandTotal
+            tax, disc, totalAmount, taxamount, grandTotal,basicvalue
         });
         res.status(201).json({ message: 'Bill created successfully', data: newBill });
     } catch (err) {
+        console.log(err.message,err)
         res.status(500).json({ error: 'Failed to create bill', details: err.message });
     }
 };
