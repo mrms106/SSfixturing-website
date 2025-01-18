@@ -19,6 +19,7 @@ const pdfrouter = require("./router/pdf");
 const userrouter = require("./router/user");
 const otprouter = require("./router/otp");
 const customerroute=require("./router/customer")
+const billroute=require('./router/bill')
 
 const flash = require("connect-flash");
 const bodyParser = require("body-parser");
@@ -90,6 +91,7 @@ app.use("/api", pdfrouter);
 app.use("/api", userrouter);
 app.use( "/api",otprouter);
 app.use("/api",customerroute);
+app.use("/api",billroute);
 
 
 
