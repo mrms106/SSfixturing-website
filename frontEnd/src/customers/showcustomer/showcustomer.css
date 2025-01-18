@@ -1,0 +1,40 @@
+.show-customer-main{
+    margin: 10rem;
+}
+.show-customer-main h3{
+    color: white;
+    font-size: 22px;
+}
+.show-customer-info{
+    display: flex;
+    color: white;
+    flex-direction: column;
+    max-width: 50rem;
+}
+.show-customer-box{
+    display: flex;
+}
+
+.show-customer-info .box1 div,.show-customer-info .box2 div{
+ font-size: 19px;
+ margin: 15px;
+}
+.show-customer-main .c-btn{
+display: flex;
+justify-content: flex-end;
+width: 40rem;
+}
+.show-customer-main button{
+    background-color: #19171A;
+    color: white;
+    cursor: pointer;
+    height: 40px;
+    width: 130px;
+    border-radius: 10px;
+    font-size: 18px;
+    border: 1px solid white;
+}
+.show-customer-main button:hover{
+    background-color: white;
+    color: #19171A;
+}

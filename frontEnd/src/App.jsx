@@ -24,6 +24,7 @@ import ScrollToTop from './components/ScrollTop';
 import Loader from './components/loader';
 import CustomerMain from './customers/customerMain';
 import AddCustomer from './customers/Addcustomer/addcustomer';
+import ShowCustomer from './customers/showcustomer/showcustomerMain';
 function App() {
 
   let[isloggedIn,setisloggedIn]=useState(null)
@@ -98,6 +99,7 @@ function App() {
             <Route path="/WeldingFixture" element={<Welding />} />
             <Route path="/customers" element={<CustomerMain />} />
             <Route path="/addcustomer" element={<AddCustomer />} />
+            <Route path="/customer/:serialNo" element={<ShowCustomer />} />
             {/* <Route path="/upload" element={<BillMain  currentUser={currentUser}/>} /> */}
 
 

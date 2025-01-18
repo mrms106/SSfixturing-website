@@ -39,7 +39,7 @@ export default function CustomerMain(){
            {
             customers.length>0 && customers.map((customer,idx)=>(
                 <div className="customer-box" key={idx}>
-                <div className="customer-info">
+                <div className="customer-info" onClick={()=>navigate(`/customer/${customer.serialNO}`)}>
                     <div className="customer-name"><b>Name:&nbsp;</b>{customer.name}</div>
                     <div className="customer-email"><b>Email:&nbsp;</b>{customer.email}</div>
                 </div>
