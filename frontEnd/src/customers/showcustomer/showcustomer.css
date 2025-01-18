@@ -1,5 +1,7 @@
 .show-customer-main{
-    margin: 10rem;
+    margin-top: 10rem;
+    margin-left: 10%;
+    margin-right: 10%;
 }
 .show-customer-main h3{
     color: white;
@@ -9,10 +11,11 @@
     display: flex;
     color: white;
     flex-direction: column;
-    max-width: 50rem;
+    /* max-width: 50rem; */
 }
 .show-customer-box{
     display: flex;
+    flex-wrap: wrap;
 }
 
 .show-customer-info .box1 div,.show-customer-info .box2 div{
@@ -21,8 +24,8 @@
 }
 .show-customer-main .c-btn{
 display: flex;
-justify-content: flex-end;
-width: 40rem;
+justify-content: center;
+/* width: 40rem; */
 }
 .show-customer-main button{
     background-color: #19171A;
