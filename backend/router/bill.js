@@ -5,5 +5,6 @@ const router=express.Router()
 router.post('/createbill', billcontroller.createBill);       
 router.put('/bill/:invoiceNo', billcontroller.updateBill);    
 router.delete('/bill/:invoiceNo', billcontroller.deleteBill); 
-router.get('/bill/invoice/:invoiceNo', billcontroller.getBillByInvoiceNo);
+router.get('/bill/:invoiceNo', billcontroller.getBillByInvoiceNo);
+router.post('/bills',billcontroller.getBillsBySerialNos)
 module.exports = router;

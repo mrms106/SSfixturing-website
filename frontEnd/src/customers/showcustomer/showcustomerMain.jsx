@@ -2,11 +2,14 @@ import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import './showcustomer.css'
 import CreateBill from "../bills/billmain"
+import Showbills from "./showbills.jsx";
 
 export default function ShowCustomer(){
     const {serialNo}=useParams()
     const[createbill,setcreatebill]=useState(true)
      const [customer,setcustomer]=useState({})
+     const[bills,setbills]=useState([])
+     const[showbill,setshowbill]=useState(false)
     
         const fetchCustomer=async()=>{
             const responce=await fetch(`http://localhost:8080/api/customer/${serialNo}`)
@@ -19,6 +22,24 @@ export default function ShowCustomer(){
             
             
         }
+        const fetchBill=async()=>{
+            
+            const responce=await fetch('http://localhost:8080/api/bills',{
+                method:'POST',
+                headers:{
+                    'content-type':'application/json'
+                },
+                body:JSON.stringify({serialNo:customer.serialNO})
+            })
+            if(!responce.ok){
+                alert('problem in fetching bills')
+                return;
+                  }
+            const data=await responce.json()
+              setbills(data.data)
+              setshowbill(true)
+        }
+
         useEffect(()=>{
             fetchCustomer()
         },[])
@@ -43,9 +64,10 @@ export default function ShowCustomer(){
                </div>
                <div className="c-btn">
                 <button onClick={()=>setcreatebill(false)}>Create Bill</button>
+                <button onClick={()=>fetchBill()}>show Bill</button>
                </div>
             </div>
-          
+         { showbill ?<Showbills bills={bills}/>:null}
         </div>:
         <CreateBill customer={customer} setcreatebill={setcreatebill}/>}
         </>

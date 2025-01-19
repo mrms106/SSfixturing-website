@@ -25,6 +25,7 @@ import Loader from './components/loader';
 import CustomerMain from './customers/customerMain';
 import AddCustomer from './customers/Addcustomer/addcustomer';
 import ShowCustomer from './customers/showcustomer/showcustomerMain';
+import ShowSingleBill from './customers/bills/showsinglebill';
 function App() {
 
   let[isloggedIn,setisloggedIn]=useState(null)
@@ -100,6 +101,7 @@ function App() {
             <Route path="/customers" element={<CustomerMain />} />
             <Route path="/addcustomer" element={<AddCustomer />} />
             <Route path="/customer/:serialNo" element={<ShowCustomer />} />
+            <Route path="/invoice/:invoiceNo" element={<ShowSingleBill />} />
             {/* <Route path="/upload" element={<BillMain  currentUser={currentUser}/>} /> */}
 
 

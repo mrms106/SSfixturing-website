@@ -71,26 +71,22 @@ module.exports.getBillByInvoiceNo = async (req, res) => {
         res.status(200).json({ message: 'Bill fetched successfully', data: bill });
     } catch (err) {
         res.status(500).json({ error: 'Failed to fetch bill', details: err.message });
+        console.log(err)
     }
 };
 
 // Fetch multiple bills by serialNo
 module.exports.getBillsBySerialNos = async (req, res) => {
-    const { serialNos } = req.body; // Expect an array of serial numbers in the request body
-
+    const { serialNo } = req.body; // Expect an array of serial numbers in the request body
     try {
-        if (!Array.isArray(serialNos) || serialNos.length === 0) {
-            return res.status(400).json({ error: 'Please provide an array of serial numbers.' });
-        }
-
-        const bills = await Bills.findAll({ where: { serialNo: serialNos } }); // Query for all matching serialNos
-
+        const bills = await Bills.findAll({ where: { serialNo: serialNo } }); // Query for all matching serialNos
         if (bills.length === 0) {
             return res.status(404).json({ error: 'No bills found for the provided serial numbers.' });
         }
 
         res.status(200).json({ message: 'Bills fetched successfully', data: bills });
     } catch (err) {
+        console.log(err)
         res.status(500).json({ error: 'Failed to fetch bills', details: err.message });
     }
 };

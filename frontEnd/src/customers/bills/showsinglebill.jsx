@@ -1,0 +1,239 @@
+import React, { useEffect, useState } from 'react';
+import './bill.css';
+import { useParams } from 'react-router-dom';
+import logo from '../../components/images/sslogo.png'
+
+export default function ShowSingleBill() {
+    const [bill,setbill]=useState({})
+    const{invoiceNo}=useParams()
+    console.log(invoiceNo)
+
+    const fetchbill = async () => {
+    if (!invoiceNo) {
+        alert("Invoice number is missing");
+        return;
+    }
+
+    try {
+        const response = await fetch(`http://localhost:8080/api/bill/${invoiceNo}`);
+        if (!response.ok) {
+            alert("Problem in fetching the bill");
+            return;
+        }
+        const data = await response.json();
+        setbill(data.data);
+      
+    } catch (err) {
+        alert(err.message || "An error occurred");
+    }
+};
+console.log(bill)
+
+    useEffect(()=>{
+        fetchbill()
+    },[invoiceNo])
+  return (
+    <div className="showsinglbill">
+    <div className="zero-main-bill">
+            <div className="zero-main-vertical">
+                <span className="zero-Invoice"><i><u>TAX INVOICE</u></i></span>
+                <span>Invoice No. : {bill.invoiceNo}</span> 
+                <span>Invoice Date : {bill.invoicedate}</span>
+                <span> Amount :  {bill.grandTotal}</span>
+                <span>Original for Acknowledg</span>
+            </div>
+            <div className="zero-first-vertical">
+                <div className="zero-horizontal1">
+                    <img src={logo} alt="ssfixturing-logo" />
+                </div>
+                
+                <div className="zero-horizontal2"></div>
+                <div className="zero-horizontal3">
+                    <div className="zero-c-name">
+                       <b> S S Fixturing</b>
+                    </div>
+                    <div className="zero-c-addr">
+                        <b>Works :</b> Shop No. 11, Sr. No. 4/4, Gurudev Datta Colony No, 03, Bhosari, Pune, Maharastra- 411039
+                    </div>
+                    <div className="zero-c-info">
+                       <b> GSTIN No : 27HAOPS2617N1ZU    State : Maharashtra (027),  PAN No : HAOPS2617N.</b>
+                    </div>
+                    <div className="zero-c-phone">
+                       <b> Tel No :</b> +91 9604233567 / +91 9284550570
+                    </div>
+                    <div className="zero-c-email">
+                       <b> Email :</b> ssfixturing1@gmail.com/ www.ssfixturing.com
+                    </div>
+                </div>
+            </div>
+            <div className="zero-second-vertical">
+                <div>
+                    <div> <b>Invoice No.{bill.invoiceNo}</b></div>
+                    <div><b>PO No. {bill.PoNo}</b></div>
+                    <div><b>Whether Tax on Reverse Charge : No</b></div>
+                </div>
+                <div>
+                    <div> <b>Invoice Date :   {bill.invoicedate}</b></div>
+                    <div> <b>PO Date      :  {bill.Podate}</b></div>
+
+                </div>
+
+                <div>
+                    <div><b>Vendor Code :</b></div>
+                    <div> Challan No/Date (only in case mtl. recd against challan)</div>
+                </div>
+
+            </div>
+            <div className="zero-third-vertical">
+                <div style={{ padding: "5px" }}>
+                    <div><b>Name & Address of Bill To,</b></div>
+                    <div><b>{bill.cname}</b></div>
+                    <div> <b>Address :</b> {bill.caddress}</div>
+                    <div> <b>GSTIN No :</b> {bill.cgst}     State & State Code ; KHARSAWAN-833220,</div>
+                    <div><b> Mail ID : {bill.cmail}</b></div>
+                    <div><b> Contact Per :{bill.cContact}</b></div>
+                </div>
+                <div className="zero-third-vertical-line"></div>
+                <div style={{ padding: "5px" }}>
+                    <div><b>Name & Address of Supply To,</b></div>
+                    <div><b>{bill.cname}</b></div>
+                    <div>Address : {bill.caddress}</div>
+                    <div> GSTIN No :  {bill.cgst}     State & State Code ; KHARSAWAN-833220,</div>
+                    <div><b><u>Mail ID : {bill.cmail}</u></b></div>
+                    <div><b>Contact Per : {bill.cContact}</b></div>
+                </div>
+            </div>
+            <div className="zero-forth-vertical">
+                <div className="zero-fourth-vertical-box">
+                    <div className="zero-box zero-box1" style={{ border: "none" }}>
+                        <div className="zero-sub-box1"><b>Sr. No.</b></div>
+                        <div className="zero-sub-box2"><b>1</b></div>
+                    </div>
+                    <div className="zero-box zero-box2">
+                        <div className="zero-sub-box1"><b> Description Of Goods</b></div>
+                        <div className="zero-sub-box2"><b>
+                         {bill.description
+                         }</b></div>
+                    </div>
+                    <div className="zero-box zero-box-similar">
+                        <div className="zero-sub-box1"><b>HSN/SAC</b></div>
+                        <div className="zero-sub-box2">{bill.hsn}</div>
+                    </div>
+                    <div className="zero-box zero-box-similar">
+                        <div className="zero-sub-box1"><b> Unit Rate</b></div>
+                        <div className="zero-sub-box2">{bill.unitRate}.00</div>
+                    </div>
+                    <div className="zero-box zero-box-similar">
+                        <div className="zero-sub-box1"><b>Qty</b></div>
+                        <div className="zero-sub-box2">{bill.Qty}.00</div>
+                    </div>
+                    <div className="zero-box zero-box-similar">
+                        <div className="zero-sub-box1"><b>UOM</b></div>
+                        <div className="zero-sub-box2"> {bill.UOM}</div>
+                    </div>
+                    <div className="zero-box zero-box-similar">
+                        <div className="zero-sub-box1"><b> Applicable 
+                            Taxes</b></div>
+                        <div className="zero-sub-box2">IGST {bill.tax}%</div>
+                    </div>
+                    <div className="zero-box zero-box-similar">
+                        <div className="zero-sub-box1"><b> Disc %</b></div>
+                        <div className="zero-sub-box2">{bill.totalAmount-bill.basicvalue}.00<br></br>
+                            (-{bill.disc}.0%)</div>
+                    </div>
+                    <div className="zero-box zero-box9">
+                        <div className="zero-sub-box1"> <b>Total Amount</b></div>
+                        <div className="zero-sub-box2"><b>{bill.basicvalue}<br />
+                            IGST : 18%</b></div>
+                    </div>
+                </div>
+            </div>
+            <div className="zero-fifth-vertical">
+                <div className="zero-fifth-vertical-box1">
+                    <div className="zero-fifth-thsub-box1-1"><b>Payment Terms : 30 #days from the date of Invoice</b></div>
+                    <div className="zero-fifth-sub-box1-3"><b>Tax Value In Words : Twenty Five Thousand , Five Hundred and Eighty Four RS. And Seventy Paise only.</b></div>
+                    <div className="zero-fifth-sub-box1-2"><b> <u><i> Invoice Value In Words : One lakh , Sixty Seven Thousand, Seven Hundred Tweenty Two RS. Only.</i></u></b></div>
+                </div>
+                <div className="zero-fifth-vertical-box2">
+                    <div className="zero-fifth-sub-box2">
+                        <div className="zero-box1 zero-boxbg"> Basic Value</div>
+                        <div className="zero-box2 zero-boxbg"><b>{bill.basicvalue}</b></div>
+                    </div>
+                    <div className="zero-fifth-sub-box2">
+                        <div className="zero-box1"> Add CGST @ 9%</div>
+                        <div className="zero-box2"> 0.00</div>
+                    </div>
+                    <div className="zero-fifth-sub-box2">
+                        <div className="zero-box1"> Add SGST @ 9%</div>
+                        <div className="zero-box2"> 0.00</div>
+                    </div>
+                    <div className="zero-fifth-sub-box2">
+                        <div className="zero-box1"> Add IGST @ 18%</div>
+                        <div className="zero-box2"> {bill.taxamount}</div>
+                    </div>
+                    <div className="zero-fifth-sub-box2">
+                        <div className="zero-box1"> Tax Amount</div>
+                        <div className="zero-box2"> {bill.taxamount}</div>
+                    </div>
+                    <div className="zero-fifth-sub-box2">
+                        <div className="zero-box1 zero-boxbg" style={{ borderBottom: "none" }}><b> GRAND TOTAL</b></div>
+                        <div className="zero-box2 zero-boxbg" style={{ borderBottom: "none" }}><b><u>₹ {bill.grandTotal}</u></b></div>
+                    </div>    
+                </div>
+            </div>
+            <div className="zero-sixth-vertical">
+                <div> <b>Mode Of Shipping : BY ROAD</b></div>
+                <div> <b>L.R. / Docket No :</b></div>
+            </div>
+            <div className="zero-seventh-vertical">
+                <div><b>Transport/ Courier Name :</b> TCI EXPRESS</div>
+                <div> <b>Date & Time of Issue of Invoice :</b>{bill.invoicedate}    11.01 Am</div>
+            </div>
+            <div className="zero-eight-vertical">
+                <div className="zero-eight-vertical-row1">
+                    <div className="zero-box zero-box1"><b> Terms & Condition</b></div>
+                    <div className="zero-box zero-box2"><b>Our Bank Details :</b></div>
+                    <div className="zero-box zero-box3"><b>Sign.</b></div>
+                    <div className="zero-box zero-box4"><b>For S S  FIXTURING</b></div>
+                </div>
+                <div className="zero-eight-vertical-row2">
+                    <div className="zero-box zero-box1">
+                        <div className="zero-sub-box">1</div>
+                        <div className="zero-sub-box">2</div>
+                        <div className="zero-sub-box">3</div>
+                        <div className="zero-sub-box">4</div>
+                        <div className="zero-sub-box">5</div>
+                        <div className="zero-sub-box" style={{ borderBottom: "none" }}>6</div>
+                    </div>
+                    <div className="zero-box zero-box2">
+                        <div className="zero-sub-box"> Reverse charge Liability, Amount of Tax Subjected to reverse Charge</div>
+                        <div className="zero-sub-box">GST returns for ITC credit will be supplied only after receipt of full payment.</div>
+                        <div className="zero-sub-box"> If payment of this bill is not received within due date, Matter may lead to legal action.</div>
+                        <div className="zero-sub-box"> Shipping cost ( P & F) if not in Purchase order will be borne by Supplier. The Seller will not be responsible for any</div>
+                        <div className="zero-sub-box">Rejection without mutual agreement of after 15 days of date of invoice will not be entertained.</div>
+                        <div className="zero-sub-box" style={{ borderBottom: "none" }}>Subject to Pune Jurisdiction Only</div>
+                    </div>
+                    <div className="zero-box zero-box3">
+                        <div className="zero-box3-text">
+                            <b>
+                                SS fixturing
+                                Bank : PIMPRI CHINCHWAD SAHAKARI
+                                    BANK MARYADIT, PIMPRI
+                                    A/c No : 0040 0022 0000 2113<br />
+                                    IFSC Code : IBKL0087PCS
+                                </b>
+                        </div>
+                    </div>
+                    <div className="zero-box zero-box4"> 
+                        <div className="zero-box4-text">
+                            Receiver's Name & Sign & Seal<br />
+                            <b>Name :</b>
+                        </div>
+                    </div>
+                    <div className="zero-box zero-box5"></div>
+                </div>
+            </div>
+        </div>
+        </div>
+  );
+}
