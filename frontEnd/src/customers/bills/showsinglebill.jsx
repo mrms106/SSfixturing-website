@@ -43,7 +43,7 @@ console.log(bill)
         }
     
         const opt = {
-            margin: [0.1, 1.3, 0.5, 0.5], // Updated margins: top 0.1, left 1, others unchanged
+            margin: [0.1, 0.1, 0.1, 0.1], // Updated margins: top 0.1, left 1, others unchanged
             filename: `${bill.invoiceNo || "invoice"}.pdf`,
             image: { type: "jpeg", quality: 0.98 },
             html2canvas: {
@@ -83,30 +83,33 @@ console.log(bill)
             <div className="zero-first-vertical">
                 <div className="zero-horizontal1">
                     <img src={logo} alt="ssfixturing-logo" />
-                    <QRCode   
+                  
+                </div>
+                
+                <div className="zero-horizontal2"></div>
+                <div className="zero-horizontal3">
+                <QRCode   
                                 value={`https://ssfixturing.com/invoice/${bill.invoiceNo}`}
                                 className="bill-qr-code"
                                 size={75} // Adjust size as needed
                                 level="H"  // Error correction level (L, M, Q, H)
                             />
-                </div>
-                
-                <div className="zero-horizontal2"></div>
-                <div className="zero-horizontal3">
+                   <div>
                     <div className="zero-c-name">
-                       <b> S S Fixturing</b>
-                    </div>
-                    <div className="zero-c-addr">
-                        <b>Works :</b> Shop No. 11, Sr. No. 4/4, Gurudev Datta Colony No, 03, Bhosari, Pune, Maharastra- 411039
-                    </div>
-                    <div className="zero-c-info">
-                       <b> GSTIN No : 27HAOPS2617N1ZU    State : Maharashtra (027),  PAN No : HAOPS2617N.</b>
-                    </div>
-                    <div className="zero-c-phone">
-                       <b> Tel No :</b> +91 9604233567 / +91 9284550570
-                    </div>
-                    <div className="zero-c-email">
-                       <b> Email :</b> ssfixturing1@gmail.com/ www.ssfixturing.com
+                        <b> S S Fixturing</b>
+                        </div>
+                        <div className="zero-c-addr">
+                            <b>Works :</b> Shop No. 11, Sr. No. 4/4, Gurudev Datta Colony No, 03, Bhosari, Pune, Maharastra- 411039
+                        </div>
+                        <div className="zero-c-info">
+                        <b> GSTIN No : 27HAOPS2617N1ZU    State : Maharashtra (027),  PAN No : HAOPS2617N.</b>
+                        </div>
+                        <div className="zero-c-phone">
+                        <b> Tel No :</b> +91 9604233567 / +91 9284550570
+                        </div>
+                        <div className="zero-c-email">
+                        <b> Email :</b> ssfixturing1@gmail.com/ www.ssfixturing.com
+                        </div>
                     </div>
                 </div>
             </div>
@@ -129,7 +132,7 @@ console.log(bill)
 
             </div>
             <div className="zero-third-vertical">
-                <div style={{ padding: "5px" }}>
+                <div style={{ padding: "5px" }} className='zero-third-vertical-box1'>
                     <div><b>Name & Address of Bill To,</b></div>
                     <div><b>{bill.cname}</b></div>
                     <div> <b>Address :</b> {bill.caddress}</div>
@@ -171,11 +174,11 @@ console.log(bill)
                         <div className="zero-sub-box1"><b>Qty</b></div>
                         <div className="zero-sub-box2">{bill.Qty}.00</div>
                     </div>
-                    <div className="zero-box zero-box-similar">
+                    <div className="zero-box zero-box-box6">
                         <div className="zero-sub-box1"><b>UOM</b></div>
                         <div className="zero-sub-box2"> {bill.UOM}</div>
                     </div>
-                    <div className="zero-box zero-box-similar">
+                    <div className="zero-box zero-box-box7">
                         <div className="zero-sub-box1"><b> Applicable 
                             Taxes</b></div>
                         <div className="zero-sub-box2">IGST {bill.tax}%</div>

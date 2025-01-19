@@ -1,11 +1,11 @@
 .showsinglbill{
-    width: 90rem;
+    width: 102rem;
     height: auto;
     background-color: white ;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-left: 140px;
+    margin-left: 10px;
     margin-top: 10rem;
 
 }
@@ -19,7 +19,7 @@
 
 
 .zero-main-bill {
-    width: 85rem;
+    width: 100rem;
     height: auto;
     border: 2px solid black;
     margin-top: 10px;
@@ -47,7 +47,7 @@
 .zero-first-vertical {
     display: flex;
     border-top: 2px solid black;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
 .zero-first-vertical img {
@@ -61,7 +61,14 @@
     background-color: black;
     height: auto;
 }
+.zero-horizontal3{
+    display: flex;
+}
+.zero-horizontal3 .bill-qr-code{
+    margin-right: 40px;
+    margin-top: 10px;
 
+}
 .zero-second-vertical {
     display: flex;
     justify-content: space-between;
@@ -70,8 +77,10 @@
 }
 .zero-third-vertical {
     display: flex;
-    justify-content: space-between;
     border-top: 2px solid black;
+}
+.zero-third-vertical-box1{
+    min-width: 45rem;
 }
 .zero-third-vertical-line {
     width: 2px;
@@ -94,10 +103,16 @@
     width: 60px;
 }
 .zero-fourth-vertical-box .zero-box2 {
-    width: 32.2rem;
+    width: 47.4rem;
+}
+.zero-fourth-vertical-box .zero-box-box6{
+    width: 75px;
+} 
+.zero-fourth-vertical-box .zero-box-box7{
+    width: 127px;
 }
 .zero-fourth-vertical-box .zero-box-similar {
-    width: 100px;
+    width: 101px;
 }
 .zero-fourth-vertical-box .zero-box9 {
     width: 171px;
@@ -121,7 +136,7 @@
 .zero-fifth-vertical-box1 {
     min-height: 170px;
     margin-top: -16px;
-    width: 55.15rem;
+    width: 71.42rem;
     /* border-right: 2px solid black; */
 }
 .zero-fifth-thsub-box1-1 {
@@ -193,13 +208,13 @@
 }
 
 .zero-eight-vertical-row1 .zero-box1 {
-    width: 42.4rem;
+    width: 55.7rem;
 }
 .zero-eight-vertical-row1 .zero-box2 {
     width: 19rem;
 }
 .zero-eight-vertical-row1 .zero-box3 {
-    width: 12.6rem;
+    width: 16rem;
 }
 .zero-eight-vertical-row1 .zero-box4 {
     width: 171px;
@@ -220,7 +235,7 @@
     font-size: 13px;
 }
 .zero-eight-vertical-row2 .zero-box2 {
-    width: 36.66rem;
+    width: 49.2rem;
     border-right: 2px solid black;
 }
 .zero-eight-vertical-row2 .zero-box2 .zero-sub-box {
@@ -231,7 +246,7 @@
     padding-left: 2px;
 }
 .zero-eight-vertical-row2 .zero-box3 {
-    width: 19rem;
+    width: 18.7rem;
     border-right: 2px solid black;
 }
 .zero-eight-vertical-row2 .zero-box3 .zero-box3-text {
@@ -240,7 +255,7 @@
     font-size: 15px;
 }
 .zero-eight-vertical-row2 .zero-box4 {
-    width: 12.6rem;
+    width: 15.7rem;
     border-right: 2px solid black;
 }
 .zero-eight-vertical-row2 .zero-box4 .zero-box4-text {
@@ -259,8 +274,4 @@
     border-radius: 5px; /* Note: Use 'border-radius' in CSS */
     z-index: 1000;
     cursor: pointer;
-}
-
-.bill-qr-code{
-    margin-left: 70px;
 }
