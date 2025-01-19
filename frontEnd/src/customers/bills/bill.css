@@ -260,3 +260,7 @@
     z-index: 1000;
     cursor: pointer;
 }
+
+.bill-qr-code{
+    margin-left: 70px;
+}

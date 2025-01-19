@@ -3,6 +3,7 @@ import './bill.css';
 import { useParams } from 'react-router-dom';
 import logo from '../../components/images/sslogo.png'
 import html2pdf from "html2pdf.js";
+import QRCode from 'qrcode.react'; 
 
 export default function ShowSingleBill() {
     const [bill,setbill]=useState({})
@@ -82,6 +83,12 @@ console.log(bill)
             <div className="zero-first-vertical">
                 <div className="zero-horizontal1">
                     <img src={logo} alt="ssfixturing-logo" />
+                    <QRCode   
+                                value={`https://ssfixturing.com/invoice/${bill.invoiceNo}`}
+                                className="bill-qr-code"
+                                size={75} // Adjust size as needed
+                                level="H"  // Error correction level (L, M, Q, H)
+                            />
                 </div>
                 
                 <div className="zero-horizontal2"></div>
