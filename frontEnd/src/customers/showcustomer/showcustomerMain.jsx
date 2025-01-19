@@ -9,7 +9,7 @@ export default function ShowCustomer(){
     const[createbill,setcreatebill]=useState(true)
      const [customer,setcustomer]=useState({})
      const[bills,setbills]=useState([])
-     const[showbill,setshowbill]=useState(false)
+     const[showbill,setshowbill]=useState(true)
     
         const fetchCustomer=async()=>{
             const responce=await fetch(`http://localhost:8080/api/customer/${serialNo}`)
@@ -66,8 +66,8 @@ export default function ShowCustomer(){
                 <button onClick={()=>setcreatebill(false)}>Create Bill</button>
                 <button onClick={()=>fetchBill()}>show Bill</button>
                </div>
-            </div>
-         { showbill ?<Showbills bills={bills}/>:null}
+            </div><hr></hr>
+         { showbill ?<Showbills bills={bills} name={customer.name}/>:null}
         </div>:
         <CreateBill customer={customer} setcreatebill={setcreatebill}/>}
         </>
