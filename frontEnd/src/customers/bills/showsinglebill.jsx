@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import logo from '../../components/images/sslogo.png'
 import html2pdf from "html2pdf.js";
 import QRCode from 'qrcode.react'; 
-
+import numberToWords from './covrtnumber';
 export default function ShowSingleBill() {
     const [bill,setbill]=useState({})
     const{invoiceNo}=useParams()
@@ -195,8 +195,12 @@ console.log(bill)
             <div className="zero-fifth-vertical">
                 <div className="zero-fifth-vertical-box1">
                     <div className="zero-fifth-thsub-box1-1"><b>Payment Terms : 30 #days from the date of Invoice</b></div>
-                    <div className="zero-fifth-sub-box1-3"><b>Tax Value In Words : Twenty Five Thousand , Five Hundred and Eighty Four RS. And Seventy Paise only.</b></div>
-                    <div className="zero-fifth-sub-box1-2"><b> <u><i> Invoice Value In Words : One lakh , Sixty Seven Thousand, Seven Hundred Tweenty Two RS. Only.</i></u></b></div>
+                    <div className="zero-fifth-sub-box1-3"><b>Tax Value In Words :{" "}
+                    {bill.taxamount ? numberToWords(Number(bill.taxamount)) : "N/A"}</b></div>
+                    <div className="zero-fifth-sub-box1-2"><b> <u><i> Invoice Value In Words :{" "}
+                        {bill.grandTotal ? numberToWords(Number(bill.grandTotal)) : "N/A"}
+                        </i></u></b>
+                    </div>
                 </div>
                 <div className="zero-fifth-vertical-box2">
                     <div className="zero-fifth-sub-box2">
