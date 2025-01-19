@@ -9,7 +9,6 @@ export default function ShowCustomer(){
     const[createbill,setcreatebill]=useState(true)
      const [customer,setcustomer]=useState({})
      const[bills,setbills]=useState([])
-     const[showbill,setshowbill]=useState(true)
     
         const fetchCustomer=async()=>{
             const responce=await fetch(`http://localhost:8080/api/customer/${serialNo}`)
@@ -37,13 +36,18 @@ export default function ShowCustomer(){
                   }
             const data=await responce.json()
               setbills(data.data)
-              setshowbill(true)
+             
         }
 
         useEffect(()=>{
             fetchCustomer()
         },[])
-        console.log(customer)
+       
+        useEffect(()=>{
+            if(customer.serialNO){
+                fetchBill()
+            }
+        },[customer.serialNO])
     return(
         <>{ createbill ?
         <div className="show-customer-main">
@@ -64,10 +68,9 @@ export default function ShowCustomer(){
                </div>
                <div className="c-btn">
                 <button onClick={()=>setcreatebill(false)}>Create Bill</button>
-                <button onClick={()=>fetchBill()}>show Bill</button>
                </div>
             </div><hr></hr>
-         { showbill ?<Showbills bills={bills} name={customer.name}/>:null}
+        <Showbills bills={bills} name={customer.name}/>
         </div>:
         <CreateBill customer={customer} setcreatebill={setcreatebill}/>}
         </>
