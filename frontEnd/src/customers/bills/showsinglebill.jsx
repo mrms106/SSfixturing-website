@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './bill.css';
 import { useParams } from 'react-router-dom';
 import logo from '../../components/images/sslogo.png'
+import html2pdf from "html2pdf.js";
 
 export default function ShowSingleBill() {
     const [bill,setbill]=useState({})
@@ -32,7 +33,43 @@ console.log(bill)
     useEffect(()=>{
         fetchbill()
     },[invoiceNo])
-  return (
+    const downloadPDF = () => {
+        const element = document.querySelector(".zero-main-bill");
+    
+        if (!element) {
+            alert("Bill element not found");
+            return;
+        }
+    
+        const opt = {
+            margin: [0.1, 1.3, 0.5, 0.5], // Updated margins: top 0.1, left 1, others unchanged
+            filename: `${bill.invoiceNo || "invoice"}.pdf`,
+            image: { type: "jpeg", quality: 0.98 },
+            html2canvas: {
+                scale: 3, // Use a higher scale for better quality
+                useCORS: true, // Allow cross-origin images
+                allowTaint: true, // Allow images outside the domain
+                
+            },
+            jsPDF: {
+                unit: "in",
+                format: "tabloid",
+                orientation: "landscape",
+            },
+        };
+    
+        // Delay execution slightly to ensure all content is rendered
+        setTimeout(() => {
+            html2pdf()
+                .set(opt)
+                .from(element)
+                .save()
+                .catch((err) => console.error("PDF generation error:", err));
+        }, 500); // Delay of 500ms
+    };
+    
+      
+  return (<>
     <div className="showsinglbill">
     <div className="zero-main-bill">
             <div className="zero-main-vertical">
@@ -235,5 +272,7 @@ console.log(bill)
             </div>
         </div>
         </div>
+        <button onClick={downloadPDF} className='pdf-download-btn'> Download PDF<i className="fa-solid fa-download"></i></button>
+       </>
   );
 }
