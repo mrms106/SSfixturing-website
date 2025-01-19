@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import './showcustomer.css'
 import CreateBill from "../bills/billmain"
-import Showbills from "./showbills.jsx";
+import Showbills from "./showbills/showbills"
 
 export default function ShowCustomer(){
     const {serialNo}=useParams()

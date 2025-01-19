@@ -20,4 +20,4 @@ const numberToWords = (number) => {
     const paiseWords = decimalPart === "00" ? "" : ` and ${convertToWords(Number(decimalPart))} Paise`;
     return `${words} Rupees${paiseWords} only.`;
   };
-  module.exports=numberToWords;
+  export default numberToWords;

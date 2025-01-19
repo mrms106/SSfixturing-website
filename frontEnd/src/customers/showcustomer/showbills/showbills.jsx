@@ -7,7 +7,7 @@ export default function Showbills({bills}){
         <div className="showbills-main">
             {bills.map((item)=>(
                 <div style={{color:"white",margin:'20px',cursor:'pointer'}} onClick={()=>navigate(`/invoice/${item.invoiceNo}`)}>
-                    {item.invoiceNo}
+                    {item.description}
                 </div>
             ))}
         </div>
