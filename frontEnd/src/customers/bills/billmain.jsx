@@ -19,10 +19,8 @@ export default function CreateBill({ customer, setcreatebill }) {
     item: [
       {
         description: '',
-        hsn: '',
         unitRate: '',
         quantity: '',
-        UOM: '',
         discount: '',
       },
     ],
@@ -78,7 +76,7 @@ console.log(IsOutside)
       ...formData,
       item: [
         ...formData.item,
-        { description: '', hsn: '', unitRate: '', quantity: '', UOM: '', discount: '' },
+        { description: '',  unitRate: '', quantity: '',  discount: '' },
       ],
     });
   };
@@ -166,18 +164,6 @@ console.log(IsOutside)
             />
             </div>
 
-           <div>
-           <label>HSN</label>
-            <input
-              type="text"
-              name="hsn"
-              placeholder="Enter HSN"
-              required
-              value={item.hsn}
-              onChange={(e) => handleChange(e, index)}
-            />
-
-           </div>
             <div>
             <label>Unit Rate</label>
             <input
@@ -202,18 +188,7 @@ console.log(IsOutside)
             />
            </div>
 
-            <div>
-            <label>UOM</label>
-            <input
-              type="text"
-              name="UOM"
-              placeholder="Enter UOM"
-              required
-              value={item.UOM}
-              onChange={(e) => handleChange(e, index)}
-            />
-
-            </div>
+           
            <div>
            <label>Discount (%)</label>
             <input
