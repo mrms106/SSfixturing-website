@@ -80,7 +80,7 @@
     border-top: 2px solid black;
 }
 .zero-third-vertical-box1{
-    min-width: 45rem;
+    min-width: 51.15rem;
 }
 .zero-third-vertical-line {
     width: 2px;
@@ -98,6 +98,8 @@
 .zero-fourth-vertical-box .zero-box {
     border-left: 2px solid black;
     text-align: center;
+    height: auto !important;
+    min-height: 19rem;
 }
 .zero-fourth-vertical-box .zero-box1 {
     width: 60px;
@@ -260,6 +262,10 @@
 }
 .zero-eight-vertical-row2 .zero-box4 .zero-box4-text {
     margin-top: 115px;
+}
+.zero-eight-vertical-row2 .zero-box5 img{
+margin-top: 20px;
+width: 150px;
 }
 .pdf-download-btn {
     position: fixed;

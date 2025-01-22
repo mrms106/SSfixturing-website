@@ -5,6 +5,7 @@ import logo from '../../components/images/sslogo.png'
 import html2pdf from "html2pdf.js";
 import QRCode from 'qrcode.react'; 
 import numberToWords from './covrtnumber';
+import sign from '../../components/images/SIGN.png'
 export default function ShowSingleBill() {
     const [bill,setbill]=useState({})
     const{invoiceNo}=useParams()
@@ -309,11 +310,14 @@ console.log(bill)
                     </div>
                     <div className="zero-box zero-box4"> 
                         <div className="zero-box4-text">
+                           
                             Receiver's Name & Sign & Seal<br />
                             <b>Name :</b>
                         </div>
                     </div>
-                    <div className="zero-box zero-box5"></div>
+                    <div className="zero-box zero-box5">
+                    <img src={sign} alt='signatare'></img>
+                    </div>
                 </div>
             </div>
         </div>
