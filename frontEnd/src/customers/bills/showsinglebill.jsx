@@ -6,6 +6,7 @@ import html2pdf from "html2pdf.js";
 import QRCode from 'qrcode.react'; 
 import numberToWords from './covrtnumber';
 import sign from '../../components/images/SIGN.png'
+import TermsandCon from './t&c';
 export default function ShowSingleBill() {
     const [bill,setbill]=useState({})
     const{invoiceNo}=useParams()
@@ -36,7 +37,7 @@ console.log(bill)
         fetchbill()
     },[invoiceNo])
     const downloadPDF = () => {
-        const element = document.querySelector(".zero-main-bill");
+        const element = document.querySelector(".showsinglbill");
     
         if (!element) {
             alert("Bill element not found");
@@ -48,7 +49,7 @@ console.log(bill)
             filename: `${bill.invoiceNo || "invoice"}.pdf`,
             image: { type: "jpeg", quality: 0.98 },
             html2canvas: {
-                scale: 3, // Use a higher scale for better quality
+                scale: 2, // Use a higher scale for better quality
                 useCORS: true, // Allow cross-origin images
                 allowTaint: true, // Allow images outside the domain
                 
@@ -72,6 +73,7 @@ console.log(bill)
     
       
   return (<>
+  <div className="main-siglbill-show">
     <div className="showsinglbill">
     <div className="zero-main-bill">
             <div className="zero-main-vertical">
@@ -321,7 +323,9 @@ console.log(bill)
                 </div>
             </div>
         </div>
+            <TermsandCon/>
         </div>
+    </div>
         <button onClick={downloadPDF} className='pdf-download-btn'> Download PDF<i className="fa-solid fa-download"></i></button>
        </>
   );
