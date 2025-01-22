@@ -154,44 +154,76 @@ console.log(bill)
                 <div className="zero-fourth-vertical-box">
                     <div className="zero-box zero-box1" style={{ border: "none" }}>
                         <div className="zero-sub-box1"><b>Sr. No.</b></div>
-                        <div className="zero-sub-box2"><b>1</b></div>
+                        {
+                          bill.item && bill.item.map((val,idx)=>(
+                                <div className="zero-sub-box2"><b>{idx+1}</b></div>
+                            ))
+                        }
                     </div>
                     <div className="zero-box zero-box2">
                         <div className="zero-sub-box1"><b> Description Of Goods</b></div>
-                        <div className="zero-sub-box2"><b>
-                         {bill.description
-                         }</b></div>
+                        {
+                          bill.item && bill.item.map((val,idx)=>(
+                                <div className="zero-sub-box2"><b>{val.description}</b></div>
+                            ))
+                        }
                     </div>
                     <div className="zero-box zero-box-similar">
                         <div className="zero-sub-box1"><b>HSN/SAC</b></div>
-                        <div className="zero-sub-box2">{bill.hsn}</div>
+                        {
+                          bill.item && bill.item.map((val,idx)=>(
+                                <div className="zero-sub-box2">84663020</div>
+                            ))
+                        }
                     </div>
                     <div className="zero-box zero-box-similar">
                         <div className="zero-sub-box1"><b> Unit Rate</b></div>
-                        <div className="zero-sub-box2">{bill.unitRate}.00</div>
+                        {
+                          bill.item && bill.item.map((val,idx)=>(
+                                <div className="zero-sub-box2"><b>{val.unitRate}.00</b></div>
+                            ))
+                        }
                     </div>
                     <div className="zero-box zero-box-similar">
                         <div className="zero-sub-box1"><b>Qty</b></div>
-                        <div className="zero-sub-box2">{bill.Qty}.00</div>
+                        {
+                          bill.item && bill.item.map((val,idx)=>(
+                                <div className="zero-sub-box2"><b>{val.quantity}.00</b></div>
+                            ))
+                        }
                     </div>
                     <div className="zero-box zero-box-box6">
                         <div className="zero-sub-box1"><b>UOM</b></div>
-                        <div className="zero-sub-box2"> {bill.UOM}</div>
+                        {
+                         bill.item && bill.item.map((val,idx)=>(
+                                <div className="zero-sub-box2">Nos.</div>
+                            ))
+                        }
                     </div>
                     <div className="zero-box zero-box-box7">
                         <div className="zero-sub-box1"><b> Applicable 
                             Taxes</b></div>
-                        <div className="zero-sub-box2">IGST {bill.tax}%</div>
+                            {
+                          bill.item && bill.item.map((val,idx)=>(
+                                <div className="zero-sub-box2">IGST 18%</div>
+                            ))
+                        }
                     </div>
                     <div className="zero-box zero-box-similar">
                         <div className="zero-sub-box1"><b> Disc %</b></div>
-                        <div className="zero-sub-box2">{bill.totalAmount-bill.basicvalue}.00<br></br>
-                            (-{bill.disc}.0%)</div>
+                        {
+                          bill.item &&  bill.item.map((val,idx)=>(
+                                <div className="zero-sub-box2" style={{marginTop:'5px'}}><b>{val.unitRate-val.totalAmount}</b><br></br>({val.discount}%)</div>
+                            ))
+                        }
                     </div>
                     <div className="zero-box zero-box9">
                         <div className="zero-sub-box1"> <b>Total Amount</b></div>
-                        <div className="zero-sub-box2"><b>{bill.basicvalue}<br />
-                            IGST : 18%</b></div>
+                        {
+                          bill.item &&  bill.item.map((val,idx)=>(
+                                <div className="zero-sub-box2" style={{marginTop:'5px'}}><b>{val.totalAmount}</b><br></br><i>IGST : 18%</i></div>
+                            ))
+                        }
                     </div>
                 </div>
             </div>
@@ -208,19 +240,19 @@ console.log(bill)
                 <div className="zero-fifth-vertical-box2">
                     <div className="zero-fifth-sub-box2">
                         <div className="zero-box1 zero-boxbg"> Basic Value</div>
-                        <div className="zero-box2 zero-boxbg"><b>{bill.basicvalue}</b></div>
+                        <div className="zero-box2 zero-boxbg"><b>{bill.totalvalue}</b></div>
                     </div>
                     <div className="zero-fifth-sub-box2">
                         <div className="zero-box1"> Add CGST @ 9%</div>
-                        <div className="zero-box2"> 0.00</div>
+                        <div className="zero-box2"> {bill.isOutside ?bill.taxamount/2 :0}.00</div>
                     </div>
                     <div className="zero-fifth-sub-box2">
                         <div className="zero-box1"> Add SGST @ 9%</div>
-                        <div className="zero-box2"> 0.00</div>
+                        <div className="zero-box2"> {bill.isOutside ?bill.taxamount/2 :0}.00</div>
                     </div>
                     <div className="zero-fifth-sub-box2">
                         <div className="zero-box1"> Add IGST @ 18%</div>
-                        <div className="zero-box2"> {bill.taxamount}</div>
+                        <div className="zero-box2"> {bill.isOutside?"0.00":bill.taxamount}</div>
                     </div>
                     <div className="zero-fifth-sub-box2">
                         <div className="zero-box1"> Tax Amount</div>
