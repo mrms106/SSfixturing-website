@@ -36,6 +36,7 @@ export default function ShowCustomer(){
                   }
             const data=await responce.json()
               setbills(data.data)
+              console.log(data)
              
         }
 

@@ -1,45 +1,63 @@
 const Bills=require('../modules/bill')
 
+
+function generateSerialNumber() {
+    return Math.random().toString().slice(2, 25);
+  }
+
 module.exports.createBill = async (req, res) => {
     const {
         cname, caddress, cgst, cmail, cContact,
-        serialNo, invoiceNo, PoNo, invoicedate, Podate,
-        description, hsn, unitRate, Qty, UOM,
-        tax, disc, totalAmount, taxamount, grandTotal,basicvalue
+        serialNo, invoiceNo, PoNo, invoicedate, Podate, item,isOutside
     } = req.body;
-    console.log(req.body,cname)
-
+   const billId=generateSerialNumber()
     try {
+        // Ensure `item` is an array and contains valid entries
+        if (!Array.isArray(item) || item.length === 0) {
+            return res.status(400).json({ error: 'Items must be a non-empty array' });
+        }
+
+        // Create the new bill
         const newBill = await Bills.create({
             cname, caddress, cgst, cmail, cContact,
-            serialNo, invoiceNo, PoNo, invoicedate, Podate,
-            description, hsn, unitRate, Qty, UOM,
-            tax, disc, totalAmount, taxamount, grandTotal,basicvalue
+            serialNo, invoiceNo, PoNo, invoicedate, Podate, item,billId,isOutside
         });
+
         res.status(201).json({ message: 'Bill created successfully', data: newBill });
     } catch (err) {
-        console.log(err.message,err)
+        console.error(err.message, err);
         res.status(500).json({ error: 'Failed to create bill', details: err.message });
     }
 };
 
 module.exports.updateBill = async (req, res) => {
-    const { invoiceNo } = req.params; // Assuming the bill is identified by a unique ID
-    const updatedData = req.body;
+    const { invoiceNo } = req.params; // Bill identified by `invoiceNo`
+    const { item, ...otherData } = req.body; // Separate `item` from other data
 
     try {
-        const bill = await Bills.findByPk(invoiceNo);
+        const bill = await Bills.findOne({ where: { invoiceNo } });
 
         if (!bill) {
             return res.status(404).json({ error: 'Bill not found' });
         }
 
+        // Update the bill
+        const updatedData = {
+            ...otherData,
+        };
+
+        if (item && Array.isArray(item)) {
+            updatedData.item = item; // Include the updated `item` if provided
+        }
+
         const updatedBill = await bill.update(updatedData);
         res.status(200).json({ message: 'Bill updated successfully', data: updatedBill });
     } catch (err) {
+        console.error(err.message, err);
         res.status(500).json({ error: 'Failed to update bill', details: err.message });
     }
 };
+
 
 module.exports.deleteBill = async (req, res) => {
     const { invoiceNo } = req.params;
@@ -60,9 +78,15 @@ module.exports.deleteBill = async (req, res) => {
 // Fetch a single bill by invoiceNo
 module.exports.getBillByInvoiceNo = async (req, res) => {
     const { invoiceNo } = req.params; // Extract invoiceNo from request parameters
+    // console.log("Request Invoice No:", invoiceNo, typeof invoiceNo);
 
     try {
-        const bill = await Bills.findOne({ where: { invoiceNo } });
+        // Convert to string (if necessary) to avoid type mismatch issues
+        const bill = await Bills.findOne({
+            where: { invoiceNo: invoiceNo.toString() }, // Ensure correct format
+        });
+
+        // console.log("Fetched Bill:", bill);
 
         if (!bill) {
             return res.status(404).json({ error: 'Bill not found' });
@@ -70,8 +94,8 @@ module.exports.getBillByInvoiceNo = async (req, res) => {
 
         res.status(200).json({ message: 'Bill fetched successfully', data: bill });
     } catch (err) {
+        console.error('Error fetching bill:', err);
         res.status(500).json({ error: 'Failed to fetch bill', details: err.message });
-        console.log(err)
     }
 };
 

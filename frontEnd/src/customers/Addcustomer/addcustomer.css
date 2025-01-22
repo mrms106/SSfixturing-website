@@ -23,3 +23,36 @@
     width: 200px;
    margin-top: 20px !important;
 }
+
+/* cretae bill css */
+.create-bill-form{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column !important;
+    width: 100%;
+}
+.create-bill-form-div1{
+    display: flex;
+    /* flex-direction: column; */
+    flex-wrap: wrap;
+}
+.create-bill-form-div1 div{
+    display: flex;
+    margin: 10px !important;
+    flex-direction: column;
+    margin-bottom: 0 !important;
+}
+.create-bill-form-div2{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
+.create-bill-form-div2 div{
+    display: flex;
+    flex-direction: column;
+    margin: 10px !important;
+}
+.create-bill-form-buttons{
+    margin-top: 0px !important;
+}

@@ -1,215 +1,245 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState,useEffect } from 'react';
+import Switch from '@mui/material/Switch';
+import FormControlLabel from '@mui/material/FormControlLabel';
 
-export default function CreateBill({customer,setcreatebill}) {
-  const[btn,setbtn]=useState(false)
+export default function CreateBill({ customer, setcreatebill }) {
+  const [IsOutside, setIsOutside] = useState(false);
   const [formData, setFormData] = useState({
-    cname:'',
-    caddress:'',
-    cgst:'',
-    cmail:'',
-    cContact:'',
-    serialNo:'',
+    cname: customer.name,
+    caddress: customer.address,
+    cgst: customer.gstNo,
+    cmail: customer.email,
+    cContact: customer.contact,
+    serialNo: customer.serialNO,
     invoiceNo: '',
     PoNo: '',
     invoicedate: '',
     Podate: '',
-    description: '',
-    hsn: '',
-    unitRate: '',
-    Qty: '',
-    UOM: '',
-    disc: '',
-    tax: '',
-    totalAmount: '',
-    taxamount: '',
-    grandTotal: '',
+    isOutside:false,
+    item: [
+      {
+        description: '',
+        hsn: '',
+        unitRate: '',
+        quantity: '',
+        UOM: '',
+        discount: '',
+      },
+    ],
   });
-
-  const handleChange = (e) => {
+// Sync IsOutside state with formData
+useEffect(() => {
+  setFormData((prev) => ({
+    ...prev,
+    isOutside: IsOutside,
+  }));
+}, [IsOutside]);
+  // Handle changes in form fields
+  const handleChange = (e, index = null) => {
     const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+
+    if (index !== null) {
+      // Update item array
+      const updatedItems = [...formData.item];
+      updatedItems[index][name] = value;
+      setFormData({ ...formData, item: updatedItems });
+    } else {
+      // Update top-level fields
+      setFormData({ ...formData, [name]: value });
+    }
   };
-
-  const calculateTotals = () => {
-    
-    const { unitRate, Qty, disc, tax } = formData;
-    const rate = parseFloat(unitRate) || 0;
-    const quantity = parseFloat(Qty) || 0;
-    const discount = parseFloat(disc) || 0;
-    const taxRate = parseFloat(tax) || 0;
-
-    const totalAmount = rate * quantity;
-    const discountedAmount = totalAmount - (totalAmount * discount) / 100;
-    const taxAmount = (discountedAmount * taxRate) / 100;
-    const grandTotal = discountedAmount + taxAmount;
-
-    setFormData({
-      ...formData,
-      totalAmount: totalAmount.toFixed(2),
-      taxamount: taxAmount.toFixed(2),
-      grandTotal: grandTotal.toFixed(2),
-      basicvalue:discountedAmount.toFixed(2),
-      cname:customer.name,
-      caddress:customer.address,
-      cgst:customer.gstNo,
-      cmail:customer.email,
-       cContact:customer.contact,
-      serialNo:customer.serialNO,
-    });
-    setbtn(true)
-  };
-
+console.log(IsOutside)
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData)
-
-   try{
-
-    const responce=await fetch("http://localhost:8080/api/createbill",{
-        method:'POST',
-        headers:{
-            'content-type': 'application/json'
+    try {
+      const response = await fetch("http://localhost:8080/api/createbill", {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
         },
-        body:JSON.stringify(formData)
-    })
-    if(responce.ok){
-        alert("the bill is created")
-        setcreatebill(true)
-        return;
-    }
-    alert("problem in creating the bill")
+        body: JSON.stringify(formData),
+      });
 
-   }catch(err){
-      console.log(err)
-      alert(err)
-   }
+      if (response.ok) {
+        alert("The bill has been created successfully");
+        setcreatebill(true);
+        return;
+      }
+
+      alert("Problem creating the bill");
+    } catch (err) {
+      console.error(err);
+      alert("Error: " + err.message);
+    }
   };
 
-
+  const addItem = () => {
+    setFormData({
+      ...formData,
+      item: [
+        ...formData.item,
+        { description: '', hsn: '', unitRate: '', quantity: '', UOM: '', discount: '' },
+      ],
+    });
+  };
+  const removeItem = (index) => {
+    const updatedItems = formData.item.filter((_, i) => i !== index);
+    setFormData({ ...formData, item: updatedItems });
+  };
   return (
-    <>
-      <div className="addcustomer-main">
-       <div className='addcustomer-close-btn'><button onClick={()=>setcreatebill(true)}>Close</button> <h3>Create Bill</h3></div>
-        <form onSubmit={handleSubmit}>
+    <div className="addcustomer-main">
+      <div className="addcustomer-close-btn">
+        <button onClick={() => setcreatebill(true)}>Close</button>
+        <h3>Create Bill</h3>
+        
+      </div>
+      <form onSubmit={handleSubmit} className='create-bill-form'>
+        <div className='create-bill-form-div1'>
+         <div>
+         <label>Invoice No</label>
+          <input
+            type="text"
+            name="invoiceNo"
+            placeholder="Enter invoice no."
+            required
+            value={formData.invoiceNo}
+            onChange={handleChange}
+          />
+         </div>
+
+         <div>
+         <label>PO No</label>
+          <input
+            type="text"
+            name="PoNo"
+            placeholder="Enter PO no."
+            required
+            value={formData.PoNo}
+            onChange={handleChange}
+          />
+         </div>
+
+         <div>
+         <label>Invoice Date</label>
+          <input
+            type="date"
+            name="invoicedate"
+            required
+            value={formData.invoicedate}
+            onChange={handleChange}
+          />
+         </div>
+
           <div>
-            <label>Invoice No</label>
-            <input
-              type="text"
-              name="invoiceNo"
-              placeholder="Enter invoice no."
-              required
-              value={formData.invoiceNo}
-              onChange={handleChange}
-            />
-
-            <label>PO No</label>
-            <input
-              type="text"
-              name="PoNo"
-              placeholder="Enter PO no."
-              required
-              value={formData.PoNo}
-              onChange={handleChange}
-            />
-
-            <label>Invoice Date</label>
-            <input
-              type="date"
-              name="invoicedate"
-              required
-              value={formData.invoicedate}
-              onChange={handleChange}
-            />
-
-            <label>PO Date</label>
-            <input
-              type="date"
-              name="Podate"
-              required
-              value={formData.Podate}
-              onChange={handleChange}
-            />
-
+          <label>PO Date</label>
+          <input
+            type="date"
+            name="Podate"
+            required
+            value={formData.Podate}
+            onChange={handleChange}
+          />
+          </div>
+         
+        </div>
+        <div style={{marginRight:'90%'}}>
+        <FormControlLabel
+            control={<Switch checked={IsOutside} onChange={() => setIsOutside(!IsOutside)} />}
+            label="IsOutside"
+          />
+            
+          </div>
+        {formData.item.map((item, index) => (
+          <>
+          <h3>Product {index+1}</h3>
+          <div key={index} className='create-bill-form-div2'>
+            {/* <h3>item {index+1}</h3> */}
+            <div>
             <label>Description</label>
             <input
               type="text"
               name="description"
               placeholder="Enter description"
               required
-              value={formData.description}
-              onChange={handleChange}
+              value={item.description}
+              onChange={(e) => handleChange(e, index)}
             />
-              <label>HSN</label>
+            </div>
+
+           <div>
+           <label>HSN</label>
             <input
               type="text"
               name="hsn"
               placeholder="Enter HSN"
               required
-              value={formData.hsn}
-              onChange={handleChange}
+              value={item.hsn}
+              onChange={(e) => handleChange(e, index)}
             />
 
-          </div>
-
-          <div>
-          
+           </div>
+            <div>
             <label>Unit Rate</label>
             <input
               type="text"
               name="unitRate"
               placeholder="Enter unit rate"
               required
-              value={formData.unitRate}
-              onChange={handleChange}
+              value={item.unitRate}
+              onChange={(e) => handleChange(e, index)}
             />
+            </div>
 
-            <label>Quantity</label>
+           <div>
+           <label>Quantity</label>
             <input
               type="number"
-              name="Qty"
+              name="quantity"
               placeholder="Enter quantity"
               required
-              value={formData.Qty}
-              onChange={handleChange}
+              value={item.quantity}
+              onChange={(e) => handleChange(e, index)}
             />
+           </div>
 
+            <div>
             <label>UOM</label>
             <input
               type="text"
               name="UOM"
               placeholder="Enter UOM"
               required
-              value={formData.UOM}
-              onChange={handleChange}
+              value={item.UOM}
+              onChange={(e) => handleChange(e, index)}
             />
 
-            <label>Discount (%)</label>
+            </div>
+           <div>
+           <label>Discount (%)</label>
             <input
               type="number"
-              name="disc"
+              name="discount"
               placeholder="Enter discount"
               required
-              value={formData.disc}
-              onChange={handleChange}
+              value={item.discount}
+              onChange={(e) => handleChange(e, index)}
             />
-
-            <label>Tax (%)</label>
-            <input
-              type="number"
-              name="tax"
-              placeholder="Enter tax"
-              required
-              value={formData.tax}
-              onChange={handleChange}
-            />
-
-            { btn ? <button type="submit">Create Bill</button>:
-             <div onClick={()=>calculateTotals()} className='customer-show-btn'>Calculate-prices</div>}
-            
-          </div>       
-        </form>
+           </div>
+           <button type="button" onClick={() => removeItem(index)}>
+              Remove Item
+            </button>
+          </div></>
+        ))}
         
-      </div>  
-    </>
+
+        <div className='create-bill-form-buttons'>
+        <button type="button" onClick={addItem}>
+          Add Item
+        </button>
+        <button type="submit">Create Bill</button>
+        </div>
+        
+      </form>
+    </div>
   );
 }
