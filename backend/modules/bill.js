@@ -67,6 +67,10 @@ const Bills = sequelize.define('BILLS', {
     type:DataTypes.STRING,
     allowNull:false,
     unique:true
+  },
+  creditedAmount:{
+    type:DataTypes.FLOAT,
+    allowNull:true
   }
 }, {
   hooks: {
