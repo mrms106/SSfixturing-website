@@ -7,8 +7,7 @@ import Navbar from '../includes/navbar';
 import Footer from '../includes/footer';
 import '../css/home.css'
 import '../css/splash.css'
-import weblogo from '../images/logo.gif'
-import slogan from '../images/slogan.gif'
+
 import HomeHead from '../homehead';
 import Loader from '../loader';
 

@@ -5,12 +5,10 @@ import Footer from '../includes/footer';
 import ProductBoxes from '../home/productbox';
 import HomeHead from '../homehead';
 
-import hydrolic1 from '../images/fixturePages/hydraulic/hydraulic.jpg'
-import hydrolic2 from '../images/fixturePages/hydraulic/hydraulic1.jpg'
-import hydrolic3 from '../images/fixturePages/hydraulic/hydraulic2.jpg'
-
-
 function HydraulicFixture() {
+  const hydrolic1='https://res.cloudinary.com/dpgod55rr/image/upload/v1737608617/ssfixturing/fixturepage/hydraulic/hydraulic_vmldrw.jpg'
+  const hydrolic2='https://res.cloudinary.com/dpgod55rr/image/upload/v1737608623/ssfixturing/fixturepage/hydraulic/hydraulic2_sa5ebx.jpg'
+  const hydrolic3='https://res.cloudinary.com/dpgod55rr/image/upload/v1737608620/ssfixturing/fixturepage/hydraulic/hydraulic1_nri0f2.jpg'
   return (
     <div>
        <HomeHead

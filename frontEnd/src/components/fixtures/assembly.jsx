@@ -4,11 +4,11 @@ import Footer from '../includes/footer';
 import ProductBoxes from '../home/productbox';
 import HomeHead from '../homehead';
 
-import assembly1 from '../images/fixturePages/assembly/welding1.jpg'
-import assembly2 from '../images/fixturePages/assembly/welding2.jpg'
-import assembly3 from '../images/fixturePages/assembly/welding3.jpg'
 
 export default function assembly(){
+  const assembly1='https://res.cloudinary.com/dpgod55rr/image/upload/v1737608632/ssfixturing/fixturepage/assemblly/welding1_kyywwl.jpg'
+  const assembly2='https://res.cloudinary.com/dpgod55rr/image/upload/v1737608634/ssfixturing/fixturepage/assemblly/welding2_wgmomu.jpg'
+  const assembly3='https://res.cloudinary.com/dpgod55rr/image/upload/v1737608636/ssfixturing/fixturepage/assemblly/welding3_czr7fi.jpg'
     return(
         <div>
             <HomeHead

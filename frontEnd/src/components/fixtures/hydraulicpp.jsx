@@ -5,11 +5,10 @@ import Footer from '../includes/footer';
 import ProductBoxes from '../home/productbox';
 import HomeHead from '../homehead';
 
-import hydrolicpp1 from '../images/fixturePages/hydralicpp/hydraulicpp1.jpg'
-import hydrolicpp2 from '../images/fixturePages/hydralicpp/hydraulicpp2.jpg'
-import hydrolicpp3 from '../images/fixturePages/hydralicpp/hydraulicpp3.jpg'
-
 export default function hydralicPowerPack (){
+   const hydrolicpp1='https://res.cloudinary.com/dpgod55rr/image/upload/v1737608599/ssfixturing/fixturepage/hydrauliccpp/hydraulicpp1_cdzcvz.jpg'
+   const hydrolicpp2='https://res.cloudinary.com/dpgod55rr/image/upload/v1737608602/ssfixturing/fixturepage/hydrauliccpp/hydraulicpp2_we8rn2.jpg'
+   const hydrolicpp3='https://res.cloudinary.com/dpgod55rr/image/upload/v1737608605/ssfixturing/fixturepage/hydrauliccpp/hydraulicpp3_qq6eji.jpg'
     return(
         <div>
             <HomeHead

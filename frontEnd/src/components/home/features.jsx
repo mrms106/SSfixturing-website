@@ -1,13 +1,12 @@
 
 import React from 'react';
-
-import fast from '../images/home/feature/fast.png'
-import guarentee from '../images/home/feature/guarentee.png'
-import long from '../images/home/feature/long.png'
-import project from '../images/home/feature/project.png'
 import '../css/feature.css'
 
 const FeatureBoxes = () => {
+  const fast='https://res.cloudinary.com/dpgod55rr/image/upload/v1737608711/ssfixturing/homepage/feature/fast_gscnjq.png'
+  const guarentee='https://res.cloudinary.com/dpgod55rr/image/upload/v1737608714/ssfixturing/homepage/feature/guarentee_k2yd5u.png'
+  const long='https://res.cloudinary.com/dpgod55rr/image/upload/v1737608716/ssfixturing/homepage/feature/long_fxaj8l.png'
+  const project='https://res.cloudinary.com/dpgod55rr/image/upload/v1737608718/ssfixturing/homepage/feature/project_wcunaa.png'
   return (
     <div className="mclassbox">
       <div className="box-containers">

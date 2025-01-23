@@ -4,13 +4,12 @@ import Footer from '../includes/footer';
 import ProductBoxes from '../home/productbox';
 import HomeHead from '../homehead';
 
-import mechanical1 from '../images/fixturePages/mechanical/mechanical1 .png'
-import mechanical2 from '../images/fixturePages/mechanical/mechanical2.png'
-import mechanical3 from '../images/fixturePages/mechanical/mechanical3.png'
-
 
 
 export default function mechanical(){
+  const mechanical1='https://res.cloudinary.com/dpgod55rr/image/upload/v1737608577/ssfixturing/fixturepage/mechanical/mechanical1_hhluxs.png'
+  const mechanical2='https://res.cloudinary.com/dpgod55rr/image/upload/v1737608580/ssfixturing/fixturepage/mechanical/mechanical2_iknwka.png'
+  const mechanical3='https://res.cloudinary.com/dpgod55rr/image/upload/v1737608583/ssfixturing/fixturepage/mechanical/mechanical3_xl9hj6.png'
     return(
         <div>
              <HomeHead

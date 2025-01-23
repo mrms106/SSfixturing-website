@@ -1,14 +1,15 @@
 import React, { useState,useEffect } from 'react';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import '../css/navbar.css';
-import logo from '../images/sslogo.png'
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import SocialIcons from './socialIcons';
+
 const Navbar = ({isloggedIn,setisloggedIn}) => {
   const [isNavVisible, setIsNavVisible] = useState(false);
   const [isClicked, setIsClicked] = useState(false);
   const navigate=useNavigate()
+  const logo='https://ssfixturing.com/sslogo.png'
 
   const changeNav = () => {
     setIsNavVisible(!isNavVisible);

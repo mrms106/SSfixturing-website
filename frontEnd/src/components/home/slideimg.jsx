@@ -1,18 +1,27 @@
 import { useState,useEffect } from 'react'
 import '../css/slideimg.css'
-import slide1 from '../images/home/hydralics/slide1.png'
-import slide2 from '../images/home/hydralics/slide2.png'
-import slide3 from '../images/home/hydralics/slide4.png'
-import slide4 from '../images/home/hydralics/slide5.png'
-import mobileslide1 from '../images/home/hydralics/hydraulic.jpg'
-import mobileslide2 from '../images/home/hydralics/hydraulic2.jpg'
-import mobileslide3 from '../images/home/hydralics/powerpack.jpg'
-import mobileslide4 from '../images/home/hydralics/welding.jpg'
+// import slide1 from '../images/home/hydralics/slide1.png'
+// import slide2 from '../images/home/hydralics/slide2.png'
+// import slide3 from '../images/home/hydralics/slide4.png'
+// import slide4 from '../images/home/hydralics/slide5.png'
+// import mobileslide1 from '../images/home/hydralics/hydraulic.jpg'
+// import mobileslide2 from '../images/home/hydralics/hydraulic2.jpg'
+// import mobileslide3 from '../images/home/hydralics/powerpack.jpg'
+// import mobileslide4 from '../images/home/hydralics/welding.jpg'
 
 
 export default function slideImage(){
     const [images, setImages] = useState([]);
     const [currentIndex, setCurrentIndex] = useState(0)
+
+    const slide1='https://res.cloudinary.com/dpgod55rr/image/upload/v1737608741/ssfixturing/homepage/hydralics/slide1_skf4tj.png'
+    const slide2='https://res.cloudinary.com/dpgod55rr/image/upload/v1737608744/ssfixturing/homepage/hydralics/slide2_je5ixd.png'
+    const slide3='https://res.cloudinary.com/dpgod55rr/image/upload/v1737608746/ssfixturing/homepage/hydralics/slide4_k3mctw.png'
+    const slide4='https://res.cloudinary.com/dpgod55rr/image/upload/v1737608754/ssfixturing/homepage/hydralics/slide5_uepo0c.png'
+    const mobileslide1='https://res.cloudinary.com/dpgod55rr/image/upload/v1737608734/ssfixturing/homepage/hydralics/hydraulic_f0ygva.jpg'
+    const mobileslide2='https://res.cloudinary.com/dpgod55rr/image/upload/v1737608736/ssfixturing/homepage/hydralics/hydraulic2_d3oy6j.jpg'
+    const mobileslide3='https://res.cloudinary.com/dpgod55rr/image/upload/v1737608738/ssfixturing/homepage/hydralics/powerpack_bal2f3.jpg'
+    const mobileslide4='https://res.cloudinary.com/dpgod55rr/image/upload/v1737608756/ssfixturing/homepage/hydralics/welding_b9owhp.jpg'
 
     const updateImagesBasedOnWidth = () => {
         if (window.innerWidth < 760) {

@@ -1,17 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import './bill.css';
 import { useParams } from 'react-router-dom';
-import logo from '../../components/images/sslogo.png'
 import html2pdf from "html2pdf.js";
 import QRCode from 'qrcode.react'; 
 import numberToWords from './covrtnumber';
-import sign from '../../components/images/SIGN.png'
 import TermsandCon from './t&c';
 export default function ShowSingleBill() {
     const [bill,setbill]=useState({})
     const{invoiceNo}=useParams()
-    console.log(invoiceNo)
-
+    const logo='https://ssfixturing.com/sslogo.png'
+    const sign='https://res.cloudinary.com/dpgod55rr/image/upload/v1737610086/ssfixturing/signAndlogo/SIGN_ql0gsx.png'
     const fetchbill = async () => {
     if (!invoiceNo) {
         alert("Invoice number is missing");
