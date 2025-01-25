@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom"
 import './showcustomer.css'
 import CreateBill from "../bills/billmain"
 import Showbills from "./showbills/showbills"
+import Showledger from "./showledger/showledgermain"
 
 export default function ShowCustomer(){
     const {serialNo}=useParams()
@@ -71,6 +72,9 @@ export default function ShowCustomer(){
                 <button onClick={()=>setcreatebill(false)}>Create Bill</button>
                </div>
             </div><hr></hr>
+            <Showledger bills={bills} fetchBill={fetchBill}/>
+            
+            <hr></hr>
         <Showbills bills={bills} name={customer.name}/>
         </div>:
         <CreateBill customer={customer} setcreatebill={setcreatebill}/>}
