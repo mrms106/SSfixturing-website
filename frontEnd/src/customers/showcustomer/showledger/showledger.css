@@ -63,7 +63,7 @@
 .ledger-horizontal-three-two{
     display: flex;
     align-items: center;
-    height: 50px;
+    height: 65px;
     font-size: 18px;
 }
 .ledger-horizontal-three-one div,.ledger-horizontal-three-two div,.ledger-horizontal-three-three div{
@@ -97,7 +97,7 @@ width: 10rem;
     width: 8rem !important;
     background-color: white !important;
     color: black !important;
-    height: 25px !important;
+    height: 50px !important;
     margin-top: 5px !important;
     margin-bottom: 0px !important;
     text-align: center;

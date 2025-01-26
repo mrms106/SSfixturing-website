@@ -1,4 +1,41 @@
+import html2pdf from "html2pdf.js";
 export default function LedgerInfo({totalCreditedAmount,totalGrandTotal,billsState,handleCreditedAmountChange,logo}){
+
+     const downloadPDF = () => {
+            const element = document.querySelector(".show-ledger-main");
+        
+            if (!element) {
+                alert("Bill element not found");
+                return;
+            }
+        
+            const opt = {
+                margin: [0.1, 0.1, 0.1, 0.1], // Updated margins: top 0.1, left 1, others unchanged
+                filename: ` ledger.pdf`,
+                image: { type: "jpeg", quality: 0.98 },
+                html2canvas: {
+                    scale: 2, // Use a higher scale for better quality
+                    useCORS: true, // Allow cross-origin images
+                    allowTaint: true, // Allow images outside the domain
+                    
+                },
+                jsPDF: {
+                    unit: "in",
+                    format: "tabloid",
+                    orientation: "landscape",
+                },
+            };
+        
+            // Delay execution slightly to ensure all content is rendered
+            setTimeout(() => {
+                html2pdf()
+                    .set(opt)
+                    .from(element)
+                    .save()
+                    .catch((err) => console.error("PDF generation error:", err));
+            }, 500); // Delay of 500ms
+        };
+        
     return(
         <div className="show-ledger">
             <div className="show-ledger-main">
@@ -81,6 +118,7 @@ export default function LedgerInfo({totalCreditedAmount,totalGrandTotal,billsSta
                     Make your component, Next level…
                 </div>
             </div>
+            <button onClick={downloadPDF}>download pdf</button>
         </div>
     )
 }
