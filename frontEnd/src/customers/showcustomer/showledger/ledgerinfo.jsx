@@ -75,7 +75,7 @@ export default function LedgerInfo({totalCreditedAmount,totalGrandTotal,billsSta
                     <div className="ledger-horizontal-three-two">
                         <div className="ledger-horizontal-three-two-one">{idx+1}</div>
                         <div className="ledger-horizontal-three-two-two">{bill.invoicedate}</div>
-                        <div className="ledger-horizontal-three-two-three">{bill.cname}</div>
+                        <div className="ledger-horizontal-three-two-three">invoice NO:{bill.invoiceNo}</div>
                         <div className="ledger-horizontal-three-two-four"> {bill.grandTotal}</div>
                         <div className="ledger-horizontal-three-two-five">
                             {
