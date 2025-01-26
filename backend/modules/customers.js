@@ -27,6 +27,18 @@ const Customers=sequelize.define('CUSTOMERS',{
         allowNull: false,
         unique: true,
       },
+      totalAmount:{
+        type:DataTypes.FLOAT,
+        allowNull:true
+      },
+      creditAmount:{
+        type:DataTypes.FLOAT,
+        allowNull:true
+      },
+      pendingAmount:{
+        type:DataTypes.FLOAT,
+        allowNull:true
+      }
 
 })
 
