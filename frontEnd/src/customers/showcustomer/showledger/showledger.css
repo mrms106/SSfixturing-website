@@ -93,7 +93,14 @@ width: 10rem;
 .ledger-horizontal-three-one-nine,.ledger-horizontal-three-two-nine,.ledger-horizontal-three-three-nine{
     width: 10rem !important;
  }
-
+.ledger-horizontal-three-two-seven input{
+    width: 8rem !important;
+    background-color: white !important;
+    color: black !important;
+    height: 25px !important;
+    margin-top: 5px !important;
+    margin-bottom: 0px !important;
+}
 
 .ledger-horizontal-three-three-one{
 width: 15rem !important;

@@ -3,6 +3,17 @@ import './showledger.css'
 
 export default function Showledger({bills,fetchBill}){
    const logo='https://ssfixturing.com/sslogo.png'
+
+   // Calculate total creditedAmount and grandTotal
+const totalCreditedAmount = bills.reduce(
+    (sum, bill) => sum + (bill.creditedAmount ? parseFloat(bill.creditedAmount) : 0),
+    0
+  );
+  
+  const totalGrandTotal = bills.reduce(
+    (sum, bill) => sum + parseFloat(bill.grandTotal),
+    0
+  );
     return(
         <>
         <div className="show-ledger">
@@ -45,9 +56,16 @@ export default function Showledger({bills,fetchBill}){
                         <div className="ledger-horizontal-three-two-two">{bill.invoicedate}</div>
                         <div className="ledger-horizontal-three-two-three">{bill.cname}</div>
                         <div className="ledger-horizontal-three-two-four"> {bill.grandTotal}</div>
-                        <div className="ledger-horizontal-three-two-five">0</div>
+                        <div className="ledger-horizontal-three-two-five">
+                            {
+                                bill.item.reduce(
+                                    (sum, currentItem) => sum + parseInt(currentItem.quantity || 0), 
+                                    0
+                                  )
+                            }
+                        </div>
                         <div className="ledger-horizontal-three-two-six">{bill.grandTotal}</div>
-                        <div className="ledger-horizontal-three-two-seven">{bill.creditedAmount}a</div>
+                        <div className="ledger-horizontal-three-two-seven"><input type="number" value={bill.creditedAmount || 0}/></div>
                         <div className="ledger-horizontal-three-two-eight"> Cr.</div>
                         <div className="ledger-horizontal-three-two-nine">{bill.grandTotal-bill.creditedAmount}</div>
                     </div>
@@ -60,9 +78,11 @@ export default function Showledger({bills,fetchBill}){
                         <div className="ledger-horizontal-three-three-four"> 0.00</div>
                         <div className="ledger-horizontal-three-three-five"></div>
                         <div className="ledger-horizontal-three-three-six"></div>
-                        <div className="ledger-horizontal-three-three-seven">611148.8</div>
+                        <div className="ledger-horizontal-three-three-seven">
+                            {totalCreditedAmount}
+                        </div>
                         <div className="ledger-horizontal-three-three-eight"></div>
-                        <div className="ledger-horizontal-three-three-nine">296101 .96 RS</div>
+                        <div className="ledger-horizontal-three-three-nine">{totalGrandTotal} RS</div>
                     </div>
                 </div>
                 <div className="ledger-horizontal-four">
