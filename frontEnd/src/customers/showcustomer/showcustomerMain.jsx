@@ -66,6 +66,9 @@ export default function ShowCustomer(){
                         <div className="c-contact"><b>contact: &nbsp;</b>{customer.contact}</div>
                     </div>
                     <div className="box3">
+                        <div className="c-totalamount">Total-Amount : {customer.totalAmount}</div>
+                        <div className="c-creditedAmount">Creadited-Amount: {customer.creditAmount}</div>
+                        <div className="pending-Amount">Pending-Amount : {customer.pendingAmount}</div>
                     </div>
                </div>
                <div className="c-btn">
