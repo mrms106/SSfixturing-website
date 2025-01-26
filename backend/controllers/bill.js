@@ -114,3 +114,25 @@ module.exports.getBillsBySerialNos = async (req, res) => {
         res.status(500).json({ error: 'Failed to fetch bills', details: err.message });
     }
 };
+
+module.exports.updatecreditedamount=async(req,res)=>{
+    const { billId } = req.params;
+    const { creditedAmount } = req.body;
+  
+    try {
+      // Update only the creditedAmount field
+      const bill = await Bills.update(
+        { creditedAmount }, 
+        { where: { billId } }
+      );
+  
+      if (bill[0] === 0) {
+        return res.status(404).json({ message: 'Bill not found' });
+      }
+  
+      res.status(200).json({ message: 'Credited amount updated successfully' });
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ message: 'Failed to update credited amount', error });
+    }
+}

@@ -7,4 +7,5 @@ router.put('/bill/:invoiceNo', billcontroller.updateBill);
 router.delete('/bill/:invoiceNo', billcontroller.deleteBill); 
 router.get('/bill/:invoiceNo', billcontroller.getBillByInvoiceNo);
 router.post('/bills',billcontroller.getBillsBySerialNos)
+router.patch('/bills/:billId',billcontroller.updatecreditedamount)
 module.exports = router;
