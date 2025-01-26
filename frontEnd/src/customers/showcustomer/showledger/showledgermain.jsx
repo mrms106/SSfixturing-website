@@ -2,14 +2,12 @@ import { useEffect } from "react"
 import './showledger.css'
 
 export default function Showledger({bills,fetchBill}){
-    // useEffect(()=>{
-    //     fetchBill()
-    // },[])
+   const logo='https://ssfixturing.com/sslogo.png'
     return(
         <>
         <div className="show-ledger">
             <div className="show-ledger-main">
-                <div className="ledger-horizontal-one">OUTSTANDING PAYMENT DUE RECEIPT FOR JULY-2024 MONTH</div>
+                <div className="ledger-horizontal-one">OUTSTANDING PAYMENT DUE RECEIPT <img src={logo} alt="ssfixturing-logo"/></div>
                 <div className="ledger-horizontal-two">
                     <div className="ledger-horizontal-two-one">
                         <div className="ledger-horizontal-two-one-one ledger-horizontal-two-similar-one">Account of:</div>
@@ -33,7 +31,7 @@ export default function Showledger({bills,fetchBill}){
                         <div className="ledger-horizontal-three-one-one">Sr. No</div>
                         <div className="ledger-horizontal-three-one-two">Invoce Date</div>
                         <div className="ledger-horizontal-three-one-three">Particulars</div>
-                        <div className="ledger-horizontal-three-one-one-four"> Debit Amount</div>
+                        <div className="ledger-horizontal-three-one-four"> Debit Amount</div>
                         <div className="ledger-horizontal-three-one-five">Qty</div>
                         <div className="ledger-horizontal-three-one-six">Total Amount</div>
                         <div className="ledger-horizontal-three-one-seven">Credit Amount</div>
@@ -49,7 +47,7 @@ export default function Showledger({bills,fetchBill}){
                         <div className="ledger-horizontal-three-two-four"> {bill.grandTotal}</div>
                         <div className="ledger-horizontal-three-two-five">0</div>
                         <div className="ledger-horizontal-three-two-six">{bill.grandTotal}</div>
-                        <div className="ledger-horizontal-three-two-seven">{bill.creditedAmount}</div>
+                        <div className="ledger-horizontal-three-two-seven">{bill.creditedAmount}a</div>
                         <div className="ledger-horizontal-three-two-eight"> Cr.</div>
                         <div className="ledger-horizontal-three-two-nine">{bill.grandTotal-bill.creditedAmount}</div>
                     </div>
@@ -58,12 +56,12 @@ export default function Showledger({bills,fetchBill}){
                      <div className="ledger-horizontal-three-three">
                         <div className="ledger-horizontal-three-three-one">Sub Total Amount</div>
                         <div className="ledger-horizontal-three-three-two"></div>
-                        <div className="ledger-horizontal-three-three-three">0. 00</div>
-                        <div className="ledger-horizontal-three-three-four"> </div>
-                        <div className="ledger-horizontal-three-three-five">0</div>
+                        <div className="ledger-horizontal-three-three-three"></div>
+                        <div className="ledger-horizontal-three-three-four"> 0.00</div>
+                        <div className="ledger-horizontal-three-three-five"></div>
                         <div className="ledger-horizontal-three-three-six"></div>
                         <div className="ledger-horizontal-three-three-seven">611148.8</div>
-                        <div className="ledger-horizontal-three-three-eight"> Cr.</div>
+                        <div className="ledger-horizontal-three-three-eight"></div>
                         <div className="ledger-horizontal-three-three-nine">296101 .96 RS</div>
                     </div>
                 </div>
