@@ -70,3 +70,17 @@
     color: white;
     font-size: 20px;
 }
+.customer-colors .customer-red{
+    width: 20px;
+    height: 20px;
+    background-color: red;
+    border-radius: 50%;
+    margin-left: 10px;
+}
+.customer-colors .customer-green{
+    width: 20px;
+    height: 20px;
+    background-color: green;
+    border-radius: 50%;
+    margin-left: 10px;
+}

@@ -42,6 +42,10 @@ export default function CustomerMain(){
                 <div className="customer-info" onClick={()=>navigate(`/customer/${customer.serialNO}`)}>
                     <div className="customer-name"><b>Name:&nbsp;</b>{customer.name}</div>
                     <div className="customer-email"><b>Email:&nbsp;</b>{customer.email}</div>
+                    <div className="customer-colors">
+                        {customer.totalAmount>customer.creditAmount?<div className="customer-red"></div>:
+                         <div className="customer-green"></div>}
+                    </div>
                 </div>
                 <div className="customer-line"></div>
                 <div className="customer-btns">
