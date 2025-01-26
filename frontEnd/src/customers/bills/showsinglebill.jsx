@@ -44,7 +44,7 @@ console.log(bill)
     
         const opt = {
             margin: [0.1, 0.1, 0.1, 0.1], // Updated margins: top 0.1, left 1, others unchanged
-            filename: `${bill.invoiceNo || "invoice"}.pdf`,
+            filename: `Tax Invoive${bill.invoiceNo }.pdf`,
             image: { type: "jpeg", quality: 0.98 },
             html2canvas: {
                 scale: 2, // Use a higher scale for better quality
