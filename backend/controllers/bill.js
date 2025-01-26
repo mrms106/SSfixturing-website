@@ -60,21 +60,25 @@ module.exports.updateBill = async (req, res) => {
 
 
 module.exports.deleteBill = async (req, res) => {
-    const { invoiceNo } = req.params;
+    const { billId } = req.params;
 
     try {
-        const bill = await Bills.findByPk(invoiceNo);
+        // Find the bill using the `billId` column
+        const bill = await Bills.findOne({ where: { billId } });
 
         if (!bill) {
             return res.status(404).json({ error: 'Bill not found' });
         }
 
+        // Delete the bill
         await bill.destroy();
         res.status(200).json({ message: 'Bill deleted successfully' });
     } catch (err) {
+        console.error('Error deleting bill:', err);
         res.status(500).json({ error: 'Failed to delete bill', details: err.message });
     }
 };
+
 // Fetch a single bill by invoiceNo
 module.exports.getBillByInvoiceNo = async (req, res) => {
     const { billId } = req.params; // Extract invoiceNo from request parameters
