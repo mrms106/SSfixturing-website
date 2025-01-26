@@ -3,7 +3,7 @@ import './showledger.css'
 import LedgerInfo from "./ledgerinfo";
 
 export default function Showledger({bills,fetchBill}){
-   const logo='https://ssfixturing.com/sslogo.png'
+   const logo='https://res.cloudinary.com/dpgod55rr/image/upload/v1737610088/ssfixturing/signAndlogo/sslogo_wjku27.png'
    const [billsState, setBillsState] = useState([]);
 
    // Sync `billsState` with the `bills` prop whenever `bills` updates

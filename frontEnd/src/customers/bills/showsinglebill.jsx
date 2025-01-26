@@ -8,7 +8,7 @@ import TermsandCon from './t&c';
 export default function ShowSingleBill() {
     const [bill,setbill]=useState({})
     const{invoiceNo}=useParams()
-    const logo='https://ssfixturing.com/sslogo.png'
+    const logo='https://res.cloudinary.com/dpgod55rr/image/upload/v1737610088/ssfixturing/signAndlogo/sslogo_wjku27.png'
     const sign='https://res.cloudinary.com/dpgod55rr/image/upload/v1737610086/ssfixturing/signAndlogo/SIGN_ql0gsx.png'
     const fetchbill = async () => {
     if (!invoiceNo) {
