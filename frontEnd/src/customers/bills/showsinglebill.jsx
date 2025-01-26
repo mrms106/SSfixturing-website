@@ -7,17 +7,17 @@ import numberToWords from './covrtnumber';
 import TermsandCon from './t&c';
 export default function ShowSingleBill() {
     const [bill,setbill]=useState({})
-    const{invoiceNo}=useParams()
+    const{billId}=useParams()
     const logo='https://res.cloudinary.com/dpgod55rr/image/upload/v1737610088/ssfixturing/signAndlogo/sslogo_wjku27.png'
     const sign='https://res.cloudinary.com/dpgod55rr/image/upload/v1737610086/ssfixturing/signAndlogo/SIGN_ql0gsx.png'
     const fetchbill = async () => {
-    if (!invoiceNo) {
+    if (!billId) {
         alert("Invoice number is missing");
         return;
     }
 
     try {
-        const response = await fetch(`http://localhost:8080/api/bill/${invoiceNo}`);
+        const response = await fetch(`http://localhost:8080/api/bill/${billId}`);
         if (!response.ok) {
             alert("Problem in fetching the bill");
             return;
@@ -33,7 +33,7 @@ console.log(bill)
 
     useEffect(()=>{
         fetchbill()
-    },[invoiceNo])
+    },[billId])
     const downloadPDF = () => {
         const element = document.querySelector(".showsinglbill");
     

@@ -101,7 +101,7 @@ function App() {
             <Route path="/customers" element={<CustomerMain />} />
             <Route path="/addcustomer" element={<AddCustomer />} />
             <Route path="/customer/:serialNo" element={<ShowCustomer />} />
-            <Route path="/invoice/:invoiceNo" element={<ShowSingleBill />} />
+            <Route path="/invoice/:billId/:cname" element={<ShowSingleBill />} />
             {/* <Route path="/upload" element={<BillMain  currentUser={currentUser}/>} /> */}
 
 

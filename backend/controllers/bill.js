@@ -77,16 +77,16 @@ module.exports.deleteBill = async (req, res) => {
 };
 // Fetch a single bill by invoiceNo
 module.exports.getBillByInvoiceNo = async (req, res) => {
-    const { invoiceNo } = req.params; // Extract invoiceNo from request parameters
+    const { billId } = req.params; // Extract invoiceNo from request parameters
     // console.log("Request Invoice No:", invoiceNo, typeof invoiceNo);
 
     try {
         // Convert to string (if necessary) to avoid type mismatch issues
         const bill = await Bills.findOne({
-            where: { invoiceNo: invoiceNo.toString() }, // Ensure correct format
+            where: { billId: billId.toString() }, // Ensure correct format
         });
 
-        // console.log("Fetched Bill:", bill);
+        console.log("Fetched Bill:", bill);
 
         if (!bill) {
             return res.status(404).json({ error: 'Bill not found' });
