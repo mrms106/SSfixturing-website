@@ -45,8 +45,8 @@ export default function LedgerInfo({totalCreditedAmount,totalGrandTotal,billsSta
         });
     }, [totalGrandTotal, totalCreditedAmount]); // Re-run if these props change
 
-     const downloadPDF = ({customer}) => {
-            const element = document.querySelector(".show-ledger-main");
+     const downloadPDF = () => {
+            const element = document.querySelector(".show-ledger");
         
             if (!element) {
                 alert("Bill element not found");
@@ -55,7 +55,7 @@ export default function LedgerInfo({totalCreditedAmount,totalGrandTotal,billsSta
         
             const opt = {
                 margin: [0.1, 0.1, 0.1, 0.1], // Updated margins: top 0.1, left 1, others unchanged
-                filename: ` ledger.pdf`,
+                filename: `${customer.name}-ledger.pdf`,
                 image: { type: "jpeg", quality: 0.98 },
                 html2canvas: {
                     scale: 2, // Use a higher scale for better quality
@@ -80,6 +80,7 @@ export default function LedgerInfo({totalCreditedAmount,totalGrandTotal,billsSta
             }, 500); // Delay of 500ms
         };
     return(
+        <>
         <div className="show-ledger">
             <div className="show-ledger-main">
                 <div className="ledger-horizontal-one">OUTSTANDING PAYMENT DUE RECEIPT <img src={logo} alt="ssfixturing-logo"/></div>
@@ -161,7 +162,9 @@ export default function LedgerInfo({totalCreditedAmount,totalGrandTotal,billsSta
                     Make your component, Next level…
                 </div>
             </div>
-            <button onClick={downloadPDF}>download pdf</button>
+           
         </div>
+        <button onClick={downloadPDF}>download pdf</button>
+        </>
     )
 }
