@@ -1,7 +1,51 @@
 import html2pdf from "html2pdf.js";
-export default function LedgerInfo({totalCreditedAmount,totalGrandTotal,billsState,handleCreditedAmountChange,logo}){
+import { useState,useEffect } from "react";
+import { useParams } from "react-router-dom";
+export default function LedgerInfo({totalCreditedAmount,totalGrandTotal,billsState,handleCreditedAmountChange,logo,customer}){
+    const [amounts, setAmounts] = useState({
+        totalAmount: totalGrandTotal || 0,
+        creditAmount: totalCreditedAmount || 0,
+        pendingAmount: (totalGrandTotal - totalCreditedAmount).toFixed(2) || 0,
+    });
+    const serialNo=customer.serialNO
+    console.log(serialNo)
+     // Function to call the backend API to update amounts
+     const updateAmounts = async () => {
+        try {
+            const response = await fetch(`http://localhost:8080/api/customer/${serialNo}`, {
+                method: 'PATCH',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(amounts),
+            });
 
-     const downloadPDF = () => {
+            if (response.ok) {
+                console.log("Amounts updated successfully");
+            } else {
+                console.error("Failed to update amounts");
+            }
+        } catch (error) {
+            console.error("Error updating amounts:", error);
+        }
+    };
+
+    // Automatically call the API whenever `amounts` change
+    useEffect(() => {
+        updateAmounts();
+    }, [amounts]); 
+
+    // Whenever totalGrandTotal or totalCreditedAmount changes, recalculate `amounts`
+    useEffect(() => {
+        const pendingAmount = (totalGrandTotal - totalCreditedAmount).toFixed(2) || 0;
+        setAmounts({
+            totalAmount: totalGrandTotal,
+            creditAmount: totalCreditedAmount,
+            pendingAmount: pendingAmount,
+        });
+    }, [totalGrandTotal, totalCreditedAmount]); // Re-run if these props change
+
+     const downloadPDF = ({customer}) => {
             const element = document.querySelector(".show-ledger-main");
         
             if (!element) {
@@ -35,7 +79,6 @@ export default function LedgerInfo({totalCreditedAmount,totalGrandTotal,billsSta
                     .catch((err) => console.error("PDF generation error:", err));
             }, 500); // Delay of 500ms
         };
-        
     return(
         <div className="show-ledger">
             <div className="show-ledger-main">
@@ -106,12 +149,12 @@ export default function LedgerInfo({totalCreditedAmount,totalGrandTotal,billsSta
                         <div className="ledger-horizontal-three-three-three"></div>
                         <div className="ledger-horizontal-three-three-four"> 0.00</div>
                         <div className="ledger-horizontal-three-three-five"></div>
-                        <div className="ledger-horizontal-three-three-six">{totalGrandTotal}</div>
-                        <div className="ledger-horizontal-three-three-seven">
-                            {totalCreditedAmount}
+                        <div className="ledger-horizontal-three-three-six" name="totalAmount">{amounts.totalAmount}</div>
+                        <div className="ledger-horizontal-three-three-seven" name="creditAmount">
+                        {amounts.creditAmount}
                         </div>
                         <div className="ledger-horizontal-three-three-eight"></div>
-                        <div className="ledger-horizontal-three-three-nine">{(totalGrandTotal-totalCreditedAmount).toFixed(2) || 0} RS</div>
+                        <div className="ledger-horizontal-three-three-nine" name="pendingAmount">  {amounts.pendingAmount} RS</div>
                     </div>
                 </div>
                 <div className="ledger-horizontal-four">

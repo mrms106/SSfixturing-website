@@ -2,7 +2,7 @@ import { useEffect,useState } from "react"
 import './showledger.css'
 import LedgerInfo from "./ledgerinfo";
 
-export default function Showledger({bills,fetchBill}){
+export default function Showledger({bills,fetchBill,customer}){
    const logo='https://res.cloudinary.com/dpgod55rr/image/upload/v1737610088/ssfixturing/signAndlogo/sslogo_wjku27.png'
    const [billsState, setBillsState] = useState([]);
 
@@ -51,7 +51,7 @@ const totalCreditedAmount = bills.reduce(
         <>
          <LedgerInfo totalCreditedAmount={totalCreditedAmount} totalGrandTotal={totalGrandTotal}
           handleCreditedAmountChange={handleCreditedAmountChange} billsState={billsState} setBillsState={setBillsState}
-          logo={logo} />
+          logo={logo} customer={customer} />
         </>
     )
 }

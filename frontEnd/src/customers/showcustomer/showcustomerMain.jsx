@@ -49,7 +49,7 @@ export default function ShowCustomer(){
             if(customer.serialNO){
                 fetchBill()
             }
-        },[customer.serialNO,bills])
+        },[customer.serialNO])
     return(
         <>{ createbill ?
         <div className="show-customer-main">
@@ -72,7 +72,7 @@ export default function ShowCustomer(){
                 <button onClick={()=>setcreatebill(false)}>Create Bill</button>
                </div>
             </div><hr></hr>
-            <Showledger bills={bills} fetchBill={fetchBill}/>
+            <Showledger bills={bills} fetchBill={fetchBill} customer={customer}/>
             
             <hr></hr>
         <Showbills bills={bills} name={customer.name} fetchBill={fetchBill}/>

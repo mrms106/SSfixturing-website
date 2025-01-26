@@ -99,12 +99,12 @@ module.exports.updateCustomer = async (req, res) => {
 // update the amount column
 
 module.exports.updateAmounts=async(req,res)=>{
-    const {serialNO}=req.params;
+    const {serialNo}=req.params;
     const {totalAmount,creditAmount,pendingAmount}=req.body;
     try{
         const onecustomer=await customer.update(
             {totalAmount,creditAmount,pendingAmount},
-            {where :{serialNO}}
+            {where :{serialNo}}
         );
         if (onecustomer[0] === 0) {
             return res.status(404).json({ message: 'Bill not found' });
