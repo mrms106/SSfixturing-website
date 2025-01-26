@@ -7,6 +7,7 @@ router.get('/customer/:serialNo',customerController.showonecustomer)
 router.post('/addcustomer',customerController.addcustomer)
 router.delete('/deletecustomer/:serialNo',customerController.deletecustomer)
 router.put('/customer/:serialNo', customerController.updateCustomer);
+router.patch('/customer/:serialNo',customerController.updateAmounts)
 
 
 

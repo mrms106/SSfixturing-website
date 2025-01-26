@@ -95,3 +95,24 @@ module.exports.updateCustomer = async (req, res) => {
         res.status(500).send('Internal server error');
     }
 };
+
+// update the amount column
+
+module.exports.updateAmounts=async(req,res)=>{
+    const {serialNO}=req.params;
+    const {totalAmount,creditAmount,pendingAmount}=req.body;
+    try{
+        const onecustomer=await customer.update(
+            {totalAmount,creditAmount,pendingAmount},
+            {where :{serialNO}}
+        );
+        if (onecustomer[0] === 0) {
+            return res.status(404).json({ message: 'Bill not found' });
+          }
+      
+          res.status(200).json({ message: 'Credited amount updated successfully' });
+    }catch(err){
+        console.log(err)
+        res.status(500).json({ message: 'Failed to update credited amount', err });
+    }
+}
