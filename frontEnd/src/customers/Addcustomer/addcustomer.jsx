@@ -1,7 +1,9 @@
 import { useState } from 'react'
 import './addcustomer.css'
+import { useNavigate } from 'react-router-dom'
 
 export default function AddCustomer(){
+    const navigate=useNavigate()
     const [form, setform]=useState({
         name:"",
         address:"",
@@ -24,6 +26,7 @@ export default function AddCustomer(){
         })
         if(responce.ok){
             alert("the customer is created")
+            navigate("/customers")
             return;
         }
         alert("problem in adding the customer")
