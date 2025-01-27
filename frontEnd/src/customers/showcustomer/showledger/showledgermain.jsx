@@ -2,7 +2,7 @@ import { useEffect,useState } from "react"
 import './showledger.css'
 import LedgerInfo from "./ledgerinfo";
 
-export default function Showledger({bills,fetchBill,customer}){
+export default function Showledger({bills,fetchBill,customer,fetchCustomer}){
    const logo='https://res.cloudinary.com/dpgod55rr/image/upload/v1737610088/ssfixturing/signAndlogo/sslogo_wjku27.png'
    const [billsState, setBillsState] = useState([]);
 
@@ -10,6 +10,10 @@ export default function Showledger({bills,fetchBill,customer}){
    useEffect(() => {
      setBillsState(bills);
    }, [bills]);
+
+   useEffect(()=>{
+   fetchCustomer()
+   },[billsState])
  
    const handleCreditedAmountChange = async (billId, value) => {
      try {
