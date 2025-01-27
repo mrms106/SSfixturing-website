@@ -24,7 +24,8 @@ export default function Showbills({bills,name,fetchBill}){
                 <div className="showbill-box" style={{color:"white",margin:'20px',cursor:'pointer'}} >
                       <div className="show-bill-desc" onClick={()=>navigate(`/invoice/${item.billId}/${item.cname}`)}>invoiceNO: {item.invoiceNo}</div>
                       <div className="show-bill-desc" onClick={()=>navigate(`/invoice/${item.billId}/${item.cname}`)}>invoiceDate: {item.invoicedate}</div>
-                   <div className="show-bill-desc-btn"> <button onClick={()=>deletebill(item.billId)}>Delete</button></div>
+                   <div className="show-bill-desc-btn"> <button onClick={()=>deletebill(item.billId)}>Delete</button> 
+                   <button onClick={()=>navigate(`/bill/${item.billId}`)}>update</button></div>
                 </div>
             ))}
         </div>

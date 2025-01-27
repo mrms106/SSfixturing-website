@@ -15,6 +15,10 @@
     margin: 5px;
     border-bottom: 1px solid white;
 }
+.show-bill-desc-btn{
+    display: flex;
+}
 .show-bill-desc-btn button{
 background-color: rgb(46, 46, 46);
+margin: 2px;
 }
