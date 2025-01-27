@@ -2,7 +2,7 @@ import React, { useState,useEffect } from 'react';
 import Switch from '@mui/material/Switch';
 import FormControlLabel from '@mui/material/FormControlLabel';
 
-export default function CreateBill({ customer, setcreatebill }) {
+export default function CreateBill({ customer, setcreatebill,fetchBill }) {
   const [IsOutside, setIsOutside] = useState(false);
   const [formData, setFormData] = useState({
     cname: customer.name,
@@ -60,6 +60,7 @@ console.log(IsOutside)
 
       if (response.ok) {
         alert("The bill has been created successfully");
+        fetchBill()
         setcreatebill(true);
         return;
       }

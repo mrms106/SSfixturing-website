@@ -80,7 +80,7 @@ export default function ShowCustomer(){
             <hr></hr>
         <Showbills bills={bills} name={customer.name} fetchBill={fetchBill}/>
         </div>:
-        <CreateBill customer={customer} setcreatebill={setcreatebill}/>}
+        <CreateBill customer={customer} setcreatebill={setcreatebill} fetchBill={fetchBill}/>}
         </>
     )
 }
