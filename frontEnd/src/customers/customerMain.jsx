@@ -49,7 +49,7 @@ export default function CustomerMain(){
                 </div>
                 <div className="customer-line"></div>
                 <div className="customer-btns">
-                    <button>Update Info</button>
+                    <button onClick={()=>navigate(`/update/${customer.serialNO}`)}>Update Info</button>
                     <button onClick={()=>deleteButton(customer.serialNO)}>Delete</button>
                 </div>
             </div>

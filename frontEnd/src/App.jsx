@@ -27,6 +27,7 @@ import AddCustomer from './customers/Addcustomer/addcustomer';
 import ShowCustomer from './customers/showcustomer/showcustomerMain';
 import ShowSingleBill from './customers/bills/showsinglebill';
 import UpdateBill from './customers/bills/updatebill';
+import UpdateCustomer from './customers/Addcustomer/updatecustomer';
 function App() {
 
   let[isloggedIn,setisloggedIn]=useState(null)
@@ -102,6 +103,7 @@ function App() {
             <Route path="/customers" element={<CustomerMain />} />
             <Route path="/addcustomer" element={<AddCustomer />} />
             <Route path="/customer/:serialNo" element={<ShowCustomer />} />
+            <Route path="/update/:serialNo" element={<UpdateCustomer />} />
             <Route path="/invoice/:billId/:cname" element={<ShowSingleBill />} />
             <Route path="/bill/:billId" element={<UpdateBill />} />
             {/* <Route path="/upload" element={<BillMain  currentUser={currentUser}/>} /> */}
