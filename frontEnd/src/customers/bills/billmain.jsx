@@ -57,7 +57,7 @@ export default function CreateBill({ customer, setcreatebill,fetchBill }) {
         <h3>Create Bill</h3>
         
       </div>
-    <BillInput handleSubmit={handleSubmit} customer={customer} formData={formData} setFormData={setFormData}/>
+    <BillInput handleSubmit={handleSubmit} value="create" customer={customer} formData={formData} setFormData={setFormData}/>
     </div>
   );
 }

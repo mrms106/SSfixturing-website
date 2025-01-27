@@ -31,11 +31,11 @@ module.exports.createBill = async (req, res) => {
 };
 
 module.exports.updateBill = async (req, res) => {
-    const { invoiceNo } = req.params; // Bill identified by `invoiceNo`
+    const { billId } = req.params; // Bill identified by `invoiceNo`
     const { item, ...otherData } = req.body; // Separate `item` from other data
 
     try {
-        const bill = await Bills.findOne({ where: { invoiceNo } });
+        const bill = await Bills.findOne({ where: { billId } });
 
         if (!bill) {
             return res.status(404).json({ error: 'Bill not found' });

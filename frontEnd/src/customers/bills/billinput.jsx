@@ -2,7 +2,7 @@ import Switch from '@mui/material/Switch';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import React, { useState,useEffect } from 'react';
 
-export default function BillInput({formData,handleSubmit,setFormData}){
+export default function BillInput({formData,handleSubmit,setFormData,value}){
      const [IsOutside, setIsOutside] = useState(false);
     
     // Sync IsOutside state with formData
@@ -162,7 +162,7 @@ export default function BillInput({formData,handleSubmit,setFormData}){
         <button type="button" onClick={addItem}>
           Add Item
         </button>
-        <button type="submit">Create Bill</button>
+        <button type="submit">{value} Bill</button>
         </div>
         
       </form>
