@@ -83,7 +83,7 @@ export default function LedgerInfo({totalCreditedAmount,totalGrandTotal,billsSta
         <>
         <div className="show-ledger">
             <div className="show-ledger-main">
-                <div className="ledger-horizontal-one">OUTSTANDING PAYMENT DUE RECEIPT <img src={logo} alt="ssfixturing-logo"/></div>
+                <div className="ledger-horizontal-one">OUTSTANDING PAYMENT LEDGER <img src={logo} alt="ssfixturing-logo"/></div>
                 <div className="ledger-horizontal-two">
                     <div className="ledger-horizontal-two-one">
                         <div className="ledger-horizontal-two-one-one ledger-horizontal-two-similar-one">Account of:</div>
