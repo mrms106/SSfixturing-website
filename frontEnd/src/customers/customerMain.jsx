@@ -22,7 +22,8 @@ export default function CustomerMain(){
 
     const deleteButton=async(serialNo)=>{
         const responce= await fetch(`http://localhost:8080/api/deletecustomer/${serialNo}`,{
-            method:'DELETE'
+            method:'DELETE',
+            credentials:'include'
         })
         if(responce.ok){
             alert("the customer is deleted from database")

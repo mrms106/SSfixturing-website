@@ -29,6 +29,7 @@ export default function ShowCustomer(){
                 headers:{
                     'content-type':'application/json'
                 },
+                credentials:'include',
                 body:JSON.stringify({serialNo:customer.serialNO})
             })
             if(!responce.ok){

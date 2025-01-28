@@ -5,7 +5,8 @@ export default function Showbills({bills,name,fetchBill}){
     const navigate=useNavigate()
     const deletebill=async(billId)=>{
         const response=await fetch(`http://localhost:8080/api/bill/${billId}`,{
-            method:'DELETE'
+            method:'DELETE',
+            credentials:'include'
         })
         if(response.ok){
             alert("the bill is deleted succefull")

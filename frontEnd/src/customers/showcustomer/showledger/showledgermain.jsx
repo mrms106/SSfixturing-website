@@ -33,6 +33,7 @@ export default function Showledger({bills,fetchBill,customer,fetchCustomer}){
          headers: {
            'Content-Type': 'application/json',
          },
+         credentials:'include',
          body: JSON.stringify({ creditedAmount: value }),
        });
    fetchBill()

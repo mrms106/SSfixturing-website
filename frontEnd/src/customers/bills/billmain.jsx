@@ -33,6 +33,7 @@ export default function CreateBill({ customer, setcreatebill,fetchBill }) {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(formData),
+        credentials:'include'
       });
 
       if (response.ok) {

@@ -17,6 +17,7 @@ export default function LedgerInfo({totalCreditedAmount,totalGrandTotal,billsSta
                 headers: {
                     'Content-Type': 'application/json',
                 },
+                credentials:'include',
                 body: JSON.stringify(amounts),
             });
 
