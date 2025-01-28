@@ -21,7 +21,7 @@ export default function login({currUser,setisloggedIn}){
     event.preventDefault();
     try{
         setLoading(true);
-     const responce= await fetch(`${web}/api/login`,{
+     const responce= await fetch(`${web}/login`,{
         method:"POST",
         headers:{
             'Content-Type':'application/json'
