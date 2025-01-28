@@ -7,7 +7,9 @@
     background-color: white;
     padding: 10px;
 }
-
+.pdf-download-btn span{
+   display: none;
+}
 .showsinglbill{
     width: 100rem;
     height: auto;
@@ -320,4 +322,31 @@ width: 150px;
 }
 .one-bill-terms-con-points-descr{
     font-family: 17px;
+}
+
+@media(max-width:1000px){
+ .show-single-bill-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ }
+ .pdf-download-btn {
+    position: fixed;
+    width: 20rem;
+    height: 6rem;
+    margin: 20px;
+    font-size: 35px !important;
+    padding: 15px;
+    font-size: 16px;
+    background: blue;
+    color: white;
+    border: none;
+    border-radius: 5px; /* Note: Use 'border-radius' in CSS */
+    cursor: pointer;
+    text-align: start !important;
+}
+.pdf-download-btn span{
+    font-size: 12px;
+    display: flex;
+}
 }

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState,useRef } from 'react';
 import './bill.css';
 import { useParams } from 'react-router-dom';
 import html2pdf from "html2pdf.js";
@@ -10,6 +10,16 @@ export default function ShowSingleBill() {
     const{billId}=useParams()
     const logo='https://res.cloudinary.com/dpgod55rr/image/upload/v1737610088/ssfixturing/signAndlogo/sslogo_wjku27.png'
     const sign='https://res.cloudinary.com/dpgod55rr/image/upload/v1737610086/ssfixturing/signAndlogo/SIGN_ql0gsx.png'
+    
+    const buttonRef = useRef(null);
+
+    // Function to focus on the button if screen width is less than 1000px
+    useEffect(() => {
+      if (window.innerWidth < 1000 && buttonRef.current) {
+        buttonRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        buttonRef.current.focus();
+      }
+    }, []);
     const fetchbill = async () => {
     if (!billId) {
         alert("Invoice number is missing");
@@ -324,7 +334,11 @@ console.log(bill)
             <TermsandCon/>
         </div>
     </div>
-        <button onClick={downloadPDF} className='pdf-download-btn'> Download PDF<i className="fa-solid fa-download"></i></button>
+        <div className="show-single-bill-btn">
+         <button   ref={buttonRef} onClick={downloadPDF} className='pdf-download-btn'> Download PDF<i className="fa-solid fa-download"></i><br></br>
+          <span>if you want to view in mobile download and view</span>
+         </button>
+        </div>
        </>
   );
 }
