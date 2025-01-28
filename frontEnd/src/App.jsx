@@ -91,29 +91,40 @@ function App() {
             <Route path="/potential" element={<Potential />} />
             <Route path="/capabilities" element={<Capabilities />} />
             <Route path="/pricing" element={<Pricing />} />
-
-
-
-
             <Route path="/assemblyFixture" element={<Assembly />} />
             <Route path="/HydraulicFixture" element={<Hydraulic />} />
             <Route path="/HydralicPowerPack" element={<HydraulicPowerPack />} />
             <Route path="/MechanicalFixture" element={<Mechanical />} />
             <Route path="/WeldingFixture" element={<Welding />} />
-            <Route path="/customers" element={<CustomerMain />} />
-            <Route path="/addcustomer" element={<AddCustomer />} />
-            <Route path="/customer/:serialNo" element={<ShowCustomer />} />
-            <Route path="/update/:serialNo" element={<UpdateCustomer />} />
-            <Route path="/invoice/:billId/:cname" element={<ShowSingleBill />} />
-            <Route path="/bill/:billId" element={<UpdateBill />} />
+
+            <Route 
+        path="/*" 
+        element={
+          <ProtectedRoute isloggedIn={isloggedIn}>
+              <Routes>
+                {
+                  currentUser?.username === "ShubhamShinde" &&
+                  currentUser?.email === "ssfixturing1@gmail.com" ?(
+                  <>
+                    <Route path="/customers" element={<CustomerMain />} />
+                    <Route path="/addcustomer" element={<AddCustomer />} />
+                    <Route path="/customer/:serialNo" element={<ShowCustomer />} />
+                    <Route path="/update/:serialNo" element={<UpdateCustomer />} />
+                    
+                    <Route path="/bill/:billId" element={<UpdateBill />} />
+                    <Route
+                    path="/upload"
+                    element={<BillMain currentUser={currentUser} />}
+                  />
+                </>):(
+                   <Route path="*" element={<Error />} />
+                )
+                }
+              </Routes>
+            </ProtectedRoute>}
+            />
             {/* <Route path="/upload" element={<BillMain  currentUser={currentUser}/>} /> */}
-
-
-            <Route path="/upload" element={
-                <ProtectedRoute isloggedIn={isloggedIn}>
-                  <BillMain currentUser={currentUser} />
-                </ProtectedRoute>
-              } />
+            <Route path="/invoice/:billId/:cname" element={<ShowSingleBill />} />
               <Route path="*" element={<Error/>} />
           </Routes>
         </div>
