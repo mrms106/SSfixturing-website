@@ -91,7 +91,7 @@
     border-top: 2px solid black;
 }
 .zero-third-vertical-box1{
-    min-width: 51.15rem;
+    min-width: 49.68rem;
 }
 .zero-third-vertical-line {
     width: 2px;
@@ -110,7 +110,7 @@
     border-left: 2px solid black;
     text-align: center;
     height: auto !important;
-    min-height: 19rem;
+    min-height: 18rem;
 }
 .zero-fourth-vertical-box .zero-box1 {
     width: 60px;
@@ -221,16 +221,16 @@
 }
 
 .zero-eight-vertical-row1 .zero-box1 {
-    width: 55.7rem;
+    width: 57rem;
 }
 .zero-eight-vertical-row1 .zero-box2 {
-    width: 19rem;
+    width: 19.4rem;
 }
 .zero-eight-vertical-row1 .zero-box3 {
-    width: 16rem;
+    width: 16.2rem;
 }
 .zero-eight-vertical-row1 .zero-box4 {
-    width: 171px;
+    width: 160px;
     border-right: none;
 }
 .zero-eight-vertical-row2 {
@@ -243,9 +243,9 @@
 }
 .zero-eight-vertical-row2 .zero-box1 .zero-sub-box {
     border-bottom: 2px solid black;
-    height: 25px;
-    padding-top: 5px;
-    font-size: 13px;
+    height: 20px;
+    padding-top: 4px;
+    font-size: 12px;
 }
 .zero-eight-vertical-row2 .zero-box2 {
     width: 49.2rem;
@@ -253,9 +253,9 @@
 }
 .zero-eight-vertical-row2 .zero-box2 .zero-sub-box {
     border-bottom: 2px solid black;
-    height: 25px;
-    padding-top: 5px;
-    font-size: 12px;
+    height: 20px;
+    padding-top: 4px;
+    font-size: 10px;
     padding-left: 2px;
 }
 .zero-eight-vertical-row2 .zero-box3 {
@@ -263,7 +263,7 @@
     border-right: 2px solid black;
 }
 .zero-eight-vertical-row2 .zero-box3 .zero-box3-text {
-    padding: 10px;
+    padding-left: 10px;
     padding-top: 40px;
     font-size: 15px;
 }
@@ -312,7 +312,7 @@ width: 150px;
 }
 .one-bill-terms-con-points{
     width: 95rem;
-    margin: 12px;
+    margin: 10px;
 }
 .one-bill-terms-con-points-heading{
     font-weight: bold;
