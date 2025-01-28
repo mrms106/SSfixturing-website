@@ -8,7 +8,9 @@ export default function UpdateCustomer(){
     const{serialNo}=useParams()
 
     const fetchCustomer=async()=>{
-        const responce=await fetch(`http://localhost:8080/api/customer/${serialNo}`)
+        const responce=await fetch(`http://localhost:8080/api/customer/${serialNo}`,{
+            credentials:'include'
+        })
         if(!responce.ok){
             return alert("failed to fetch customers")
         }
