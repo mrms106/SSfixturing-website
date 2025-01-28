@@ -50,7 +50,7 @@ export default function login({currUser,setisloggedIn}){
           const userData = await currUser(); // Fetch current user after login
           setisloggedIn(true);
           if(userData?.username === "ShubhamShinde"){
-            return  navigate  ('/upload');
+            return  navigate  ('/customers');
           }
           navigate("/")
         })
