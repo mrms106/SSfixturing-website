@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import BillInput from "./billinput";
 import { useParams } from "react-router-dom";
 import Swal from 'sweetalert2';
-
+import web from "../web";
 
 export default function UpdateBill(){
     const {billId}=useParams()
@@ -34,7 +34,7 @@ export default function UpdateBill(){
         }
     
         try {
-            const response = await fetch(`http://localhost:8080/api/bill/${billId}`);
+            const response = await fetch(`${web}/bill/${billId}`);
             if (!response.ok) {
                 alert("Problem in fetching the bill");
                 return;
@@ -53,7 +53,7 @@ fetchbill()
       const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-          const response = await fetch(`http://localhost:8080/api/bill/${billId}`, {
+          const response = await fetch(`${web}/bill/${billId}`, {
             method: 'PUT',
             headers: {
               'Content-Type': 'application/json',

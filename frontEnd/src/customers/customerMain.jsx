@@ -2,13 +2,14 @@ import { useEffect, useState } from "react"
 import './customer.css'
 import { useNavigate } from "react-router-dom"
 import Swal from 'sweetalert2';
+import web from "./web";
 
 export default function CustomerMain(){
     const navigate=useNavigate()
     const [customers,setcustomers]=useState([])
 
     const fetchCustomer=async()=>{
-        const responce=await fetch('http://localhost:8080/api/allcustomers',{
+        const responce=await fetch(`${web}/allcustomers`,{
             credentials:'include'
         })
         if(!responce.ok){
@@ -24,7 +25,7 @@ export default function CustomerMain(){
     },[])
 
     const deleteButton=async(serialNo)=>{
-        const responce= await fetch(`http://localhost:8080/api/deletecustomer/${serialNo}`,{
+        const responce= await fetch(`${web}/deletecustomer/${serialNo}`,{
             method:'DELETE',
             credentials:'include'
         })

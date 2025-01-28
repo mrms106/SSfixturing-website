@@ -28,6 +28,7 @@ import ShowCustomer from './customers/showcustomer/showcustomerMain';
 import ShowSingleBill from './customers/bills/showsinglebill';
 import UpdateBill from './customers/bills/updatebill';
 import UpdateCustomer from './customers/Addcustomer/updatecustomer';
+import web from './customers/web';
 function App() {
 
   let[isloggedIn,setisloggedIn]=useState(null)
@@ -36,7 +37,7 @@ function App() {
 
   const currUser = async () => {
     try {
-      const response = await fetch("http://localhost:8080/api/curruser", {
+      const response = await fetch(`${web}/curruser`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',

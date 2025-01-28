@@ -2,11 +2,12 @@ import { useNavigate } from "react-router-dom"
 import './showbills.css'
 import { useEffect } from "react"
 import Swal from 'sweetalert2';
+import web from "../../web";
 
 export default function Showbills({bills,name,fetchBill}){
     const navigate=useNavigate()
     const deletebill=async(billId)=>{
-        const response=await fetch(`http://localhost:8080/api/bill/${billId}`,{
+        const response=await fetch(`${web}/bill/${billId}`,{
             method:'DELETE',
             credentials:'include'
         })

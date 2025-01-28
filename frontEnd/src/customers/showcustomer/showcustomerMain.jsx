@@ -4,6 +4,7 @@ import './showcustomer.css'
 import CreateBill from "../bills/billmain"
 import Showbills from "./showbills/showbills"
 import Showledger from "./showledger/showledgermain"
+import web from "../web"
 
 export default function ShowCustomer(){
     const {serialNo}=useParams()
@@ -12,7 +13,7 @@ export default function ShowCustomer(){
      const[bills,setbills]=useState([])
     
         const fetchCustomer=async()=>{
-            const responce=await fetch(`http://localhost:8080/api/customer/${serialNo}`,{
+            const responce=await fetch(`${web}/customer/${serialNo}`,{
                 credentials:'include'
             })
             if(!responce.ok){
@@ -26,7 +27,7 @@ export default function ShowCustomer(){
         }
         const fetchBill=async()=>{
             
-            const responce=await fetch('http://localhost:8080/api/bills',{
+            const responce=await fetch(`${web}/bills`,{
                 method:'POST',
                 headers:{
                     'content-type':'application/json'

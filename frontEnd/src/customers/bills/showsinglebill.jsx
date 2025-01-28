@@ -5,6 +5,7 @@ import html2pdf from "html2pdf.js";
 import QRCode from 'qrcode.react'; 
 import numberToWords from './covrtnumber';
 import TermsandCon from './t&c';
+import web from '../web';
 export default function ShowSingleBill() {
     const [bill,setbill]=useState({})
     const [isDownloaded, setIsDownloaded] = useState(false);
@@ -28,7 +29,7 @@ export default function ShowSingleBill() {
     }
 
     try {
-        const response = await fetch(`http://localhost:8080/api/bill/${billId}`);
+        const response = await fetch(`${web}/bill/${billId}`);
         if (!response.ok) {
             alert("Problem in fetching the bill");
             return;

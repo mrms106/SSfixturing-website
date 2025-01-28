@@ -1,6 +1,7 @@
 import React, { useState,useEffect } from 'react';
 import BillInput from './billinput';
 import Swal from 'sweetalert2';
+import web from '../web';
 
 
 export default function CreateBill({ customer, setcreatebill,fetchBill }) {
@@ -29,7 +30,7 @@ export default function CreateBill({ customer, setcreatebill,fetchBill }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("http://localhost:8080/api/createbill", {
+      const response = await fetch(`${web}/createbill`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

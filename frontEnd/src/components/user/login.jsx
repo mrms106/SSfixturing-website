@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import HomeHead from '../homehead';
 import LoginForm from './loginForm';
 import Swal from 'sweetalert2';
+import web from '../../customers/web';
 
 export default function login({currUser,setisloggedIn}){
   const navigate = useNavigate();
@@ -20,7 +21,7 @@ export default function login({currUser,setisloggedIn}){
     event.preventDefault();
     try{
         setLoading(true);
-     const responce= await fetch("http://localhost:8080/api/login",{
+     const responce= await fetch(`${web}/api/login`,{
         method:"POST",
         headers:{
             'Content-Type':'application/json'

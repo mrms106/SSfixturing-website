@@ -1,6 +1,7 @@
 import html2pdf from "html2pdf.js";
 import { useState,useEffect } from "react";
 import { useParams } from "react-router-dom";
+import web from "../../web";
 export default function LedgerInfo({totalCreditedAmount,totalGrandTotal,billsState,handleCreditedAmountChange,logo,customer}){
     const [amounts, setAmounts] = useState({
         totalAmount: totalGrandTotal || 0,
@@ -12,7 +13,7 @@ export default function LedgerInfo({totalCreditedAmount,totalGrandTotal,billsSta
      // Function to call the backend API to update amounts
      const updateAmounts = async () => {
         try {
-            const response = await fetch(`http://localhost:8080/api/customer/${serialNo}`, {
+            const response = await fetch(`${web}/customer/${serialNo}`, {
                 method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json',

@@ -2,6 +2,7 @@ import { useState } from 'react'
 import './addcustomer.css'
 import { useNavigate } from 'react-router-dom'
 import Swal from 'sweetalert2';
+import web from '../web'
 
 export default function AddCustomer(){
     const navigate=useNavigate()
@@ -17,7 +18,7 @@ export default function AddCustomer(){
     }
     const onFormSubmit=async(e)=>{
         e.preventDefault()
-        const responce=await fetch('http://localhost:8080/api/addcustomer',{
+        const responce=await fetch(`${web}/addcustomer`,{
             method:'POST',
             headers:{
                 'Content-type':'application/json'

@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import './addcustomer.css'
 import { useNavigate, useParams } from 'react-router-dom'
 import Swal from 'sweetalert2';
+import web from '../web';
 
 export default function UpdateCustomer(){
     const navigate=useNavigate()
@@ -9,7 +10,7 @@ export default function UpdateCustomer(){
     const{serialNo}=useParams()
 
     const fetchCustomer=async()=>{
-        const responce=await fetch(`http://localhost:8080/api/customer/${serialNo}`,{
+        const responce=await fetch(`${web}/customer/${serialNo}`,{
             credentials:'include'
         })
         if(!responce.ok){
@@ -28,7 +29,7 @@ export default function UpdateCustomer(){
     }
     const onFormSubmit=async(e)=>{
         e.preventDefault()
-        const responce=await fetch(`http://localhost:8080/api/customer/${serialNo}`,{
+        const responce=await fetch(`${web}/customer/${serialNo}`,{
             method:'PUT',
             headers:{
                 'Content-type':'application/json'

@@ -1,6 +1,7 @@
 import { useEffect,useState } from "react"
 import './showledger.css'
 import LedgerInfo from "./ledgerinfo";
+import web from "../../web";
 
 export default function Showledger({bills,fetchBill,customer,fetchCustomer}){
    const logo='https://res.cloudinary.com/dpgod55rr/image/upload/v1737610088/ssfixturing/signAndlogo/sslogo_wjku27.png'
@@ -28,7 +29,7 @@ export default function Showledger({bills,fetchBill,customer,fetchCustomer}){
        setBillsState(updatedBills); // Update the local state
  
        // Call the backend API to update the value
-       await fetch(`http://localhost:8080/api/bills/${billId}`, {
+       await fetch(`${web}/bills/${billId}`, {
          method: 'PATCH',
          headers: {
            'Content-Type': 'application/json',
