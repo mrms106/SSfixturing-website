@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import './addcustomer.css'
 import { useNavigate } from 'react-router-dom'
+import Swal from 'sweetalert2';
 
 export default function AddCustomer(){
     const navigate=useNavigate()
@@ -26,11 +27,25 @@ export default function AddCustomer(){
 
         })
         if(responce.ok){
-            alert("the customer is created")
+            Swal.fire({
+                       title: 'customer is added ',
+                       text: 'You have successfully added the customer!',
+                       icon: 'success',  
+                       allowOutsideClick: false,
+                       allowEscapeKey: false,
+                       confirmButtonText: 'OK'
+                   })
             navigate("/customers")
             return;
         }
-        alert("problem in adding the customer")
+        Swal.fire({
+                   title: ' Failed',
+                   text:  'Failed to add customer, Please try again.',
+                   icon: 'error',
+                   allowOutsideClick: false,
+                   allowEscapeKey: false,
+                   confirmButtonText: 'OK'
+               });
 
     }
     return(

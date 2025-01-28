@@ -1,6 +1,8 @@
 import { useNavigate } from "react-router-dom"
 import './showbills.css'
 import { useEffect } from "react"
+import Swal from 'sweetalert2';
+
 export default function Showbills({bills,name,fetchBill}){
     const navigate=useNavigate()
     const deletebill=async(billId)=>{
@@ -9,11 +11,25 @@ export default function Showbills({bills,name,fetchBill}){
             credentials:'include'
         })
         if(response.ok){
-            alert("the bill is deleted succefull")
+            Swal.fire({
+                title: ' Successful',
+                text:  'You have successfully deleted the bill ',
+                icon: 'success',  
+                allowOutsideClick: false,
+                allowEscapeKey: false,
+                confirmButtonText: 'OK'
+            })
             fetchBill()
             return
         }
-        alert("problem in deleting the bill")
+        Swal.fire({
+            title: ' Failed',
+            text:  'failed to delete the bill. Please try again.',
+            icon: 'error',
+            allowOutsideClick: false,
+            allowEscapeKey: false,
+            confirmButtonText: 'OK'
+        });
 
     }
     return(

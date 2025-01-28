@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import './customer.css'
 import { useNavigate } from "react-router-dom"
+import Swal from 'sweetalert2';
 
 export default function CustomerMain(){
     const navigate=useNavigate()
@@ -28,11 +29,25 @@ export default function CustomerMain(){
             credentials:'include'
         })
         if(responce.ok){
-            alert("the customer is deleted from database")
+            Swal.fire({
+                title: ' Successful',
+                text: 'You have successfully deleted the customer!',
+                icon: 'success',  
+                allowOutsideClick: false,
+                allowEscapeKey: false,
+                confirmButtonText: 'OK'
+            })
             fetchCustomer()
             return;
         }
-        alert('problem in deleting the customer')
+        Swal.fire({
+            title: ' Failed',
+            text: 'failed to delete the customer. Please try again.',
+            icon: 'error',
+            allowOutsideClick: false,
+            allowEscapeKey: false,
+            confirmButtonText: 'OK'
+        });
     }
     return(
         <>

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import './addcustomer.css'
 import { useNavigate, useParams } from 'react-router-dom'
+import Swal from 'sweetalert2';
 
 export default function UpdateCustomer(){
     const navigate=useNavigate()
@@ -37,11 +38,25 @@ export default function UpdateCustomer(){
 
         })
         if(responce.ok){
-            alert("the customer is updated")
+            Swal.fire({
+                title: 'updated',
+                text:  'You have successfully update the customer!',
+                icon: 'success',  
+                allowOutsideClick: false,
+                allowEscapeKey: false,
+                confirmButtonText: 'OK'
+            })
             navigate("/customers")
             return;
         }
-        alert("problem in update the customer")
+        Swal.fire({
+            title: 'Failed',
+            text: 'failed to update the customer. Please try again.',
+            icon: 'error',
+            allowOutsideClick: false,
+            allowEscapeKey: false,
+            confirmButtonText: 'OK'
+        });
 
     }
     return(

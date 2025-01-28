@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import BillInput from "./billinput";
 import { useParams } from "react-router-dom";
+import Swal from 'sweetalert2';
+
 
 export default function UpdateBill(){
     const {billId}=useParams()
@@ -61,13 +63,27 @@ fetchbill()
           });
     
           if (response.ok) {
-            alert("The bill has been created successfully");
+            Swal.fire({
+              title: ' Successful',
+              text: 'You have successfully udated the bill!',
+              icon: 'success',  
+              allowOutsideClick: false,
+              allowEscapeKey: false,
+              confirmButtonText: 'OK'
+          })
            
          
             return;
           }
     
-          alert("Problem creating the bill");
+          Swal.fire({
+            title: ' Failed',
+            text: 'faild to update the bill. Please try again.',
+            icon: 'error',
+            allowOutsideClick: false,
+            allowEscapeKey: false,
+            confirmButtonText: 'OK'
+        });
         } catch (err) {
           console.error(err);
           alert("Error: " + err.message);

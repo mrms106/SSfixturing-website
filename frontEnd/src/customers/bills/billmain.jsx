@@ -1,5 +1,7 @@
 import React, { useState,useEffect } from 'react';
 import BillInput from './billinput';
+import Swal from 'sweetalert2';
+
 
 export default function CreateBill({ customer, setcreatebill,fetchBill }) {
   const [formData, setFormData] = useState({
@@ -37,13 +39,27 @@ export default function CreateBill({ customer, setcreatebill,fetchBill }) {
       });
 
       if (response.ok) {
-        alert("The bill has been created successfully");
+        Swal.fire({
+          title: ' Successful',
+          text:  'You have successfully created  the bill!',
+          icon: 'success',  
+          allowOutsideClick: false,
+          allowEscapeKey: false,
+          confirmButtonText: 'OK'
+      })
         fetchBill()
         setcreatebill(true);
         return;
       }
 
-      alert("Problem creating the bill");
+      Swal.fire({
+        title: ' Failed',
+        text:  'failed to create bill. Please try again.',
+        icon: 'error',
+        allowOutsideClick: false,
+        allowEscapeKey: false,
+        confirmButtonText: 'OK'
+    });
     } catch (err) {
       console.error(err);
       alert("Error: " + err.message);
