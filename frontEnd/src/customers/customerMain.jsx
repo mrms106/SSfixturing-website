@@ -7,7 +7,9 @@ export default function CustomerMain(){
     const [customers,setcustomers]=useState([])
 
     const fetchCustomer=async()=>{
-        const responce=await fetch('http://localhost:8080/api/allcustomers')
+        const responce=await fetch('http://localhost:8080/api/allcustomers',{
+            credentials:'include'
+        })
         if(!responce.ok){
             return alert("failed to fetch customers")
         }
