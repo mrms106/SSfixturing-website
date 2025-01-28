@@ -118,7 +118,7 @@ console.log(bill)
                 <div className="zero-horizontal2"></div>
                 <div className="zero-horizontal3">
                 <QRCode   
-                                value={`https://ssfixturing.com/invoice/${bill.invoiceNo}`}
+                                value={`https://ssfixturing.com/invoice/${bill.billId}/${bill.cname}`}
                                 className="bill-qr-code"
                                 size={75} // Adjust size as needed
                                 level="H"  // Error correction level (L, M, Q, H)
