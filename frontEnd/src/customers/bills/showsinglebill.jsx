@@ -7,6 +7,7 @@ import numberToWords from './covrtnumber';
 import TermsandCon from './t&c';
 export default function ShowSingleBill() {
     const [bill,setbill]=useState({})
+    const [isDownloaded, setIsDownloaded] = useState(false);
     const{billId}=useParams()
     const logo='https://res.cloudinary.com/dpgod55rr/image/upload/v1737610088/ssfixturing/signAndlogo/sslogo_wjku27.png'
     const sign='https://res.cloudinary.com/dpgod55rr/image/upload/v1737610086/ssfixturing/signAndlogo/SIGN_ql0gsx.png'
@@ -74,12 +75,29 @@ console.log(bill)
             html2pdf()
                 .set(opt)
                 .from(element)
-                .save()
+                .save().then(() => {
+                    setIsDownloaded(true); // Set state to show the message
+                  })
                 .catch((err) => console.error("PDF generation error:", err));
         }, 500); // Delay of 500ms
     };
     
-      
+        // Automatically download the PDF if the screen size is less than 1000px
+  useEffect(() => {
+    if (window.innerWidth < 1000 && bill.invoiceNo) {
+      downloadPDF();
+    }
+  }, [bill.invoiceNo]);
+
+  // If the PDF is downloaded, only show the message
+  if (isDownloaded) {
+    return (
+      <div className="download-message">
+        <h2 >Bill is downloaded</h2>
+        <p>to download again refresh the page</p>
+      </div>
+    );
+  }
   return (<>
   <div className="main-siglbill-show">
     <div className="showsinglbill">

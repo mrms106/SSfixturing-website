@@ -350,3 +350,14 @@ width: 150px;
     display: flex;
 }
 }
+.download-message{
+    margin-top: 10rem;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.download-message p{
+    color: white !important;
+}
