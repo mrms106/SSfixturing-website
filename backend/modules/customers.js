@@ -6,10 +6,18 @@ const Customers=sequelize.define('CUSTOMERS',{
         type: DataTypes.STRING,
         allowNull:false
     },
-    address:{
+    addressBillto:{
         type:DataTypes.STRING,
         allowNull:false
     },
+    addressSypplyto:{
+      type:DataTypes.STRING,
+      allowNull:false
+  },
+  Statecode:{
+    type:DataTypes.STRING,
+    allowNull:false
+},
     gstNo:{
         type:DataTypes.STRING,
         allowNull:false
