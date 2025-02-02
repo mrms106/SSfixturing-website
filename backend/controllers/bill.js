@@ -7,7 +7,7 @@ function generateSerialNumber() {
 
 module.exports.createBill = async (req, res) => {
     const {
-        cname, caddress, cgst, cmail, cContact,
+        cname, caddressbillto,caddresssupplyto,statecode,invoicetime, cgst, cmail, cContact,
         serialNo, invoiceNo, PoNo, invoicedate, Podate, item,isOutside
     } = req.body;
    const billId=generateSerialNumber()
@@ -19,8 +19,8 @@ module.exports.createBill = async (req, res) => {
 
         // Create the new bill
         const newBill = await Bills.create({
-            cname, caddress, cgst, cmail, cContact,
-            serialNo, invoiceNo, PoNo, invoicedate, Podate, item,billId,isOutside
+          cname, caddressbillto,caddresssupplyto,statecode,invoicetime, cgst, cmail, cContact,
+          serialNo, invoiceNo, PoNo, invoicedate, Podate, item,isOutside,billId
         });
 
         res.status(201).json({ message: 'Bill created successfully', data: newBill });

@@ -6,7 +6,15 @@ const Bills = sequelize.define('BILLS', {
     type: DataTypes.STRING,
     allowNull: false
   },
-  caddress: {
+  caddressbillto: {
+    type: DataTypes.STRING,
+    allowNull: false
+  },
+  caddresssupplyto: {
+    type: DataTypes.STRING,
+    allowNull: false
+  },
+  statecode: {
     type: DataTypes.STRING,
     allowNull: false
   },
@@ -36,6 +44,10 @@ const Bills = sequelize.define('BILLS', {
     allowNull: false
   },
   invoicedate: {
+    type: DataTypes.STRING,
+    allowNull: false
+  },
+  invoicetime: {
     type: DataTypes.STRING,
     allowNull: false
   },

@@ -7,7 +7,9 @@ import web from '../web';
 export default function CreateBill({ customer, setcreatebill,fetchBill }) {
   const [formData, setFormData] = useState({
     cname: customer.name,
-    caddress: customer.address,
+    caddressbillto: customer.addressBillto,
+    caddresssupplyto:customer.addressSypplyto,
+    statecode:customer.Statecode,
     cgst: customer.gstNo,
     cmail: customer.email,
     cContact: customer.contact,
@@ -15,6 +17,7 @@ export default function CreateBill({ customer, setcreatebill,fetchBill }) {
     invoiceNo: '',
     PoNo: '',
     invoicedate: '',
+    invoicetime:'',
     Podate: '',
     isOutside:false,
     item: [

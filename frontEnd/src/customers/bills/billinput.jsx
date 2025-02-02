@@ -2,7 +2,7 @@ import Switch from '@mui/material/Switch';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import React, { useState,useEffect } from 'react';
 
-export default function BillInput({formData,handleSubmit,setFormData,value,handleItemChange}){
+export default function BillInput({formData,handleSubmit,setFormData,value}){
      const [IsOutside, setIsOutside] = useState(false);
     
     // Sync IsOutside state with formData
@@ -114,6 +114,16 @@ export default function BillInput({formData,handleSubmit,setFormData,value,handl
             name="invoicedate"
             required
             value={formData.invoicedate}
+            onChange={handleChange}
+          />
+         </div>
+         <div>
+         <label>Invoice Time</label>
+          <input
+            type="Time"
+            name="invoicetime"
+            required
+            value={formData.invoicetime}
             onChange={handleChange}
           />
          </div>

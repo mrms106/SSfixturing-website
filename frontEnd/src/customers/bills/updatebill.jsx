@@ -8,7 +8,9 @@ export default function UpdateBill(){
     const {billId}=useParams()
      const [formData, setFormData] = useState({
         cname: '',
-        caddress: '',
+        caddressbillto: '',
+        caddresssupplyto: '',
+        statecode:'',
         cgst:'',
         cmail: '',
         cContact:'',
@@ -16,6 +18,7 @@ export default function UpdateBill(){
         invoiceNo: '',
         PoNo: '',
         invoicedate: '',
+        invoicetime:'',
         Podate: '',
         isOutside:'',
         item: [
