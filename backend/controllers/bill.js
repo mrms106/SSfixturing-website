@@ -29,34 +29,65 @@ module.exports.createBill = async (req, res) => {
         res.status(500).json({ error: 'Failed to create bill', details: err.message });
     }
 };
-
 module.exports.updateBill = async (req, res) => {
-    const { billId } = req.params; // Bill identified by `invoiceNo`
+    const { billId } = req.params; // Bill identified by `billId`
     const { item, ...otherData } = req.body; // Separate `item` from other data
-
+  
     try {
-        const bill = await Bills.findOne({ where: { billId } });
-
-        if (!bill) {
-            return res.status(404).json({ error: 'Bill not found' });
-        }
-
-        // Update the bill
-        const updatedData = {
-            ...otherData,
-        };
-
-        if (item && Array.isArray(item)) {
-            updatedData.item = item; // Include the updated `item` if provided
-        }
-
-        const updatedBill = await bill.update(updatedData);
-        res.status(200).json({ message: 'Bill updated successfully', data: updatedBill });
+      const bill = await Bills.findOne({ where: { billId } });
+  
+      if (!bill) {
+        return res.status(404).json({ error: 'Bill not found' });
+      }
+  
+      // Initialize total value
+      let totalValue = 0;
+  
+      // Update the items if provided and calculate the total value
+      if (item && Array.isArray(item)) {
+        // Iterate over the items and recalculate totalAmount, totalValue, etc.
+        item.forEach(currentItem => {
+          const unitRate = parseFloat(currentItem.unitRate) || 0;
+          const quantity = parseFloat(currentItem.quantity) || 0;
+          const discount = parseFloat(currentItem.discount) || 0;
+  
+          // Calculate the total amount for the item after discount
+          let totalAmount = unitRate * quantity;
+          const discountAmount = totalAmount * (discount / 100);
+          totalAmount -= discountAmount;
+  
+          // Update totalAmount and discountAmount
+          currentItem.totalAmount = totalAmount;
+          currentItem.discountAmount = discountAmount;
+  
+          // Add to the total value of the bill
+          totalValue += totalAmount;
+        });
+      }
+  
+      // Calculate tax and grand total
+      const taxAmount = totalValue * 0.18;
+      const grandTotal = totalValue + taxAmount;
+  
+      // Prepare the updated bill data
+      const updatedData = {
+        ...otherData,  // Include other data like cname, caddress, etc.
+        item,          // Include the updated items array
+        totalvalue: totalValue,   // Updated total value
+        taxamount: taxAmount,     // Updated tax amount
+        grandTotal,    // Updated grand total
+      };
+  
+      // Update the bill in the database
+      const updatedBill = await bill.update(updatedData);
+  
+      res.status(200).json({ message: 'Bill updated successfully', data: updatedBill });
     } catch (err) {
-        console.error(err.message, err);
-        res.status(500).json({ error: 'Failed to update bill', details: err.message });
+      console.error(err.message, err);
+      res.status(500).json({ error: 'Failed to update bill', details: err.message });
     }
-};
+  };
+  
 
 
 module.exports.deleteBill = async (req, res) => {
