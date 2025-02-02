@@ -2,7 +2,7 @@ import Switch from '@mui/material/Switch';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import React, { useState,useEffect } from 'react';
 
-export default function BillInput({formData,handleSubmit,setFormData,value}){
+export default function BillInput({formData,handleSubmit,setFormData,value,handleItemChange}){
      const [IsOutside, setIsOutside] = useState(false);
     
     // Sync IsOutside state with formData
@@ -15,31 +15,70 @@ export default function BillInput({formData,handleSubmit,setFormData,value}){
       // Handle changes in form fields
       const handleChange = (e, index = null) => {
         const { name, value } = e.target;
-    
-        if (index !== null) {
-          // Update item array
-          const updatedItems = [...formData.item];
-          updatedItems[index][name] = value;
-          setFormData({ ...formData, item: updatedItems });
-        } else {
-          // Update top-level fields
-          setFormData({ ...formData, [name]: value });
-        }
-      };
-    console.log(IsOutside)
-    const addItem = () => {
-        setFormData({
-          ...formData,
-          item: [
-            ...formData.item,
-            { description: '',  unitRate: '', quantity: '',  discount: '' },
-          ],
+      
+        setFormData((prevFormData) => {
+          if (index !== null) {
+            // Update the item array
+            const updatedItems = prevFormData.item.map((item, i) => {
+              if (i === index) {
+                const updatedItem = { ...item, [name]: value };
+      
+                // Convert values to numbers
+                const unitRate = parseFloat(updatedItem.unitRate) || 0;
+                const quantity = parseFloat(updatedItem.quantity) || 0;
+                const discountPercentage = parseFloat(updatedItem.discount) || 0;
+      
+                // Calculate total before discount
+                const totalBeforeDiscount = unitRate * quantity;
+      
+                // Calculate discount amount as a percentage of totalBeforeDiscount
+                const discountAmount = (discountPercentage / 100) * totalBeforeDiscount;
+      
+                // Ensure the discount is not greater than totalBeforeDiscount
+                const finalTotal = totalBeforeDiscount - discountAmount;
+      
+                // Update values
+                updatedItem.totalAmount = finalTotal;
+                updatedItem.discountAmount = discountAmount; // Store discount separately
+      
+                return updatedItem;
+              }
+              return item;
+            });
+      
+            return { ...prevFormData, item: updatedItems };
+          } else {
+            // Update non-item fields
+            return { ...prevFormData, [name]: value };
+          }
         });
       };
-      const removeItem = (index) => {
-        const updatedItems = formData.item.filter((_, i) => i !== index);
-        setFormData({ ...formData, item: updatedItems });
-      };
+      
+      
+    console.log(IsOutside)
+    const addItem = () => {
+      setFormData((prevFormData) => ({
+        ...prevFormData,
+        item: [
+          ...prevFormData.item,
+          {
+            description: '',
+            unitRate: '',
+            quantity: '',
+            discount: '',
+            totalAmount: 0,  // Initialize with 0
+            discountAmount: 0, // Initialize with 0
+          },
+        ],
+      }));
+    };
+    const removeItem = (index) => {
+      setFormData((prevFormData) => {
+        const updatedItems = prevFormData.item.filter((_, i) => i !== index);
+        return { ...prevFormData, item: updatedItems };
+      });
+    };
+        
     return(
         <>
             <form onSubmit={handleSubmit} className='create-bill-form'>
@@ -151,6 +190,25 @@ export default function BillInput({formData,handleSubmit,setFormData,value}){
               onChange={(e) => handleChange(e, index)}
             />
            </div>
+              {/* Display calculated discount amount */}
+    <div>
+      <label>Discount Amount</label>
+      <input
+        type="text"
+        value={item.discountAmount}
+        readOnly
+      />
+    </div>
+
+    {/* Display calculated totalAmount */}
+    <div>
+      <label>Total Amount</label>
+      <input
+        type="text"
+        value={item.totalAmount}
+        readOnly
+      />
+    </div>
            <button type="button" onClick={() => removeItem(index)}>
               Remove Item
             </button>

@@ -246,7 +246,7 @@ console.log(bill)
                         <div className="zero-sub-box1"><b> Disc %</b></div>
                         {
                           bill.item &&  bill.item.map((val,idx)=>(
-                                <div className="zero-sub-box2" style={{marginTop:'5px'}}><b>{val.unitRate-val.totalAmount}</b><br></br>({val.discount}%)</div>
+                                <div className="zero-sub-box2" style={{marginTop:'5px'}}><b>{val.discountAmount}</b><br></br>({val.discount}%)</div>
                             ))
                         }
                     </div>

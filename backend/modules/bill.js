@@ -80,13 +80,8 @@ const Bills = sequelize.define('BILLS', {
 
       if (bill.item && Array.isArray(bill.item)) {
         bill.item = bill.item.map(currentItem => {
-          const unitRate = parseFloat(currentItem.unitRate) || 0;
-          const quantity = parseFloat(currentItem.quantity) || 0;
-          const discount = parseFloat(currentItem.discount) || 0;
+          const totalAmount = parseFloat(currentItem.totalAmount) || 0;
 
-          // Calculate totalAmount for the current item
-          const totalAmount = (unitRate * quantity) - discount;
-          currentItem.totalAmount = totalAmount; // Add totalAmount to the item
 
           // Add to totalValue
           totalValue += totalAmount;

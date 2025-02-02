@@ -23,6 +23,8 @@ export default function CreateBill({ customer, setcreatebill,fetchBill }) {
         unitRate: '',
         quantity: '',
         discount: '',
+        totalAmount: 0, // Store calculated total
+        discountAmount: 0, // Store the discount amount separately
       },
     ],
   });
@@ -67,7 +69,6 @@ export default function CreateBill({ customer, setcreatebill,fetchBill }) {
     }
   };
 
-  
   return (
     <div className="addcustomer-main">
       <div className="addcustomer-close-btn">
@@ -75,7 +76,7 @@ export default function CreateBill({ customer, setcreatebill,fetchBill }) {
         <h3>Create Bill</h3>
         
       </div>
-    <BillInput handleSubmit={handleSubmit} value="create" customer={customer} formData={formData} setFormData={setFormData}/>
+    <BillInput handleSubmit={handleSubmit} value="create" customer={customer} formData={formData} setFormData={setFormData} />
     </div>
   );
 }
