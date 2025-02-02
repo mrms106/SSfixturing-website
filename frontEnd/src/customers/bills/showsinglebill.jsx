@@ -55,7 +55,7 @@ console.log(bill)
         }
     
         const opt = {
-            margin: [0.1, 0.1, 0.1, 0.1], // Updated margins: top 0.1, left 1, others unchanged
+            margin: [0, 0.6, 0, 0], // Updated margins: top 0.1, left 1, others unchanged
             filename: `Tax Invoive${bill.invoiceNo }.pdf`,
             image: { type: "jpeg", quality: 0.98 },
             html2canvas: {
@@ -112,21 +112,24 @@ console.log(bill)
             </div>
             <div className="zero-first-vertical">
                 <div className="zero-horizontal1">
-                    <img src={logo} alt="ssfixturing-logo" />
+                   
+                   <img src={logo} alt="ssfixturing-logo" />
                   
-                </div>
-                
-                <div className="zero-horizontal2"></div>
-                <div className="zero-horizontal3">
-                <QRCode   
+                    <QRCode   
                                 value={`https://ssfixturing.com/invoice/${bill.billId}/${bill.cname}`}
                                 className="bill-qr-code"
                                 size={75} // Adjust size as needed
                                 level="H"  // Error correction level (L, M, Q, H)
                             />
+                  
+                </div>
+                
+                <div className="zero-horizontal2"></div>
+                <div className="zero-horizontal3">
+               
                    <div>
                     <div className="zero-c-name">
-                        <b> S S Fixturing</b>
+                        <b style={{fontSize:'19px'}}> S S Fixturing</b>
                         </div>
                         <div className="zero-c-addr">
                             <b>Works :</b> Shop No. 11, Sr. No. 4/4, Gurudev Datta Colony No, 03, Bhosari, Pune, Maharastra- 411039
@@ -350,9 +353,9 @@ console.log(bill)
                 </div>
             </div>
         </div>
-            <TermsandCon/>
+            {/* <TermsandCon/> */}
         </div>
-    </div>
+        </div>
         <div className="show-single-bill-btn">
          <button   ref={buttonRef} onClick={downloadPDF} className='pdf-download-btn'> Download PDF<i className="fa-solid fa-download"></i><br></br>
           <span>if you want to view in mobile download and view</span>
