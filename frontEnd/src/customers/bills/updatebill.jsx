@@ -24,6 +24,8 @@ export default function UpdateBill(){
             unitRate: '',
             quantity: '',
             discount: '',
+            totalAmount: 0,   // Ensure totalAmount is included
+            discountAmount: 0 // Ensure discountAmount is included
           },
         ],
       });
