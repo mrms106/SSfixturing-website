@@ -32,13 +32,15 @@ function generateSerialNumber() {
   }
 
 module.exports.addcustomer=async(req,res)=>{
-    const {name,address,gstNo,email,contact}=req.body
+    const {name,addressBillto,addressSypplyto,Statecode,gstNo,email,contact}=req.body
     const serialNO=generateSerialNumber()
 
     try{
         await customer.create({
             name:name,
-            address:address,
+            addressBillto:addressBillto,
+            addressSypplyto:addressSypplyto,
+            Statecode:Statecode,
             gstNo:gstNo,
             email:email,
             contact:contact,
@@ -71,7 +73,7 @@ module.exports.deletecustomer = async (req, res) => {
 
 module.exports.updateCustomer = async (req, res) => {
     const { serialNo } = req.params;
-    const { name, address, gstNo, email, contact } = req.body;  // Destructure the updated fields from the body
+    const {name,addressBillto,addressSypplyto,Statecode,gstNo,email,contact}=req.body  // Destructure the updated fields from the body
     
     try {
         // Find the customer with the matching serialNo
@@ -84,7 +86,7 @@ module.exports.updateCustomer = async (req, res) => {
 
         // Update the customer with the new values
         await customer.update(
-            { name, address, gstNo, email, contact },  // Updated fields
+            { name, addressBillto,addressSypplyto,Statecode, gstNo, email, contact },  // Updated fields
             { where: { serialNo } }   // Just update based on serialNo
         );
 

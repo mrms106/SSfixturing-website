@@ -68,8 +68,12 @@ export default function UpdateCustomer(){
            <div>
            <label>Customer Name</label>
             <input type="name" name="name" placeholder="enter customer name" value={form.name}></input>
-            <label>Customer Address</label>
-            <input type="address" name="address" placeholder="enter customer address" value={form.address}></input>
+            <label>Customer Address Bill To</label>
+            <input type="address" name="addressBillto" placeholder="enter customer address Bill To" value={form.addressBillto}></input>
+            <label>Customer Address supply To</label>
+            <input type="address" name="addressSypplyto" placeholder="enter customer address supply To" value={form.addressSypplyto}></input>
+            <label>State & State Code</label>
+            <input type="text" name="Statecode" placeholder="enter customer state & state code" value={form.Statecode}></input>
             <label>Gst NO.</label>
             <input type="text" name="gstNo" placeholder="enter customer GstNo" value={form.gstNo}></input>
            </div>

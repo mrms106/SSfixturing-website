@@ -8,7 +8,9 @@ export default function AddCustomer(){
     const navigate=useNavigate()
     const [form, setform]=useState({
         name:"",
-        address:"",
+        addressBillto:'',
+        addressSypplyto:"",
+        Statecode:'',
         email:"",
         contact:""
 
@@ -57,8 +59,12 @@ export default function AddCustomer(){
            <div>
            <label>Customer Name</label>
             <input type="name" name="name" placeholder="enter customer name"></input>
-            <label>Customer Address</label>
-            <input type="address" name="address" placeholder="enter customer address"></input>
+            <label>Customer Address Bill To</label>
+            <input type="address" name="addressBillto" placeholder="enter customer address Bill To"></input>
+            <label>Customer Address supply To</label>
+            <input type="address" name="addressSypplyto" placeholder="enter customer address supply To"></input>
+            <label>State & State Code</label>
+            <input type="text" name="Statecode" placeholder="enter customer state & state code"></input>
             <label>Gst NO.</label>
             <input type="text" name="gstNo" placeholder="enter customer GstNo"></input>
            </div>
