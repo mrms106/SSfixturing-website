@@ -353,7 +353,7 @@ console.log(bill)
                 </div>
             </div>
         </div>
-            {/* <TermsandCon/> */}
+            <TermsandCon/>
         </div>
         </div>
         <div className="show-single-bill-btn">

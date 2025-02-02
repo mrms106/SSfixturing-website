@@ -306,14 +306,16 @@ width: 150px;
 /* terms and conditions */
 
 .one-bill-terms-con-main{
-    margin-top: 10px;
+    margin-top: 20px;
     display: flex;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
     font-family: 'Times New Roman', Times, serif;
 }
 .one-bill-terms-con-heading{
     background-color:rgba(248, 169, 90, 0.964);
-    width: 100rem;
+    width: 85rem;
     font-weight: bold;
     text-align: center;
     height: 30px;
@@ -321,7 +323,7 @@ width: 150px;
     font-size: 19px;
 }
 .one-bill-terms-con-points{
-    width: 95rem;
+    width: 85rem;
     margin: 10px;
 }
 .one-bill-terms-con-points-heading{
