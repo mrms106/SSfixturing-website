@@ -168,8 +168,8 @@ console.log(bill)
                 <div style={{ padding: "5px" }} className='zero-third-vertical-box1'>
                     <div><b>Name & Address of Bill To,</b></div>
                     <div><b>{bill.cname}</b></div>
-                    <div> <b>Address :</b> {bill.caddress}</div>
-                    <div> <b>GSTIN No :</b> {bill.cgst}     State & State Code ; KHARSAWAN-833220,</div>
+                    <div> <b>Address :</b> {bill.caddressbillto}</div>
+                    <div> <b>GSTIN No :</b> {bill.cgst}     State & State Code :&nbsp;{bill.statecode},</div>
                     <div><b> Mail ID : {bill.cmail}</b></div>
                     <div><b> Contact Per :{bill.cContact}</b></div>
                 </div>
@@ -177,8 +177,8 @@ console.log(bill)
                 <div style={{ padding: "5px" }}>
                     <div><b>Name & Address of Supply To,</b></div>
                     <div><b>{bill.cname}</b></div>
-                    <div>Address : {bill.caddress}</div>
-                    <div> GSTIN No :  {bill.cgst}     State & State Code ; KHARSAWAN-833220,</div>
+                    <div>Address : {bill.caddresssupplyto}</div>
+                    <div> GSTIN No :  {bill.cgst}     State & State Code :&nbsp;{bill.statecode},</div>
                     <div><b><u>Mail ID : {bill.cmail}</u></b></div>
                     <div><b>Contact Per : {bill.cContact}</b></div>
                 </div>
@@ -303,7 +303,7 @@ console.log(bill)
             </div>
             <div className="zero-seventh-vertical">
                 <div><b>Transport/ Courier Name :</b> TCI EXPRESS</div>
-                <div> <b>Date & Time of Issue of Invoice :</b>{bill.invoicedate}    11.01 Am</div>
+                <div> <b>Date & Time of Issue of Invoice :</b>{bill.invoicedate}  &nbsp;  {bill.invoicetime}</div>
             </div>
             <div className="zero-eight-vertical">
                 <div className="zero-eight-vertical-row1">
