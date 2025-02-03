@@ -96,12 +96,12 @@ export default function LedgerInfo({totalCreditedAmount,totalGrandTotal,billsSta
                         <div className="ledger-horizontal-two-two-one ledger-horizontal-two-similar-two">Shop No. 11, Sr. No. 4/4, Gurudev Datta Colony No, 03, Bhosari, Pune, Maharastra- 411039</div>
                     </div>
                     <div className="ledger-horizontal-two-three">
-                        <div className="ledger-horizontal-two-three-one ledger-horizontal-two-similar-one">Contact Per. Name:</div>
-                        <div className="ledger-horizontal-two-three-two ledger-horizontal-two-similar-two">Mr. Shubham Shinde</div>
+                        <div className="ledger-horizontal-two-three-one ledger-horizontal-two-similar-one">Contact Per. Name/No. :</div>
+                        <div className="ledger-horizontal-two-three-two ledger-horizontal-two-similar-two">Mr. Shubham Shinde / +91-960-4233-567 / +91-928-4550-570 /</div>
                     </div>
                     <div className="ledger-horizontal-two-four">
-                        <div className="ledger-horizontal-two-four-one ledger-horizontal-two-similar-one">Contact No./ Mail Id. :</div>
-                        <div className="ledger-horizontal-two-four-two ledger-horizontal-two-similar-two">960-423-3567 / 928-455-0570 / ssfixturing1@gmail.com</div>
+                        <div className="ledger-horizontal-two-four-one ledger-horizontal-two-similar-one"> Mail Id./website :</div>
+                        <div className="ledger-horizontal-two-four-two ledger-horizontal-two-similar-two"> ssfixturing1@gmail.com/ www.ssfixturing.com</div>
                     </div>
                 </div>
                 <div className="ledger-horizontal-three">
