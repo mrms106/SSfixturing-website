@@ -125,7 +125,7 @@ function App() {
             </ProtectedRoute>}
             />
             {/* <Route path="/upload" element={<BillMain  currentUser={currentUser}/>} /> */}
-            <Route path="/invoice/:billId/:cname" element={<ShowSingleBill />} />
+            <Route path="/invoice/:billId/:cname" element={<ShowSingleBill  currUser={currentUser}/>} />
               <Route path="*" element={<Error/>} />
           </Routes>
         </div>

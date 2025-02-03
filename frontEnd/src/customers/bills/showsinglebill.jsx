@@ -6,9 +6,10 @@ import QRCode from 'qrcode.react';
 import numberToWords from './covrtnumber';
 import TermsandCon from './t&c';
 import web from '../web';
-export default function ShowSingleBill() {
+export default function ShowSingleBill({currUser}) {
     const [bill,setbill]=useState({})
     const [isDownloaded, setIsDownloaded] = useState(false);
+    const[Ivalue,setivalue]=useState("Original")
     const{billId}=useParams()
     const logo='https://res.cloudinary.com/dpgod55rr/image/upload/v1737610088/ssfixturing/signAndlogo/sslogo_wjku27.png'
     const sign='https://res.cloudinary.com/dpgod55rr/image/upload/v1737610086/ssfixturing/signAndlogo/SIGN_ql0gsx.png'
@@ -101,6 +102,7 @@ console.log(bill)
   }
   return (<>
   <div className="main-siglbill-show">
+   {currUser?.username==="ShubhamShinde" ?<input name='Ivalue' type='text' value={Ivalue} onChange={(e)=>setivalue(e.target.value)}/>: null}
     <div className="showsinglbill">
     <div className="zero-main-bill">
             <div className="zero-main-vertical">
@@ -108,7 +110,7 @@ console.log(bill)
                 <span>Invoice No. : {bill.invoiceNo}</span> 
                 <span>Invoice Date : {bill.invoicedate}</span>
                 <span> Amount :  {bill.grandTotal}</span>
-                <span>Original for Acknowledg</span>
+                <span>{Ivalue} for Acknowledg</span>
             </div>
             <div className="zero-first-vertical">
                 <div className="zero-horizontal1">
