@@ -248,7 +248,7 @@ console.log(bill)
                         <div className="zero-sub-box1"><b> Disc %</b></div>
                         {
                           bill.item &&  bill.item.map((val,idx)=>(
-                                <div className="zero-sub-box2" style={{marginTop:'5px'}}><b>{val.discountAmount}</b><br></br>({val.discount}%)</div>
+                                <div className="zero-sub-box2" style={{marginTop:'5px'}}><b>{val.discountAmount.toFixed(2)}</b><br></br>({val.discount}%)</div>
                             ))
                         }
                     </div>
@@ -256,7 +256,7 @@ console.log(bill)
                         <div className="zero-sub-box1"> <b>Total Amount</b></div>
                         {
                           bill.item &&  bill.item.map((val,idx)=>(
-                                <div className="zero-sub-box2" style={{marginTop:'5px'}}><b>{val.totalAmount}</b><br></br><i>IGST : 18%</i></div>
+                                <div className="zero-sub-box2" style={{marginTop:'5px'}}><b>{val.totalAmount.toFixed(2)}</b><br></br><i>IGST : 18%</i></div>
                             ))
                         }
                     </div>
@@ -279,11 +279,11 @@ console.log(bill)
                     </div>
                     <div className="zero-fifth-sub-box2">
                         <div className="zero-box1"> Add CGST @ 9%</div>
-                        <div className="zero-box2"> {bill.isOutside ?bill.taxamount/2 :0}.00</div>
+                        <div className="zero-box2"> {bill.isOutside ?bill.taxamount/2 :0}</div>
                     </div>
                     <div className="zero-fifth-sub-box2">
                         <div className="zero-box1"> Add SGST @ 9%</div>
-                        <div className="zero-box2"> {bill.isOutside ?bill.taxamount/2 :0}.00</div>
+                        <div className="zero-box2"> {bill.isOutside ?bill.taxamount/2 :0}</div>
                     </div>
                     <div className="zero-fifth-sub-box2">
                         <div className="zero-box1"> Add IGST @ 18%</div>
