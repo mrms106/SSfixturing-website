@@ -211,15 +211,15 @@ console.log(bill)
                             ))
                         }
                     </div>
-                    <div className="zero-box zero-box-similar">
+                    <div className="zero-box zero-box-similar zero-box-unitrate">
                         <div className="zero-sub-box1"><b> Unit Rate</b></div>
                         {
                           bill.item && bill.item.map((val,idx)=>(
-                                <div className="zero-sub-box2"><b>{val.unitRate}.00</b></div>
+                                <div className="zero-sub-box2"><b>{val.unitRate}</b></div>
                             ))
                         }
                     </div>
-                    <div className="zero-box zero-box-similar">
+                    <div className="zero-box zero-box-similar zero-box-quntity">
                         <div className="zero-sub-box1"><b>Qty</b></div>
                         {
                           bill.item && bill.item.map((val,idx)=>(
