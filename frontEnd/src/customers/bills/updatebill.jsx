@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import BillInput from "./billinput";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Swal from 'sweetalert2';
 import web from "../web";
 
 export default function UpdateBill(){
     const {billId}=useParams()
+    const navigate=useNavigate()
      const [formData, setFormData] = useState({
         cname: '',
         caddressbillto: '',
@@ -77,7 +78,7 @@ fetchbill()
               confirmButtonText: 'OK'
           })
            
-         
+         navigate(-1)
             return;
           }
     
