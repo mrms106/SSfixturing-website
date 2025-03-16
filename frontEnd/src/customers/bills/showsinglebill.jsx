@@ -280,11 +280,11 @@ console.log(bill)
                     </div>
                     <div className="zero-fifth-sub-box2">
                         <div className="zero-box1"> Add CGST @ 9%</div>
-                        <div className="zero-box2"> {bill.isOutside ?formatNumber(bill.taxamount/2) :0}</div>
+                        <div className="zero-box2"> {bill.isOutside ?formatNumber((bill.taxamount/2).toFixed(2)) :0}</div>
                     </div>
                     <div className="zero-fifth-sub-box2">
                         <div className="zero-box1"> Add SGST @ 9%</div>
-                        <div className="zero-box2"> {bill.isOutside ?formatNumber(bill.taxamount/2):0}</div>
+                        <div className="zero-box2"> {bill.isOutside ?formatNumber((bill.taxamount/2).toFixed(2)):0}</div>
                     </div>
                     <div className="zero-fifth-sub-box2">
                         <div className="zero-box1"> Add IGST @ 18%</div>
