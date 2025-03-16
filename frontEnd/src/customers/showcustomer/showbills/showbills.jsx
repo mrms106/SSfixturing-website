@@ -3,7 +3,7 @@ import './showbills.css'
 import { useEffect } from "react"
 import Swal from 'sweetalert2';
 import web from "../../web";
-
+import Deletebutton from '../../../components/bill/deleteButton'
 export default function Showbills({bills,name,fetchBill}){
     const navigate=useNavigate()
     const deletebill=async(billId)=>{
@@ -42,7 +42,8 @@ export default function Showbills({bills,name,fetchBill}){
                 <div className="showbill-box" style={{color:"white",margin:'20px',cursor:'pointer'}} >
                       <div className="show-bill-desc" onClick={()=>navigate(`/invoice/${item.billId}/${item.cname}`)}>invoiceNO: {item.invoiceNo}</div>
                       <div className="show-bill-desc" onClick={()=>navigate(`/invoice/${item.billId}/${item.cname}`)}>invoiceDate: {item.invoicedate}</div>
-                   <div className="show-bill-desc-btn"> <button onClick={()=>deletebill(item.billId)}>Delete</button> 
+                   <div className="show-bill-desc-btn"> 
+                    <Deletebutton pdf={item} handleDelete={deletebill}/>
                    <button onClick={()=>navigate(`/bill/${item.billId}`)}>update</button></div>
                 </div>
             ))}

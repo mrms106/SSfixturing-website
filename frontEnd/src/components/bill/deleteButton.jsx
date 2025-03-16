@@ -33,14 +33,14 @@ export default function ResponsiveDialog({pdf,handleDelete}) {
         // aria-labelledby="responsive-dialog-title"
       >
         <DialogTitle id="responsive-dialog-title">
-           Do You Want to delete The Bill {pdf.name}
+           Do You Want to delete The  "{pdf.name || pdf.invoiceNo}"
         </DialogTitle>  
         <DialogActions>
           <Button autoFocus onClick={handleClose}>
            Cancel
           </Button>
           <Button onClick={()=>{
-            handleDelete(pdf.serialNO);
+            handleDelete(pdf.serialNO || pdf.billId);
             handleClose()
           }} autoFocus>
              Yes Delete
