@@ -121,7 +121,7 @@ module.exports.getBillByInvoiceNo = async (req, res) => {
             where: { billId: billId.toString() }, // Ensure correct format
         });
 
-        console.log("Fetched Bill:", bill);
+        // console.log("Fetched Bill:", bill);
 
         if (!bill) {
             return res.status(404).json({ error: 'Bill not found' });
