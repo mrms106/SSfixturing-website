@@ -24,7 +24,7 @@ export default function ResponsiveDialog({pdf,handleDelete}) {
   return (
     <>
       <button variant="outlined" onClick={handleClickOpen}>
-        Delete Bill
+        Delete 
       </button>
       <Dialog
         // fullScreen={fullScreen}

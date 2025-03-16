@@ -3,6 +3,7 @@ import './customer.css'
 import { useNavigate } from "react-router-dom"
 import Swal from 'sweetalert2';
 import web from "./web";
+import DeleteButton from '../components/bill/deleteButton'
 
 export default function CustomerMain(){
     const navigate=useNavigate()
@@ -69,7 +70,8 @@ export default function CustomerMain(){
                 <div className="customer-line"></div>
                 <div className="customer-btns">
                     <button onClick={()=>navigate(`/update/${customer.serialNO}`)}>Update Info</button>
-                    <button onClick={()=>deleteButton(customer.serialNO)}>Delete</button>
+                    {/* <button onClick={()=>deleteButton(customer.serialNO)}>Delete</button> */}
+                    <DeleteButton pdf={customer} handleDelete={deleteButton}/>
                 </div>
             </div>
             ))
