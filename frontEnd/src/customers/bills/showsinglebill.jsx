@@ -6,6 +6,7 @@ import QRCode from 'qrcode.react';
 import numberToWords from './covrtnumber';
 import TermsandCon from './t&c';
 import web from '../web';
+import formatNumber from './formatnumber';
 export default function ShowSingleBill({currUser}) {
     const [bill,setbill]=useState({})
     const [isDownloaded, setIsDownloaded] = useState(false);
@@ -109,7 +110,7 @@ console.log(bill)
                 <span className="zero-Invoice"><i><u>TAX INVOICE</u></i></span>
                 <span>Invoice No. : {bill.invoiceNo}</span> 
                 <span>Invoice Date : {bill.invoicedate}</span>
-                <span> Amount :  {bill.grandTotal}</span>
+                <span> Amount :  {formatNumber(bill.grandTotal)}</span>
                 <span>{Ivalue} for Acknowledg</span>
             </div>
             <div className="zero-first-vertical">
@@ -215,7 +216,7 @@ console.log(bill)
                         <div className="zero-sub-box1"><b> Unit Rate</b></div>
                         {
                           bill.item && bill.item.map((val,idx)=>(
-                                <div className="zero-sub-box2"><b>{val.unitRate}</b></div>
+                                <div className="zero-sub-box2"><b>{formatNumber(val.unitRate)}</b></div>
                             ))
                         }
                     </div>
@@ -248,7 +249,7 @@ console.log(bill)
                         <div className="zero-sub-box1"><b> Disc %</b></div>
                         {
                           bill.item &&  bill.item.map((val,idx)=>(
-                                <div className="zero-sub-box2" style={{marginTop:'5px'}}><b>{val.discountAmount.toFixed(2)}</b><br></br>({val.discount}%)</div>
+                                <div className="zero-sub-box2" style={{marginTop:'5px'}}><b>{formatNumber(val.discountAmount.toFixed(2))}</b><br></br>({val.discount}%)</div>
                             ))
                         }
                     </div>
@@ -256,7 +257,7 @@ console.log(bill)
                         <div className="zero-sub-box1"> <b>Total Amount</b></div>
                         {
                           bill.item &&  bill.item.map((val,idx)=>(
-                                <div className="zero-sub-box2" style={{marginTop:'5px'}}><b>{val.totalAmount.toFixed(2)}</b><br></br><i>IGST : 18%</i></div>
+                                <div className="zero-sub-box2" style={{marginTop:'5px'}}><b>{formatNumber(val.totalAmount.toFixed(2))}</b><br></br><i>IGST : 18%</i></div>
                             ))
                         }
                     </div>
@@ -275,27 +276,27 @@ console.log(bill)
                 <div className="zero-fifth-vertical-box2">
                     <div className="zero-fifth-sub-box2">
                         <div className="zero-box1 zero-boxbg"> Basic Value</div>
-                        <div className="zero-box2 zero-boxbg"><b>{bill.totalvalue}</b></div>
+                        <div className="zero-box2 zero-boxbg"><b>{formatNumber(bill.totalvalue)}</b></div>
                     </div>
                     <div className="zero-fifth-sub-box2">
                         <div className="zero-box1"> Add CGST @ 9%</div>
-                        <div className="zero-box2"> {bill.isOutside ?bill.taxamount/2 :0}</div>
+                        <div className="zero-box2"> {bill.isOutside ?formatNumber(bill.taxamount/2) :0}</div>
                     </div>
                     <div className="zero-fifth-sub-box2">
                         <div className="zero-box1"> Add SGST @ 9%</div>
-                        <div className="zero-box2"> {bill.isOutside ?bill.taxamount/2 :0}</div>
+                        <div className="zero-box2"> {bill.isOutside ?formatNumber(bill.taxamount/2):0}</div>
                     </div>
                     <div className="zero-fifth-sub-box2">
                         <div className="zero-box1"> Add IGST @ 18%</div>
-                        <div className="zero-box2"> {bill.isOutside?"0.00":bill.taxamount}</div>
+                        <div className="zero-box2"> {bill.isOutside?"0.00":formatNumber(bill.taxamount)}</div>
                     </div>
                     <div className="zero-fifth-sub-box2">
                         <div className="zero-box1"> Tax Amount</div>
-                        <div className="zero-box2"> {bill.taxamount}</div>
+                        <div className="zero-box2"> {formatNumber(bill.taxamount)}</div>
                     </div>
                     <div className="zero-fifth-sub-box2">
                         <div className="zero-box1 zero-boxbg" style={{ borderBottom: "none" }}><b> GRAND TOTAL</b></div>
-                        <div className="zero-box2 zero-boxbg" style={{ borderBottom: "none" }}><b><u>₹ {bill.grandTotal}</u></b></div>
+                        <div className="zero-box2 zero-boxbg" style={{ borderBottom: "none" }}><b><u>₹ {formatNumber(bill.grandTotal)}</u></b></div>
                     </div>    
                 </div>
             </div>
