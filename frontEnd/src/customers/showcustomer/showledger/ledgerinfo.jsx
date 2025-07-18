@@ -112,7 +112,13 @@ export default function LedgerInfo({totalCreditedAmount,totalGrandTotal,billsSta
                         <div className="ledger-horizontal-three-one-four"> Debit Amount</div>
                         <div className="ledger-horizontal-three-one-five">Qty</div>
                         <div className="ledger-horizontal-three-one-six">Total Amount</div>
-                        <div className="ledger-horizontal-three-one-seven">Credit Amount</div>
+                        <div className="ledger-horizontal-three-one-seven">
+                            <div className="ledger-horizontal-three-one-seven-one">Credit Amount</div>
+                            <div className="ledger-horizontal-three-one-seven-two">
+                                <div className="ledger-horizontal-three-one-seven-two-one">Date</div>
+                                <div className="ledger-horizontal-three-one-seven-two-two">Amount</div>
+                            </div>  
+                        </div>
                         <div className="ledger-horizontal-three-one-eight"> Cr./Dr.</div>
                         <div className="ledger-horizontal-three-one-nine">Balance</div>
                     </div>
@@ -133,13 +139,20 @@ export default function LedgerInfo({totalCreditedAmount,totalGrandTotal,billsSta
                         </div>
                         <div className="ledger-horizontal-three-two-six">{bill.grandTotal}</div>
                         <div className="ledger-horizontal-three-two-seven">
-                            <input
+                            <div className="ledger-horizontal-three-two-seven-one">
+                                <div className="ledger-horizontal-three-two-seven-one-one"><input type="date"/></div>
+                                <div className="ledger-horizontal-three-two-seven-one-two"><input type="number"/></div>
+                            </div>
+                            <div className="ledger-horizontal-three-two-seven-two">
+                                 <input
                                 type="number"
                                 value={bill.creditedAmount || 0}
                                 onChange={(e) =>
                                     handleCreditedAmountChange(bill.billId, parseFloat(e.target.value) || 0)
                                 }
-                            />                   
+                            />  
+                            </div>
+                                            
                         </div>
                         <div className="ledger-horizontal-three-two-eight"> Cr.</div>
                         <div className="ledger-horizontal-three-two-nine">{(bill.grandTotal - bill.creditedAmount).toFixed(2)}</div>
