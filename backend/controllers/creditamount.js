@@ -14,10 +14,14 @@ exports.addCredit = async (req, res) => {
         creditAmount: [{ date, amount }]
       });
     } else {
-      const updated = Array.isArray(credit.creditAmount) ? credit.creditAmount : [];
-      updated.push({ date, amount });
-      credit.creditAmount = updated;
-      await credit.save();
+      // Reassign a new array (not mutate existing one)
+      const updatedCredits = Array.isArray(credit.creditAmount)
+        ? [...credit.creditAmount, { date, amount: parseFloat(amount) }]
+        : [{ date, amount: parseFloat(amount) }];
+
+      credit.set('creditAmount', updatedCredits); // important!
+      const savedCredit = await credit.save();
+      return res.status(200).json({ message: 'Credit entry updated', data: savedCredit });
     }
 
     res.status(200).json({ message: 'Credit entry saved', data: credit });
