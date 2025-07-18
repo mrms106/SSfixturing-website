@@ -53,11 +53,51 @@ const totalCreditedAmount = bills.reduce(
     (sum, bill) => sum + parseFloat(bill.grandTotal),
     0
   );
+const [creditMap, setCreditMap] = useState({});
+  const getCreditDataByBillId = async (billId) => {
+  try {
+    const res = await fetch(`${web}/credita/show/${billId}`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      credentials: 'include' // if you’re using sessions/cookies
+    });
+
+    if (!res.ok) {
+      throw new Error('Failed to fetch credit data');
+    }
+
+    const data = await res.json();
+    return data; // contains billId and creditAmount[]
+  } catch (err) {
+    console.error('Error fetching credit data:', err.message);
+    return null;
+  }
+};
+useEffect(() => {
+  const fetchAllCredits = async () => {
+    for (const bill of bills) {
+      const creditData = await getCreditDataByBillId(bill.billId);
+      if (creditData) {
+        setCreditMap(prev => ({
+          ...prev,
+          [bill.billId]: creditData.creditAmount || []
+        }));
+      }
+    }
+  };
+
+  if (bills.length > 0) {
+    fetchAllCredits();
+  }
+}, [bills]);
+
     return(
         <>
          <LedgerInfo totalCreditedAmount={totalCreditedAmount} totalGrandTotal={totalGrandTotal}
           handleCreditedAmountChange={handleCreditedAmountChange} billsState={billsState} setBillsState={setBillsState}
-          logo={logo} customer={customer} />
+          logo={logo} customer={customer} creditMap={creditMap} />
         </>
     )
 }
