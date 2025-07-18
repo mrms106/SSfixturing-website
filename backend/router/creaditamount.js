@@ -11,4 +11,6 @@ router.delete('/delete-entry/:billId', creditController.deleteEntryByDate);
 // DELETE: Remove all entries for a billId
 router.delete('/delete-bill/:billId', creditController.deleteAllByBillId);
 
+router.get('/show/:billId', creditController.getCreditByBillId);
+
 module.exports = router;

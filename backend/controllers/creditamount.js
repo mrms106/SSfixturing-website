@@ -70,3 +70,14 @@ exports.deleteAllByBillId = async (req, res) => {
     res.status(500).json({ message: 'Error deleting bill', error: err.message });
   }
 };
+
+exports.getCreditByBillId = async (req, res) => {
+  const { billId } = req.params;
+  try {
+    const credit = await CREDITA.findOne({ where: { billId } });
+    if (!credit) return res.status(404).json({ message: 'Not found' });
+    res.json(credit);
+  } catch (e) {
+    res.status(500).json({ error: e.message });
+  }
+};
