@@ -1,3 +1,6 @@
+const sequelize = require('../db');
+const { DataTypes } = require('sequelize');
+
 const CREDITA = sequelize.define('CREDITA', {
   billId: {
     type: DataTypes.STRING,
