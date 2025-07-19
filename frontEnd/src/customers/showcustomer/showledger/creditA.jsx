@@ -72,11 +72,15 @@ export default function CreditA({creditMap,customer,amounts,bill,fetchBill,getCr
          <div className="ledger-horizontal-three-two-seven">
                     {creditMap[bill.billId] && creditMap[bill.billId].length > 0 && (
                         <>
-                                {creditMap[bill.billId].map((entry, idx) => (
-                            <div className="ledger-horizontal-three-two-seven-one">  
+                        {creditMap[bill.billId] &&
+                        [...creditMap[bill.billId]]
+                            .sort((a, b) => new Date(a.date) - new Date(b.date)) // Sort by date ascending
+                            .map((entry, idx) => (
+                            <div className="ledger-horizontal-three-two-seven-one" key={idx}>  
                                 <div className="ledger-horizontal-three-two-seven-one-one">{entry.date}</div>
-                                <div className="ledger-horizontal-three-two-seven-one-two">₹{entry.amount}  </div>
-                            </div>  ))}
+                                <div className="ledger-horizontal-three-two-seven-one-two">₹{entry.amount}</div>
+                            </div>
+                            ))}
                         </>
                     
                     )}
