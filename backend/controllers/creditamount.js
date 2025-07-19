@@ -30,10 +30,10 @@ exports.addCredit = async (req, res) => {
   }
 };
 
-// Delete one credit entry by date
+// Delete one credit entry by index
 exports.deleteEntryByDate = async (req, res) => {
   const { billId } = req.params;
-  const { date } = req.body;
+  const { index } = req.body;
 
   try {
     const credit = await CREDITA.findOne({ where: { billId } });
@@ -42,18 +42,24 @@ exports.deleteEntryByDate = async (req, res) => {
       return res.status(404).json({ message: 'No credit record found' });
     }
 
-    const filtered = credit.creditAmount.filter(entry => entry.date !== date);
+    if (index < 0 || index >= credit.creditAmount.length) {
+      return res.status(400).json({ message: 'Invalid index' });
+    }
 
-    if (filtered.length === 0) {
+    const updatedArray = [...credit.creditAmount];
+    updatedArray.splice(index, 1);
+
+    if (updatedArray.length === 0) {
       await credit.destroy();
       return res.status(200).json({ message: 'All entries deleted as only one existed' });
     }
 
-    credit.creditAmount = filtered;
-    await credit.save();
+    credit.setDataValue('creditAmount', updatedArray); // ✅ Force update array
+    const updatedCredit = await credit.save();
 
-    res.status(200).json({ message: 'Credit entry removed', updated: credit });
+    res.status(200).json({ message: 'Credit entry removed', updated: updatedCredit });
   } catch (err) {
+    console.error(err);
     res.status(500).json({ message: 'Error deleting entry', error: err.message });
   }
 };

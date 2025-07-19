@@ -68,6 +68,35 @@ export default function CreditA({creditMap,customer,amounts,bill,fetchBill,getCr
         useEffect(() => {
             updateAmounts();
         }, [amounts]); 
+
+    // for delete entry
+const deleteEntry = async (billId, index) => {
+  try {
+    const response = await fetch(`${web}/credita/delete-entry/${billId}`, {
+      method: 'DELETE',
+      credentials: 'include',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ index }),
+    });
+
+    const data = await response.json();
+
+    if (response.ok) {
+      alert(data.message);
+      fetchBill()
+      getCreditDataByBillId()
+    } else {
+      alert(`Error: ${data.message}`);
+    }
+  } catch (err) {
+    console.error('Delete failed:', err);
+    alert('Failed to delete entry.');
+  }
+};
+
+
     return(
         <>
          <div className="ledger-horizontal-three-two-seven">
@@ -81,7 +110,7 @@ export default function CreditA({creditMap,customer,amounts,bill,fetchBill,getCr
                                 <div className="ledger-horizontal-three-two-seven-one-one">{entry.date}</div>
                                 {/* <div className="ledger-horizontal-three-two-seven-one-btn">delete</div> */}
                                 {updateledger?
-                                <DeleteButton pdf={"jdsdj"} handleDelete={"dkjds"}/>: null}
+                                <DeleteButton pdf={bill} index={idx} date={`${entry.date} this date entry`} handleDelete={deleteEntry}/>: null}
                                 <div className="ledger-horizontal-three-two-seven-one-two">₹{entry.amount}</div>
                             </div>
                             ))}

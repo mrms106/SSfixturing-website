@@ -8,7 +8,7 @@ import DialogTitle from '@mui/material/DialogTitle';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
 
-export default function ResponsiveDialog({pdf,handleDelete}) {
+export default function ResponsiveDialog({pdf,handleDelete,index,date}) {
   const [open, setOpen] = React.useState(false);
   const theme = useTheme();
   const fullScreen = useMediaQuery(theme.breakpoints.down('md'));
@@ -33,14 +33,14 @@ export default function ResponsiveDialog({pdf,handleDelete}) {
         // aria-labelledby="responsive-dialog-title"
       >
         <DialogTitle id="responsive-dialog-title">
-           Do You Want to delete The  "{pdf.name || pdf.invoiceNo}"
+           Do You Want to delete The  "{pdf.name || date|| pdf.invoiceNo }"
         </DialogTitle>  
         <DialogActions>
           <Button autoFocus onClick={handleClose}>
            Cancel
           </Button>
           <Button onClick={()=>{
-            handleDelete(pdf.serialNO || pdf.billId);
+            handleDelete(pdf.serialNO || pdf.billId || pdf.billId,index);
             handleClose()
           }} autoFocus>
              Yes Delete
