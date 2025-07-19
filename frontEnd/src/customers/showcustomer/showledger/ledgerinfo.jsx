@@ -3,13 +3,14 @@ import { useState,useEffect } from "react";
 import { useParams } from "react-router-dom";
 import web from "../../web";
 import CreditA from "./creditA";
+import Switch from '@mui/material/Switch';
 export default function LedgerInfo({totalCreditedAmount,totalGrandTotal,billsState,handleCreditedAmountChange,logo,customer,creditMap,fetchBill,getCreditDataByBillId}){
     const [amounts, setAmounts] = useState({
         totalAmount: totalGrandTotal || 0,
         creditAmount: totalCreditedAmount || 0,
         pendingAmount: (totalGrandTotal - totalCreditedAmount).toFixed(2) || 0,
     });
-  
+   const[updateledger,setupdateledger]=useState(false)
 
     // Whenever totalGrandTotal or totalCreditedAmount changes, recalculate `amounts`
     useEffect(() => {
@@ -113,7 +114,7 @@ export default function LedgerInfo({totalCreditedAmount,totalGrandTotal,billsSta
                         </div>
                         <div className="ledger-horizontal-three-two-six">{bill.grandTotal}</div>
 
-                       <CreditA creditMap={creditMap} customer={customer} amounts={amounts} bill={bill} fetchBill={fetchBill} getCreditDataByBillId={getCreditDataByBillId} />
+                       <CreditA creditMap={creditMap} customer={customer} amounts={amounts} bill={bill} fetchBill={fetchBill} getCreditDataByBillId={getCreditDataByBillId} updateledger={updateledger} />
 
                         <div className="ledger-horizontal-three-two-eight"> Cr.</div>
                         <div className="ledger-horizontal-three-two-nine">{(bill.grandTotal - bill.creditedAmount).toFixed(2)}</div>
@@ -140,7 +141,10 @@ export default function LedgerInfo({totalCreditedAmount,totalGrandTotal,billsSta
             </div>
            
         </div>
-        <button onClick={downloadPDF}>download pdf</button>
+       <div className="ledger-horizontal-five">
+         <button onClick={downloadPDF}>download pdf</button> 
+         <div className="ledger-horizontal-five-one">Want to Make changes: <b>No</b> <Switch onClick={()=>setupdateledger(!updateledger)}/> <b>Yes</b></div>
+       </div>
         </>
     )
 }

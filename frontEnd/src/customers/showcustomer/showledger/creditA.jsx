@@ -1,7 +1,8 @@
 import { useState,useEffect } from "react";
 import web from "../../web";
+import DeleteButton from '../../../components/bill/deleteButton'
 
-export default function CreditA({creditMap,customer,amounts,bill,fetchBill,getCreditDataByBillId}){
+export default function CreditA({creditMap,customer,amounts,bill,fetchBill,getCreditDataByBillId,updateledger}){
       const[showinputs,setshowinputs]=useState(false)
         const [creditInputs, setCreditInputs] = useState({});
       
@@ -78,13 +79,16 @@ export default function CreditA({creditMap,customer,amounts,bill,fetchBill,getCr
                             .map((entry, idx) => (
                             <div className="ledger-horizontal-three-two-seven-one" key={idx}>  
                                 <div className="ledger-horizontal-three-two-seven-one-one">{entry.date}</div>
+                                {/* <div className="ledger-horizontal-three-two-seven-one-btn">delete</div> */}
+                                {updateledger?
+                                <DeleteButton pdf={"jdsdj"} handleDelete={"dkjds"}/>: null}
                                 <div className="ledger-horizontal-three-two-seven-one-two">₹{entry.amount}</div>
                             </div>
                             ))}
                         </>
                     
                     )}
-                    { showinputs ?
+                    { showinputs && updateledger ?
                         <div className="ledger-horizontal-three-two-seven-one">    
                             <div className="ledger-horizontal-three-two-seven-one-one">
                                 <input 
@@ -93,22 +97,22 @@ export default function CreditA({creditMap,customer,amounts,bill,fetchBill,getCr
                                     />
                             </div>
                             <div className="ledger-horizontal-three-two-seven-one-two">
-                            <input type="number" onChange={(e) => handleCreditInputChange(bill.billId, 'amount', e.target.value)}
+                            <input type="number" placeholder="enter amount" onChange={(e) => handleCreditInputChange(bill.billId, 'amount', e.target.value)}
                                 /> 
                             </div>
                       </div> : null
                     }
                     <div className="ledger-horizontal-three-two-seven-two">
                         {
-                            showinputs ?
+                            showinputs && updateledger ?
                             <div className="ledger-horizontal-three-two-seven-two-btn"onClick={() => submitCreditEntry(bill.billId)}>update</div>:
-                            <div className="ledger-horizontal-three-two-seven-two-btn"onClick={()=>setshowinputs(true)}>Add</div>
+                        updateledger ?    <div className="ledger-horizontal-three-two-seven-two-btn"onClick={()=>setshowinputs(true)}>Add</div> :null
                         }
                         <div className="ledger-horizontal-three-two-seven-two-total">
-                            ₹
+                            <b>₹
                             {creditMap[bill.billId] && creditMap[bill.billId].length > 0
                                 ? creditMap[bill.billId].reduce((sum, entry) => sum + parseFloat(entry.amount || 0), 0).toFixed(2)
-                                : (bill.creditedAmount || 0).toFixed(2)}
+                                : (bill.creditedAmount || 0).toFixed(2)}</b>
                         </div>
                     </div>
                                     
