@@ -134,6 +134,7 @@ width: 10rem;
     display: flex;
     flex-direction: column;
     border: solid black 1px;
+    border-top: none;
 }
 .ledger-horizontal-three-two-seven-one{
     display: flex;
