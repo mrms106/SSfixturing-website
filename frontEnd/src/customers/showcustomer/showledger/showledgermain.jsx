@@ -54,6 +54,7 @@ const totalCreditedAmount = bills.reduce(
     0
   );
 const [creditMap, setCreditMap] = useState({});
+// get credits amounts
   const getCreditDataByBillId = async (billId) => {
   try {
     const res = await fetch(`${web}/credita/show/${billId}`, {
@@ -92,12 +93,25 @@ useEffect(() => {
     fetchAllCredits();
   }
 }, [bills]);
+// for credit amount
+useEffect(() => {
+  Object.entries(creditMap).forEach(([billId, entries]) => {
+    if (entries && entries.length > 0) {
+      const total = entries.reduce((sum, entry) => sum + parseFloat(entry.amount || 0), 0);
+
+      const bill = billsState.find(b => b.billId === billId);
+      if (bill && bill.creditedAmount !== total) {
+        handleCreditedAmountChange(billId, total);
+      }
+    }
+  });
+}, [creditMap]); // Re-run when credit entries change
 
     return(
         <>
          <LedgerInfo totalCreditedAmount={totalCreditedAmount} totalGrandTotal={totalGrandTotal}
           handleCreditedAmountChange={handleCreditedAmountChange} billsState={billsState} setBillsState={setBillsState}
-          logo={logo} customer={customer} creditMap={creditMap} />
+          logo={logo} customer={customer} creditMap={creditMap} fetchBill={fetchBill} getCreditDataByBillId={getCreditDataByBillId}/>
         </>
     )
 }

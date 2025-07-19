@@ -2,7 +2,7 @@ import html2pdf from "html2pdf.js";
 import { useState,useEffect } from "react";
 import { useParams } from "react-router-dom";
 import web from "../../web";
-export default function LedgerInfo({totalCreditedAmount,totalGrandTotal,billsState,handleCreditedAmountChange,logo,customer,creditMap}){
+export default function LedgerInfo({totalCreditedAmount,totalGrandTotal,billsState,handleCreditedAmountChange,logo,customer,creditMap,fetchBill,getCreditDataByBillId}){
     const [amounts, setAmounts] = useState({
         totalAmount: totalGrandTotal || 0,
         creditAmount: totalCreditedAmount || 0,
@@ -36,7 +36,8 @@ const submitCreditEntry = async (billId) => {
 
     const data = await res.json();
     setshowinputs(false)
-    console.log("Credit added:", data);
+     fetchBill()
+     getCreditDataByBillId()
   } catch (err) {
     console.error("Error adding credit:", err);
   }
@@ -205,13 +206,12 @@ const submitCreditEntry = async (billId) => {
                                 <div className="ledger-horizontal-three-two-seven-two-btn"onClick={() => submitCreditEntry(bill.billId)}>update</div>:
                                 <div className="ledger-horizontal-three-two-seven-two-btn"onClick={()=>setshowinputs(true)}>Add</div>
                              }
-                                 <input
-                                type="number"
-                                value={bill.creditedAmount || 0}
-                                onChange={(e) =>
-                                    handleCreditedAmountChange(bill.billId, parseFloat(e.target.value) || 0)
-                                }
-                            />  
+                               <div className="ledger-horizontal-three-two-seven-two-total">
+  ₹
+  {creditMap[bill.billId] && creditMap[bill.billId].length > 0
+    ? creditMap[bill.billId].reduce((sum, entry) => sum + parseFloat(entry.amount || 0), 0).toFixed(2)
+    : (bill.creditedAmount || 0).toFixed(2)}
+</div>
                             </div>
                                             
                         </div>
