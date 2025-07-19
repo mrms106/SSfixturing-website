@@ -128,7 +128,7 @@ export default function LedgerInfo({totalCreditedAmount,totalGrandTotal,billsSta
                         <div className="ledger-horizontal-three-three-five"></div>
                         <div className="ledger-horizontal-three-three-six" name="totalAmount">{amounts.totalAmount}</div>
                         <div className="ledger-horizontal-three-three-seven" name="creditAmount">
-                        {amounts.creditAmount}
+                        {(amounts.creditAmount).toFixed(2)}
                         </div>
                         <div className="ledger-horizontal-three-three-eight"></div>
                         <div className="ledger-horizontal-three-three-nine" name="pendingAmount">  {amounts.pendingAmount} RS</div>
