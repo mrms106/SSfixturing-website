@@ -98,23 +98,29 @@ const deleteEntry = async (billId, index) => {
     return(
         <>
          <div className="ledger-horizontal-three-two-seven">
-                    {creditMap[bill.billId] && creditMap[bill.billId].length > 0 && (
-                        <>
-                        {creditMap[bill.billId] &&
-                        [...creditMap[bill.billId]]
-                            .sort((a, b) => new Date(a.date) - new Date(b.date)) // Sort by date ascending
-                            .map((entry, idx) => (
-                            <div className="ledger-horizontal-three-two-seven-one" key={idx}>  
-                                <div className="ledger-horizontal-three-two-seven-one-one">{entry.date}</div>
-                                {/* <div className="ledger-horizontal-three-two-seven-one-btn">delete</div> */}
-                                {updateledger?
-                                <DeleteButton pdf={bill} index={idx} date={`${entry.date} this date entry`} handleDelete={deleteEntry}/>: null}
-                                <div className="ledger-horizontal-three-two-seven-one-two">₹{entry.amount}</div>
-                            </div>
-                            ))}
-                        </>
-                    
-                    )}
+                {creditMap[bill.billId] &&
+                  creditMap[bill.billId].length > 0 && (
+                    <>
+                      {creditMap[bill.billId]
+                        .map((entry, index) => ({ ...entry, index })) // attach original index
+                        .sort((a, b) => new Date(a.date) - new Date(b.date)) // sort by date
+                        .map((entry) => (
+                          <div className="ledger-horizontal-three-two-seven-one" key={entry.index}>
+                            <div className="ledger-horizontal-three-two-seven-one-one">{entry.date}</div>
+                            {updateledger ? (
+                              <DeleteButton
+                                pdf={bill}
+                                index={entry.index} // original index
+                                date={`${entry.date} this date entry`}
+                                handleDelete={deleteEntry}
+                              />
+                            ) : null}
+                            <div className="ledger-horizontal-three-two-seven-one-two">₹{entry.amount}</div>
+                          </div>
+                        ))}
+                    </>
+                )}
+
                     { showinputs && updateledger ?
                         <div className="ledger-horizontal-three-two-seven-one">    
                             <div className="ledger-horizontal-three-two-seven-one-one">
@@ -133,7 +139,7 @@ const deleteEntry = async (billId, index) => {
                         {
                             showinputs && updateledger ?
                             <div className="ledger-horizontal-three-two-seven-two-btn"onClick={() => submitCreditEntry(bill.billId)}>update</div>:
-                        updateledger ?    <div className="ledger-horizontal-three-two-seven-two-btn"onClick={()=>setshowinputs(true)}>Add</div> :null
+                        updateledger ?    <div className="ledger-horizontal-three-two-seven-two-btn"onClick={()=>setshowinputs(true)}>Add</div> :<div><b>Total :</b></div>
                         }
                         <div className="ledger-horizontal-three-two-seven-two-total">
                             <b>₹

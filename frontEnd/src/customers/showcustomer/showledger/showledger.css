@@ -165,8 +165,8 @@ width: 10rem;
 .ledger-horizontal-three-two-seven-two-total{
     display: flex;
     text-align: end;
-    justify-content:right;
-    width: 88% !important;
+    justify-content:space-around;
+    min-width: 57% !important;
 }
 .ledger-horizontal-three-three-one{
 width: 15rem !important;
