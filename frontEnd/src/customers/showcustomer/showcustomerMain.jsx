@@ -66,7 +66,8 @@ export default function ShowCustomer(){
                         <div className="c-gstno"><b>GstNo: &nbsp;</b>{customer.gstNo}</div>
                     </div>
                     <div className="box2">
-                        <div className="c-address"><b>addreass: &nbsp;</b>{customer.address}</div>
+                        <div className="c-address"><b>address Bill To: &nbsp;</b>{customer.addressBillto}</div>
+                        <div className="c-address"><b>address Supply To: &nbsp;</b>{customer.addressSypplyto}</div>
                         <div className="c-contact"><b>contact: &nbsp;</b>{customer.contact}</div>
                     </div>
                     <div className="box3">
