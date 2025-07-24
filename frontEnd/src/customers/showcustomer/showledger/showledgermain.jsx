@@ -96,7 +96,7 @@ useEffect(() => {
 // for credit amount
 useEffect(() => {
   Object.entries(creditMap).forEach(([billId, entries]) => {
-    if (entries && entries.length > 0) {
+    if (entries && entries.length >= 0) {
       const total = entries.reduce((sum, entry) => sum + parseFloat(entry.amount || 0), 0);
 
       const bill = billsState.find(b => b.billId === billId);

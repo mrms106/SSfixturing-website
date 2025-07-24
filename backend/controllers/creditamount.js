@@ -49,10 +49,10 @@ exports.deleteEntryByDate = async (req, res) => {
     const updatedArray = [...credit.creditAmount];
     updatedArray.splice(index, 1);
 
-    if (updatedArray.length === 0) {
-      await credit.destroy();
-      return res.status(200).json({ message: 'All entries deleted as only one existed' });
-    }
+    // if (updatedArray.length === 0) {
+    //   await credit.destroy();
+    //   return res.status(200).json({ message: 'All entries deleted as only one existed' });
+    // }
 
     credit.setDataValue('creditAmount', updatedArray); // ✅ Force update array
     const updatedCredit = await credit.save();

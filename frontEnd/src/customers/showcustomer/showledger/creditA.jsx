@@ -82,7 +82,7 @@ const deleteEntry = async (billId, index) => {
     const data = await response.json();
 
     if (response.ok) {
-      alert(data.message);
+      // alert(data.message);
       fetchBill()
       getCreditDataByBillId()
     } else {
