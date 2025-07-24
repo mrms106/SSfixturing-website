@@ -2,7 +2,7 @@ import { useState,useEffect } from "react";
 import web from "../../web";
 import DeleteButton from '../../../components/bill/deleteButton'
 
-export default function CreditA({creditMap,customer,amounts,bill,fetchBill,getCreditDataByBillId,updateledger}){
+export default function CreditA({creditMap,customer,amounts,bill,fetchBill,getCreditDataByBillId,updateledger,fetchCustomer}){
       const[showinputs,setshowinputs]=useState(false)
         const [creditInputs, setCreditInputs] = useState({});
       
@@ -54,9 +54,9 @@ export default function CreditA({creditMap,customer,amounts,bill,fetchBill,getCr
                 });
     
                 if (!response.ok) {
-                    
                     console.error("Failed to update amounts");
                 }
+                 fetchCustomer()
             } catch (error) {
                 console.error("Error updating amounts:", error);
             }

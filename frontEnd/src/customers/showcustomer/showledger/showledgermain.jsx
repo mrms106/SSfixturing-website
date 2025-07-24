@@ -111,7 +111,7 @@ useEffect(() => {
         <>
          <LedgerInfo totalCreditedAmount={totalCreditedAmount} totalGrandTotal={totalGrandTotal}
           handleCreditedAmountChange={handleCreditedAmountChange} billsState={billsState} setBillsState={setBillsState}
-          logo={logo} customer={customer} creditMap={creditMap} fetchBill={fetchBill} getCreditDataByBillId={getCreditDataByBillId}/>
+          logo={logo} customer={customer} creditMap={creditMap} fetchBill={fetchBill} getCreditDataByBillId={getCreditDataByBillId} fetchCustomer={fetchCustomer}/>
         </>
     )
 }

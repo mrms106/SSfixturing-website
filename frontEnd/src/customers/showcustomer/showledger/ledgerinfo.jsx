@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import web from "../../web";
 import CreditA from "./creditA";
 import Switch from '@mui/material/Switch';
-export default function LedgerInfo({totalCreditedAmount,totalGrandTotal,billsState,handleCreditedAmountChange,logo,customer,creditMap,fetchBill,getCreditDataByBillId}){
+export default function LedgerInfo({totalCreditedAmount,totalGrandTotal,billsState,handleCreditedAmountChange,logo,customer,creditMap,fetchBill,getCreditDataByBillId,fetchCustomer}){
     const [amounts, setAmounts] = useState({
         totalAmount: totalGrandTotal || 0,
         creditAmount: totalCreditedAmount || 0,
@@ -114,7 +114,7 @@ export default function LedgerInfo({totalCreditedAmount,totalGrandTotal,billsSta
                         </div>
                         <div className="ledger-horizontal-three-two-six">{bill.grandTotal}</div>
 
-                       <CreditA creditMap={creditMap} customer={customer} amounts={amounts} bill={bill} fetchBill={fetchBill} getCreditDataByBillId={getCreditDataByBillId} updateledger={updateledger} />
+                       <CreditA fetchCustomer={fetchCustomer} creditMap={creditMap} customer={customer} amounts={amounts} bill={bill} fetchBill={fetchBill} getCreditDataByBillId={getCreditDataByBillId} updateledger={updateledger} />
 
                         <div className="ledger-horizontal-three-two-eight"> Cr.</div>
                         <div className="ledger-horizontal-three-two-nine">{(bill.grandTotal - bill.creditedAmount).toFixed(2)}</div>
