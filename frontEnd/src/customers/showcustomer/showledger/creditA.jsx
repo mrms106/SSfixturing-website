@@ -15,7 +15,6 @@ export default function CreditA({creditMap,customer,amounts,bill,fetchBill,getCr
         }
       }));
     };
-    console.log(creditMap,"sdlkmkl")
     const submitCreditEntry = async (billId) => {
       const { date, amount } = creditInputs[billId] || {};
     
@@ -41,7 +40,7 @@ export default function CreditA({creditMap,customer,amounts,bill,fetchBill,getCr
     
     
         const serialNo=customer.serialNO
-        console.log(serialNo)
+       
          // Function to call the backend API to update amounts
          const updateAmounts = async () => {
             try {
@@ -54,9 +53,8 @@ export default function CreditA({creditMap,customer,amounts,bill,fetchBill,getCr
                     body: JSON.stringify(amounts),
                 });
     
-                if (response.ok) {
-                    console.log("Amounts updated successfully");
-                } else {
+                if (!response.ok) {
+                    
                     console.error("Failed to update amounts");
                 }
             } catch (error) {

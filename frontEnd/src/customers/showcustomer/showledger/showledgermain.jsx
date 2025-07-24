@@ -38,7 +38,7 @@ export default function Showledger({bills,fetchBill,customer,fetchCustomer}){
          body: JSON.stringify({ creditedAmount: value }),
        });
    fetchBill()
-       console.log(`Credited amount updated for billId: ${billId}`);
+      
      } catch (error) {
        console.error(`Failed to update credited amount for billId: ${billId}`, error);
      }
