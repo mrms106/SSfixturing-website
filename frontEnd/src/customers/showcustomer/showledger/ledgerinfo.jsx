@@ -141,6 +141,7 @@ export default function LedgerInfo({totalCreditedAmount,totalGrandTotal,billsSta
             </div>
            
         </div>
+        <div className="note-text-ledger"><strong>Imoportant Note :</strong> if you are updating the Credit Amount first time after the changes in ledger design then first enter your displaying amount again and add then add  amounts which you wanted. </div>
        <div className="ledger-horizontal-five">
          <button onClick={downloadPDF}>download pdf</button> 
          <div className="ledger-horizontal-five-one">Want to Make changes: <b>No</b> <Switch onClick={()=>setupdateledger(!updateledger)}/> <b>Yes</b></div>

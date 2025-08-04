@@ -201,3 +201,10 @@ width: 15rem !important;
     font-size: 20px;
     margin: 10px;
 }
+.note-text-ledger{
+    font-size: 18px;
+    color: red;
+    margin: 10px;
+    text-align: center;
+    font-weight: bold;
+}
