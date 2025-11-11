@@ -10,4 +10,5 @@ router.delete('/bill/:billId',cheackUser,isLoggedIn, billcontroller.deleteBill);
 router.get('/bill/:billId', billcontroller.getBillByInvoiceNo);
 router.post('/bills',cheackUser,isLoggedIn,billcontroller.getBillsBySerialNos)
 router.patch('/bills/:billId',cheackUser,isLoggedIn,billcontroller.updatecreditedamount)
+router.get('/lastbill',cheackUser,isLoggedIn,billcontroller.lastbill)
 module.exports = router;

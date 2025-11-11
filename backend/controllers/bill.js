@@ -171,3 +171,23 @@ module.exports.updatecreditedamount=async(req,res)=>{
       res.status(500).json({ message: 'Failed to update credited amount', error });
     }
 }
+module.exports.lastbill = async (req, res) => {
+  try {
+    const lastBill = await Bills.findOne({
+      order: [['id', 'DESC']] // replace 'id' if your PK column is named differently
+    });
+
+    if (!lastBill) {
+      return res.status(404).json({ message: 'No bills found' });
+    }
+
+    return res.status(200).json({
+      message: 'Last bill retrieved successfully',
+      lastBill
+    });
+  } catch (err) {
+    console.error(err);
+    return res.status(500).json({ message: 'Failed to retrieve last bill', error: err });
+  }
+};
+
