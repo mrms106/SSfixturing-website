@@ -1,5 +1,6 @@
 
 import Swal from 'sweetalert2';
+import web from '../../customers/web';
 export default function signupBtn({loading,otpSent,otpLoading,setOtpLoading,setOtpSent,form ,navigate}){
     const Loginredirect = () => {
         navigate("/login")
@@ -20,7 +21,7 @@ export default function signupBtn({loading,otpSent,otpLoading,setOtpLoading,setO
             setOtpLoading(true);
         
             try {
-              const response = await fetch('https://ssfixturing.com/api/generateOtp', {
+              const response = await fetch(`${web}/generateOtp`, {
                 method: 'POST',
                 headers: {
                   'Content-Type': 'application/json',

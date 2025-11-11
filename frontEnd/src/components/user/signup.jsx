@@ -8,6 +8,7 @@ import SignPassword from './signPassword';
 import SignInput from './signInput';
 import { useNavigate } from 'react-router-dom';
 import HomeHead from '../homehead';
+import  web from '../../customers/web';
 export default function signUp({setisloggedIn}){
     const navigate=useNavigate()
     const [form, setForm] = useState({
@@ -44,7 +45,7 @@ export default function signUp({setisloggedIn}){
         setLoading(true);
     
         try {
-          const response = await fetch('https://ssfixturing.com/api/signup', {
+          const response = await fetch(`${web}/signup`, {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
