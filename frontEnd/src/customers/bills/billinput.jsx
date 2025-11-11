@@ -1,6 +1,8 @@
 import Switch from '@mui/material/Switch';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import React, { useState,useEffect } from 'react';
+import { use } from 'react';
+import web from '../web'
 
 export default function BillInput({formData,handleSubmit,setFormData,value}){
      const [IsOutside, setIsOutside] = useState(false);
@@ -55,7 +57,7 @@ export default function BillInput({formData,handleSubmit,setFormData,value}){
       };
       
       
-    console.log(IsOutside)
+    
     const addItem = () => {
       setFormData((prevFormData) => ({
         ...prevFormData,
@@ -78,13 +80,45 @@ export default function BillInput({formData,handleSubmit,setFormData,value}){
         return { ...prevFormData, item: updatedItems };
       });
     };
-        
+
+    // get last bill
+    const [lastbillinvoiceno,setlastbillinvoiceno]=useState('');
+    const fetchlastBill=async()=>{
+      try{
+        const response=await fetch(`${web}/lastbill`,{
+          method:'GET',
+          credentials:'include'
+        })
+        const data=await response.json();
+        if(response.ok){
+          const lastInvoiceNo=data.lastBill.invoiceNo;
+          setlastbillinvoiceno(lastInvoiceNo);
+          // console.log('last invoice no:',lastInvoiceNo);
+          const newInvoiceNo=String(parseInt(lastInvoiceNo)+1).padStart(6,'0');
+          setFormData((prevFormData)=>({
+            ...prevFormData,
+
+            invoiceNo:newInvoiceNo
+          }))
+        }
+
+      }
+        catch(err){
+          console.error(err);
+        }
+      }
+        useEffect(()=>{
+          fetchlastBill();
+        },[])
+    
     return(
         <>
             <form onSubmit={handleSubmit} className='create-bill-form'>
         <div className='create-bill-form-div1'>
          <div>
+          
          <label>Invoice No</label>
+         <b style={{color:'white'}}>Your last bill Invoice Number IS--{lastbillinvoiceno}</b>
           <input
             type="text"
             name="invoiceNo"
