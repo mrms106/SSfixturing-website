@@ -194,6 +194,7 @@ width: 15rem !important;
 .ledger-horizontal-five{
     display: flex;
     color: white;
+    margin-top: 2rem;
 }
 .ledger-horizontal-five-one{
     display: flex;
