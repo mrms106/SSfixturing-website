@@ -54,38 +54,74 @@ export default function ShowCustomer(){
                 fetchBill()
             }
         },[customer.serialNO])
-    return(
-        <>{ createbill ?
+    return (
+    <>
+        {createbill ?
         <div className="show-customer-main">
             <h3>Customer Details</h3>
+
             <div className="show-customer-info">
-               <div className="show-customer-box">
+                <div className="show-customer-box">
+
+                    {/* Box 1 — Identity */}
                     <div className="box1">
-                        <div className="c-name"><b>Name: &nbsp;</b>{customer.name}</div>
-                        <div className="c-email"><b>E-mail: &nbsp;</b>{customer.email}</div>
-                        <div className="c-gstno"><b>GstNo: &nbsp;</b>{customer.gstNo}</div>
+                        <div className="c-name">
+                            <b>Name</b>{customer.name}
+                        </div>
+                        <div className="c-email">
+                            <b>Email</b>{customer.email}
+                        </div>
+                        <div className="c-gstno">
+                            <b>GST No.</b>{customer.gstNo || '—'}
+                        </div>
                     </div>
+
+                    {/* Box 2 — Address */}
                     <div className="box2">
-                        <div className="c-address"><b>address Bill To: &nbsp;</b>{customer.addressBillto}</div>
-                        <div className="c-address"><b>address Supply To: &nbsp;</b>{customer.addressSypplyto}</div>
-                        <div className="c-contact"><b>contact: &nbsp;</b>{customer.contact}</div>
+                        <div className="c-address">
+                            <b>Bill To</b>{customer.addressBillto || '—'}
+                        </div>
+                        <div className="c-address">
+                            <b>Supply To</b>{customer.addressSypplyto || '—'}
+                        </div>
+                        <div className="c-contact">
+                            <b>Contact</b>{customer.contact || '—'}
+                        </div>
                     </div>
+
+                    {/* Box 3 — Amounts */}
                     <div className="box3">
-                        <div className="c-totalamount">Total-Amount : {customer.totalAmount}</div>
-                        <div className="c-creditedAmount">Creadited-Amount: {customer.creditAmount}</div>
-                        <div className="pending-Amount">Pending-Amount : {customer.pendingAmount}</div>
+                        <div className="c-totalamount">
+                            <span>Total Amount</span>
+                            <span>₹ {customer.totalAmount ?? 0}</span>
+                        </div>
+                        <div className="c-creditedAmount">
+                            <span>Credited Amount</span>
+                            <span>₹ {customer.creditAmount ?? 0}</span>
+                        </div>
+                        <div className="pending-Amount">
+                            <span>Pending Amount</span>
+                            <span>₹ {customer.pendingAmount ?? 0}</span>
+                        </div>
                     </div>
-               </div>
-               <div className="c-btn">
-                <button onClick={()=>setcreatebill(false)}>Create Bill</button>
-               </div>
-            </div><hr></hr>
-            <Showledger bills={bills} fetchBill={fetchBill} customer={customer} fetchCustomer={fetchCustomer}/>
-            
-            <hr></hr>
-        <Showbills bills={bills} name={customer.name} fetchBill={fetchBill}/>
-        </div>:
-        <CreateBill customer={customer} setcreatebill={setcreatebill} fetchBill={fetchBill}/>}
-        </>
-    )
+
+                </div>
+
+                <div className="c-btn">
+                    <button onClick={() => setcreatebill(false)}>
+                        + Create Bill
+                    </button>
+                </div>
+            </div>
+
+            <hr />
+            <Showledger bills={bills} fetchBill={fetchBill} customer={customer} fetchCustomer={fetchCustomer} />
+            <hr />
+            <Showbills bills={bills} name={customer.name} fetchBill={fetchBill} />
+
+        </div>
+        :
+        <CreateBill customer={customer} setcreatebill={setcreatebill} fetchBill={fetchBill} />}
+    </>
+)
 }

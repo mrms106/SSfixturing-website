@@ -1,58 +1,112 @@
-.show-customer-main{
-    margin-top: 10rem;
-    margin-left: 10%;
-    margin-right: 10%;
-}
-.show-customer-main h3{
+.show-customer-main {
+    max-width: 1000px;
+    margin: 9rem auto 4rem;
+    padding: 0 5%;
     color: white;
-    font-size: 22px;
-}
-.show-customer-info{
-    display: flex;
-    color: white;
-    flex-direction: column;
-    /* max-width: 50rem; */
-}
-.show-customer-box{
-    display: flex;
-    flex-wrap: wrap;
 }
 
-.show-customer-info .box1 div,.show-customer-info .box2 div, .show-customer-info .box3 div{
- font-size: 19px;
- margin: 15px;
+.show-customer-main h3 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
 }
-.show-customer-main .c-btn{
-display: flex;
-justify-content: center;
-/* width: 40rem; */
+
+/* ── Info Grid ── */
+.show-customer-box {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 1rem;
 }
-.show-customer-main button,.customer-show-btn,.addcustomer-close-btn button{
-    background-color: #19171A;
+
+.box1, .box2, .box3 {
+    background: #1e1c1f;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* label + value stacked */
+.box1 div b, .box2 div b {
+    display: block;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: rgba(255,255,255,0.35);
+    margin-bottom: 2px;
+    font-weight: 500;
+}
+
+.box1 div, .box2 div {
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+/* ── Amount rows ── */
+.box3 { gap: 8px; }
+
+.box3 div {
+    display: flex;
+    justify-content: space-between;
+    padding: 9px 12px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.c-totalamount   { background: rgba(255,255,255,0.06); }
+.c-creditedAmount { background: rgba(34,197,94,0.12); color: #4ade80; }
+.pending-Amount   { background: rgba(255,77,77,0.12);  color: #f87171; }
+
+/* ── Button ── */
+.c-btn { margin: 1rem 0; }
+
+.show-customer-main button,
+.customer-show-btn,
+.addcustomer-close-btn button {
+    height: 38px;
+    width: 130px;
+    border-radius: 9px;
+    font-size: 14px;
+    font-weight: 500;
+    border: 1px solid rgba(255,255,255,0.3);
+    background: transparent;
     color: white;
     cursor: pointer;
-    height: 40px;
-    width: 130px;
-    border-radius: 10px;
-    font-size: 18px;
-    border: 1px solid white;
+    transition: background 0.15s, color 0.15s;
 }
-.customer-show-btn{
-   text-align: center;
-   padding-top: 10px;
-   height: 35px;
-   width: 150px;
-}
-.show-customer-main button:hover,.customer-show-btn:hover,.addcustomer-close-btn button:hover{
-    background-color: white;
+
+.show-customer-main button:hover,
+.customer-show-btn:hover,
+.addcustomer-close-btn button:hover {
+    background: white;
     color: #19171A;
 }
 
-.addcustomer-close-btn{
-    display: flex;
-    flex-direction: column;
+.customer-show-btn { text-align: center; padding-top: 8px; width: 150px; }
+
+.show-customer-main hr {
+    border: none;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    margin: 1.5rem 0;
 }
-.addcustomer-close-btn h3{
-    margin-left: 2rem;
-    margin-top: 3rem;
+
+.addcustomer-close-btn { display: flex; flex-direction: column; }
+.addcustomer-close-btn h3 { margin: 3rem 0 0 2rem; }
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+    .show-customer-box { grid-template-columns: 1fr 1fr; }
+    .box3 { grid-column: 1 / -1; flex-direction: row; flex-wrap: wrap; gap: 8px; }
+    .box3 div { flex: 1; min-width: 140px; }
+}
+
+@media (max-width: 480px) {
+    .show-customer-main { margin-top: 5rem; padding: 0 1rem; }
+    .show-customer-box { grid-template-columns: 1fr; }
+    .box3 { grid-column: unset; flex-direction: column; }
+    .show-customer-main button { width: 100%; }
 }
