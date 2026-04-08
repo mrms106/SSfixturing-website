@@ -68,6 +68,7 @@
     overflow: hidden;
     transition: border-color 0.2s ease, transform 0.15s ease;
     min-height: 130px;
+    min-width: 0; /* ← prevents card itself from overflowing grid */
 }
 
 .customer-box:hover {
@@ -75,9 +76,10 @@
     transform: translateY(-2px);
 }
 
-/* Left info section */
+/* ── Left info section ── */
 .customer-info {
     flex: 1;
+    min-width: 0;           /* ← KEY FIX: allows shrinking below content size */
     padding: 16px;
     cursor: pointer;
     display: flex;
@@ -93,6 +95,7 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    min-width: 0;           /* ← allows ellipsis to trigger */
 }
 
 .customer-email {
@@ -101,6 +104,7 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    min-width: 0;           /* ← allows ellipsis to trigger */
 }
 
 .customer-name b,
@@ -112,7 +116,7 @@
     letter-spacing: 0.5px;
 }
 
-/* Status dot */
+/* ── Status dot ── */
 .customer-colors {
     margin-top: 4px;
 }
@@ -122,20 +126,23 @@
     width: 10px;
     height: 10px;
     border-radius: 50%;
+    flex-shrink: 0;
 }
 
-.customer-colors .customer-red  { background-color: #ff4d4d; box-shadow: 0 0 6px #ff4d4d88; }
+.customer-colors .customer-red   { background-color: #ff4d4d; box-shadow: 0 0 6px #ff4d4d88; }
 .customer-colors .customer-green { background-color: #22c55e; box-shadow: 0 0 6px #22c55e88; }
 
-/* Divider */
+/* ── Divider ── */
 .customer-line {
     width: 1px;
     background-color: rgba(255,255,255,0.1);
     margin: 12px 0;
+    flex-shrink: 0;         /* ← never let divider collapse */
 }
 
-/* Right button section */
+/* ── Right button section ── */
 .customer-btns {
+    flex-shrink: 0;         /* ← KEY FIX: button column never compresses */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -155,6 +162,7 @@
     color: rgba(255,255,255,0.85);
     transition: all 0.18s ease;
     letter-spacing: 0.2px;
+    white-space: nowrap;    /* ← button text never wraps */
 }
 
 .customer-btns button:hover {
@@ -199,6 +207,35 @@
     font-size: 15px;
     text-align: center;
     padding: 3rem 0;
+}
+
+/* ── Duplicate Badge ── */
+.duplicate-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: 8px;
+    padding: 4px 10px;
+    font-size: 12px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    cursor: pointer;
+    transition: all 0.18s ease;
+    width: fit-content;
+    max-width: 100%;        /* ← never overflow the info column */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex-shrink: 0;
+}
+
+.duplicate-badge:hover {
+    background: rgba(255, 255, 255, 0.12);
+    color: #ffffff;
+    border-color: rgba(255, 255, 255, 0.45);
 }
 
 /* ── Responsive: tablet ── */
@@ -261,26 +298,4 @@
 .swal-popup-dark {
     border: 1px solid rgba(255,255,255,0.1) !important;
     border-radius: 16px !important;
-}
-.duplicate-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 5px;
-    margin-top: 8px;
-    padding: 4px 10px;
-    font-size: 12px;
-    font-weight: 500;
-    color: rgba(255, 255, 255, 0.6);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 20px;
-    background: rgba(255, 255, 255, 0.05);
-    cursor: pointer;
-    transition: all 0.18s ease;
-    width: fit-content;
-}
-
-.duplicate-badge:hover {
-    background: rgba(255, 255, 255, 0.12);
-    color: #ffffff;
-    border-color: rgba(255, 255, 255, 0.45);
 }
