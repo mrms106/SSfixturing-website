@@ -139,17 +139,17 @@ export default function CustomerMain() {
                 <div className="biz-stats">
                     <div className="biz-stat">
                         <span>Total Business</span>
-                        <strong>₹ {stats.total.toLocaleString()}</strong>
+                        <strong>₹ {stats.total.toLocaleString('en-IN')}</strong>
                     </div>
                     <div className="biz-divider"/>
                     <div className="biz-stat green">
                         <span>Credited</span>
-                        <strong>₹ {stats.credit.toLocaleString()}</strong>
+                   <strong>₹ {stats.credit.toLocaleString('en-IN')}</strong>
                     </div>
                     <div className="biz-divider"/>
                     <div className="biz-stat red">
                         <span>Pending</span>
-                        <strong>₹ {stats.pending.toLocaleString()}</strong>
+                      <strong>₹ {stats.pending.toLocaleString('en-IN')}</strong>
                     </div>
                     <div className="biz-divider"/>
                     <div className="biz-stat">
